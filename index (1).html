@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panini FIFA WC 2026 · Adrenalyn XL · Colecție</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080a10;
+  --surface: #0e1220;
+  --surface2: #141826;
+  --surface3: #1a2030;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.12);
+  --text: #f0f2ff;
+  --muted: #6b7494;
+  --gold: #f5c842;
+  --gold-dim: rgba(245,200,66,0.12);
+  --gold-glow: rgba(245,200,66,0.25);
+  --red: #ff4d6d;
+  --red-dim: rgba(255,77,109,0.1);
+  --green: #22d3a0;
+  --green-dim: rgba(34,211,160,0.1);
+  --blue: #4f8fff;
+  --blue-dim: rgba(79,143,255,0.1);
+  --purple: #a855f7;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #090d1a 0%, #0a1428 40%, #0d1535 100%);
+  border-bottom: 1px solid var(--border2);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(79,143,255,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 30%, rgba(245,200,66,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 50% at 50% 100%, rgba(168,85,247,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 2.2rem;
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px; height: 2px;
+  background: var(--gold);
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.hero-title .hl {
+  color: var(--gold);
+  text-shadow: 0 0 40px rgba(245,200,66,0.4);
+}
+.hero-sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
+.hero-cards {
+  display: flex;
+  align-items: flex-end;
+  height: 155px;
+}
+.hero-card-img {
+  width: 86px;
+  height: 130px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  background: var(--surface2);
+}
+.hero-card-img:nth-child(1) { transform: rotate(-8deg) translateY(8px); z-index: 1; }
+.hero-card-img:nth-child(2) { transform: rotate(-2deg) translateY(-6px); z-index: 2; margin-left: -22px; }
+.hero-card-img:nth-child(3) { transform: rotate(5deg) translateY(10px); z-index: 1; margin-left: -22px; }
+.hero-cards:hover .hero-card-img:nth-child(1) { transform: rotate(-12deg) translateY(12px) translateX(-8px); }
+.hero-cards:hover .hero-card-img:nth-child(2) { transform: rotate(0deg) translateY(-12px); }
+.hero-cards:hover .hero-card-img:nth-child(3) { transform: rotate(9deg) translateY(12px) translateX(8px); }
+
+/* STATS */
+.stats-section {
+  max-width: 1280px;
+  margin: 2rem auto 0;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem 1.4rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: default;
+}
+.stat-card:hover { transform: translateY(-2px); }
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 14px 14px 0 0;
+}
+.sc-gold::after { background: linear-gradient(90deg, var(--gold), #ffd700); }
+.sc-green::after { background: linear-gradient(90deg, var(--green), #00e5bb); }
+.sc-red::after { background: linear-gradient(90deg, var(--red), #ff8fa0); }
+.sc-blue::after { background: linear-gradient(90deg, var(--blue), #7eb3ff); }
+.sc-gold:hover { border-color: rgba(245,200,66,0.25); }
+.sc-green:hover { border-color: rgba(34,211,160,0.25); }
+.sc-red:hover { border-color: rgba(255,77,109,0.25); }
+.sc-blue:hover { border-color: rgba(79,143,255,0.25); }
+.stat-emoji { font-size: 1.2rem; margin-bottom: 0.5rem; opacity: 0.75; }
+.stat-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.sc-gold .stat-num { color: var(--gold); }
+.sc-green .stat-num { color: var(--green); }
+.sc-red .stat-num { color: var(--red); }
+.sc-blue .stat-num { color: var(--blue); }
+.stat-sub { font-size: 0.65rem; color: var(--muted); margin-top: 0.2rem; font-family: 'DM Mono', monospace; }
+
+/* PROGRESS */
+.progress-section {
+  max-width: 1280px;
+  margin: 1.2rem auto 0;
+  padding: 0 2rem;
+}
+.progress-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+}
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+.progress-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.progress-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--gold); letter-spacing: 0.05em; }
+.progress-track { height: 8px; background: var(--surface3); border-radius: 99px; overflow: hidden; }
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green) 0%, var(--gold) 60%, #ff9f43 100%);
+  border-radius: 99px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.milestones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.35rem;
+}
+.milestone { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--muted); }
+
+/* ADD */
+.add-section {
+  max-width: 1280px;
+  margin: 1.2rem auto 0;
+  padding: 0 2rem;
+}
+.add-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.3rem 1.5rem;
+}
+.add-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+.add-header-icon {
+  width: 30px; height: 30px;
+  background: var(--gold-dim);
+  border: 1px solid rgba(245,200,66,0.2);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--gold); font-weight: 800;
+}
+.add-header-text { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+.add-header-sub { font-size: 0.68rem; color: var(--muted); margin-top: 1px; font-family: 'DM Mono', monospace; }
+.add-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: stretch; }
+.add-input {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.88rem;
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  color: var(--text);
+  padding: 0.72rem 1rem;
+  outline: none;
+  flex: 1;
+  min-width: 200px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.add-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-glow); }
+.add-input::placeholder { color: var(--muted); }
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.72rem 1.3rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.btn:active { transform: scale(0.97); }
+.btn-gold { background: var(--gold); color: #090d14; }
+.btn-gold:hover { background: #ffd700; box-shadow: 0 4px 20px rgba(245,200,66,0.35); }
+.btn-outline { background: transparent; color: var(--muted); border: 1px solid var(--border2); }
+.btn-outline:hover { color: var(--text); border-color: rgba(255,255,255,0.22); background: var(--surface2); }
+.add-hint { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); margin-top: 0.6rem; }
+
+/* TYPES */
+.types-section {
+  max-width: 1280px;
+  margin: 1.2rem auto 0;
+  padding: 0 2rem;
+}
+.section-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+.type-pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.type-pill:hover { border-color: var(--border2); }
+.type-name { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+.type-count { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.03em; }
+
+/* GRID SECTION */
+.grid-section {
+  max-width: 1280px;
+  margin: 1.2rem auto 0;
+  padding: 0 2rem;
+}
+.grid-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.grid-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  background: var(--surface2);
+}
+.toolbar-left { display: flex; gap: 0.45rem; align-items: center; flex-wrap: wrap; }
+.filter-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.32rem 0.85rem;
+  border-radius: 99px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+.f-all { background: var(--blue-dim); color: var(--blue); border-color: rgba(79,143,255,0.3); }
+.f-active { background: var(--green-dim); color: var(--green); border-color: rgba(34,211,160,0.3); }
+.f-miss { background: var(--red-dim); color: var(--red); border-color: rgba(255,77,109,0.3); }
+.search-wrap { position: relative; }
+.search-icon { position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 11px; pointer-events: none; }
+.search-input {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 0.38rem 0.7rem 0.38rem 1.7rem;
+  outline: none;
+  width: 120px;
+  transition: border-color 0.2s, width 0.25s;
+}
+.search-input:focus { border-color: var(--gold); width: 170px; }
+.search-input::placeholder { color: var(--muted); }
+.toolbar-right { display: flex; gap: 0.85rem; align-items: center; }
+.legend { display: flex; gap: 0.75rem; align-items: center; }
+.leg-item { display: flex; align-items: center; gap: 4px; font-size: 0.63rem; color: var(--muted); font-weight: 500; }
+.leg-dot { width: 9px; height: 9px; border-radius: 3px; }
+.leg-have { background: rgba(34,211,160,0.3); border: 1px solid rgba(34,211,160,0.5); }
+.leg-miss { background: rgba(255,77,109,0.2); border: 1px solid rgba(255,77,109,0.4); }
+.view-toggle { display: flex; gap: 2px; background: var(--bg); border: 1px solid var(--border2); border-radius: 7px; padding: 2px; }
+.view-btn { padding: 3px 7px; border-radius: 5px; border: none; background: transparent; color: var(--muted); cursor: pointer; font-size: 13px; transition: all 0.15s; }
+.view-btn.active { background: var(--surface3); color: var(--text); }
+.grid-inner { padding: 1.2rem; }
+
+/* CARDS */
+.card-grid { display: flex; flex-wrap: wrap; gap: 4px; }
+.cbox {
+  width: 30px; height: 30px;
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 7px; font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.15s;
+  position: relative;
+  border: 1px solid transparent;
+  user-select: none;
+}
+.cbox:hover { transform: scale(1.35); z-index: 10; }
+.cbox:active { transform: scale(1.12); }
+.cbox.have { background: rgba(34,211,160,0.11); border-color: rgba(34,211,160,0.26); color: var(--green); }
+.cbox.have:hover { background: rgba(34,211,160,0.22); border-color: rgba(34,211,160,0.55); box-shadow: 0 0 10px rgba(34,211,160,0.2); }
+.cbox.miss { background: rgba(255,77,109,0.08); border-color: rgba(255,77,109,0.2); color: var(--red); }
+.cbox.miss:hover { background: rgba(255,77,109,0.18); border-color: rgba(255,77,109,0.5); box-shadow: 0 0 10px rgba(255,77,109,0.18); }
+.cbox.filtered-out { opacity:0; pointer-events:none; width:0; margin:0; padding:0; border:none; overflow:hidden; }
+
+/* LIST VIEW */
+.list-view { display: none; flex-direction: column; gap: 1px; }
+.list-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.48rem 0.7rem;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.12s;
+  border: 1px solid transparent;
+}
+.list-row:hover { background: var(--surface3); border-color: var(--border); }
+.list-num { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); width: 34px; flex-shrink: 0; }
+.list-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.list-dot.have { background: var(--green); }
+.list-dot.miss { background: var(--red); }
+.list-player { font-size: 0.78rem; font-weight: 500; flex: 1; color: var(--text); }
+.list-team { font-size: 0.68rem; color: var(--muted); font-family: 'DM Mono', monospace; flex-shrink: 0; }
+.list-type { font-size: 0.6rem; padding: 2px 7px; border-radius: 99px; font-weight: 600; flex-shrink: 0; }
+.lt-gb { background: rgba(245,200,66,0.15); color: var(--gold); }
+.lt-hero { background: var(--blue-dim); color: var(--blue); }
+.lt-fan { background: var(--green-dim); color: var(--green); }
+.lt-icon { background: rgba(168,85,247,0.12); color: var(--purple); }
+.lt-logo { background: rgba(245,200,66,0.1); color: var(--gold); }
+.lt-special { background: var(--red-dim); color: var(--red); }
+.list-row.filtered-out { display: none; }
+
+/* SHOWCASE */
+.showcase-section {
+  max-width: 1280px;
+  margin: 1.2rem auto 0;
+  padding: 0 2rem;
+}
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+.showcase-item {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border2);
+  background: var(--surface2);
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.showcase-item:hover { transform: translateY(-4px); border-color: rgba(245,200,66,0.35); }
+.showcase-item img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+}
+.showcase-label {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* TOOLTIP */
+#ctip {
+  position: fixed;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.72rem;
+  pointer-events: none;
+  z-index: 9999;
+  display: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+/* MISSING */
+.missing-section {
+  max-width: 1280px;
+  margin: 1.2rem auto 0;
+  padding: 0 2rem 3rem;
+}
+.missing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.missing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.missing-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.missing-title::before {
+  content: '';
+  display: block;
+  width: 7px; height: 7px;
+  background: var(--red);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--red);
+}
+.missing-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.71rem;
+  color: rgba(255,100,130,0.85);
+  line-height: 2;
+  word-break: break-all;
+  padding: 1.2rem 1.4rem;
+  user-select: all;
+  cursor: text;
+}
+
+/* TOAST */
+#toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.78rem;
+  color: var(--text);
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  z-index: 10000;
+  max-width: 340px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.toast-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+#toast.show { transform: translateY(0); opacity: 1; }
+#toast.t-success .toast-icon { background: var(--green-dim); color: var(--green); }
+#toast.t-success { border-color: rgba(34,211,160,0.3); }
+#toast.t-error .toast-icon { background: var(--red-dim); color: var(--red); }
+#toast.t-error { border-color: rgba(255,77,109,0.3); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-cards { display: none; }
+  .stats-section { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .hero-inner, .stats-section, .progress-section, .add-section,
+  .types-section, .grid-section, .showcase-section, .missing-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .stats-section { grid-template-columns: 1fr 1fr; }
+  .cbox { width: 24px; height: 24px; font-size: 5.5px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Panini · Adrenalyn XL™ · FIFA World Cup 2026™</div>
+      <h1 class="hero-title">COLECȚIA<br><span class="hl">MEA</span></h1>
+      <p class="hero-sub">Manager personal · 630 cartonașe oficiale<br>USA · México · Canada · 11 iunie – 19 iulie 2026</p>
+    </div>
+    <div class="hero-cards">
+      <img class="hero-card-img"
+        src="https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-golden-baller-messi.avif"
+        alt="Golden Baller Messi" onerror="this.style.display='none'">
+      <img class="hero-card-img"
+        src="https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-momentum-bellingham.avif"
+        alt="Momentum Bellingham" onerror="this.style.display='none'">
+      <img class="hero-card-img"
+        src="https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-premium-gold-limited-edition-yamal.avif"
+        alt="Premium Gold Yamal" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stat-card sc-gold">
+    <div class="stat-emoji">📦</div>
+    <div class="stat-label">Total Colecție</div>
+    <div class="stat-num">630</div>
+    <div class="stat-sub">cartonașe oficiale</div>
+  </div>
+  <div class="stat-card sc-green">
+    <div class="stat-emoji">✅</div>
+    <div class="stat-label">Dețin</div>
+    <div class="stat-num" id="s-have">0</div>
+    <div class="stat-sub" id="s-have-sub">—</div>
+  </div>
+  <div class="stat-card sc-red">
+    <div class="stat-emoji">❌</div>
+    <div class="stat-label">Lipsesc</div>
+    <div class="stat-num" id="s-miss">0</div>
+    <div class="stat-sub" id="s-miss-sub">—</div>
+  </div>
+  <div class="stat-card sc-blue">
+    <div class="stat-emoji">🎯</div>
+    <div class="stat-label">Completare</div>
+    <div class="stat-num" id="s-pct">0%</div>
+    <div class="stat-sub" id="s-pct-sub">—</div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-section">
+  <div class="progress-card">
+    <div class="progress-header">
+      <span class="progress-label">Progres colecție</span>
+      <span class="progress-val" id="prog-val">0 / 630</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+    </div>
+    <div class="milestones">
+      <span class="milestone">0</span>
+      <span class="milestone">25%</span>
+      <span class="milestone">50%</span>
+      <span class="milestone">75%</span>
+      <span class="milestone">630</span>
+    </div>
+  </div>
+</div>
+
+<!-- ADD -->
+<div class="add-section">
+  <div class="add-card">
+    <div class="add-header">
+      <div class="add-header-icon">+</div>
+      <div>
+        <div class="add-header-text">Adaugă cartonașe noi în colecție</div>
+        <div class="add-header-sub">introdu numere sau intervale · Enter pentru confirmare</div>
+      </div>
+    </div>
+    <div class="add-row">
+      <input type="text" class="add-input" id="add-input"
+        placeholder="ex: 5   sau   12-20   sau   3,7,15-18,42">
+      <button class="btn btn-gold" onclick="addCards()">＋ Adaugă</button>
+      <button class="btn btn-outline" onclick="document.getElementById('add-input').value=''">✕ Șterge</button>
+    </div>
+    <div class="add-hint">💡 Un număr (5) · Interval (12-20) · Combinații (3,7,15-18,42) · Click pe orice cartonaș pentru toggle rapid</div>
+  </div>
+</div>
+
+<!-- CARD TYPES -->
+<div class="types-section">
+  <div class="section-label">Tipuri de cartonașe în colecție</div>
+  <div class="types-grid">
+    <div class="type-pill"><div class="type-name">Heroes</div><div class="type-count" style="color:var(--blue)">378</div></div>
+    <div class="type-pill"><div class="type-name">Fan Fav.</div><div class="type-count" style="color:var(--green)">42</div></div>
+    <div class="type-pill"><div class="type-name">Icons</div><div class="type-count" style="color:var(--purple)">42</div></div>
+    <div class="type-pill"><div class="type-name">Team Logo</div><div class="type-count" style="color:var(--gold)">42</div></div>
+    <div class="type-pill"><div class="type-name">Power Up</div><div class="type-count" style="color:#ff9f43">58</div></div>
+    <div class="type-pill"><div class="type-name">Master Rookie</div><div class="type-count" style="color:#ea5cff">16</div></div>
+    <div class="type-pill"><div class="type-name">Golden Baller</div><div class="type-count" style="color:var(--gold)">9</div></div>
+    <div class="type-pill"><div class="type-name">Special/Rare</div><div class="type-count" style="color:var(--red)">43</div></div>
+  </div>
+</div>
+
+<!-- CARD SHOWCASE -->
+<div class="showcase-section">
+  <div class="section-label">Preview cartonașe din colecție</div>
+  <div class="showcase-grid" id="showcase-grid"></div>
+</div>
+
+<!-- GRID -->
+<div class="grid-section">
+  <div class="grid-card">
+    <div class="grid-toolbar">
+      <div class="toolbar-left">
+        <button class="filter-btn f-all" id="f-all" onclick="setFilter('all')">Toate</button>
+        <button class="filter-btn" id="f-have" onclick="setFilter('have')">✓ Dețin</button>
+        <button class="filter-btn" id="f-miss" onclick="setFilter('miss')">✗ Lipsesc</button>
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="search-input" placeholder="Caută #..." oninput="applyFilter()">
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <div class="legend">
+          <span class="leg-item"><span class="leg-dot leg-have"></span>Dețin</span>
+          <span class="leg-item"><span class="leg-dot leg-miss"></span>Lipsește</span>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="vb-grid" onclick="setView('grid')" title="Grilă">⊞</button>
+          <button class="view-btn" id="vb-list" onclick="setView('list')" title="Listă">☰</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid-inner">
+      <div class="card-grid" id="card-grid"></div>
+      <div class="list-view" id="list-view"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSING -->
+<div class="missing-section">
+  <div class="missing-card">
+    <div class="missing-header">
+      <div class="missing-title">Lista lipsuri · format compact</div>
+      <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyMissing()">📋 Copiază</button>
+    </div>
+    <div class="missing-text" id="missing-text"></div>
+  </div>
+</div>
+
+<div id="ctip"></div>
+<div id="toast"><span class="toast-icon" id="toast-icon"></span><span id="toast-msg"></span></div>
+
+<script>
+const TOTAL = 630;
+const STORAGE_KEY = 'panini-wc2026-v3';
+
+const INITIAL_MISSING = "2,4-11,13,15-17,21-23,25,27,29-35,38,45,48,49,51,53,54,58,60-65,68,70-73,76-78,82,89,91,93,95,96,99,101,104,107,109-112,115,117,118,120,122,123,127,128,132,134-136,138,140,142-143,148,150,153,155-160,166,170,172,175,177-181,183-185,190,193,194,196,197,201,205,213,215,216,218-220,222,223,225,231,232,234,236,238,241-243,248,250,251,253-255,260,263-268,270,274,276,277,282,283,286,287,290,292,296,297,300,304-306,308,310,311,315,318,319,322,325,327,329-333,339-342,345-351,353,355,357-363,367-370,372,377,382,383,387,389,393,395,396,398,400,406,408,410,417,419,420,425,430-432,434,435,439,442,445,449,452-454,456-458,461-463,467,468,470,471,473,474,477,483,485-487,489,491,492,494,496-498,502,505,507,509,513,515-519,522,524-529,532,536,537,540-549,552,553,555-557,559-562,564,566,569,571-573,577,579-584,586,588,593,595-600,602,604,606-608,615,617,619-622,624,628-630";
+
+// Known card data
+const CARD_DATA = {
+  1:{name:'Lionel Messi',team:'Argentina',type:'Golden Baller'},
+  2:{name:'Vinícius Jr.',team:'Brazil',type:'Golden Baller'},
+  3:{name:'Mohamed Salah',team:'Egypt',type:'Golden Baller'},
+  4:{name:'Harry Kane',team:'England',type:'Golden Baller'},
+  5:{name:'Kylian Mbappé',team:'France',type:'Golden Baller'},
+  6:{name:'Son Heung-Min',team:'Korea Rep.',type:'Golden Baller'},
+  7:{name:'Erling Haaland',team:'Norway',type:'Golden Baller'},
+  8:{name:'Cristiano Ronaldo',team:'Portugal',type:'Golden Baller'},
+  9:{name:'Lamine Yamal',team:'Spain',type:'Golden Baller'},
+};
+
+// Showcase card images from collectosk
+const SHOWCASE_CARDS = [
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-golden-baller-messi.avif', label:'Golden Baller · Messi'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-momentum-bellingham.avif', label:'Momentum · Bellingham'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-premium-gold-limited-edition-yamal.avif', label:'Prem. Gold LE · Yamal'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-base-hero-sabitzer.avif', label:'Hero · Sabitzer'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-fan-favourite-diaz.avif', label:'Fan Fav. · Díaz'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-icon-kimmich.avif', label:'Icon · Kimmich'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-master-rookie-mastantuono.avif', label:'Master Rookie'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-midfield-maestro-pedri.avif', label:'Midfield Maestro · Pedri'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-goal-machine-kolo-muani.avif', label:'Goal Machine'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-defensive-rock-kim.avif', label:'Defensive Rock · Kim'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-top-keeper-bounou.avif', label:'Top Keeper · Bounou'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-eternos-22-martinez-messi-alvarez.avif', label:'Eternos 22'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-logo-argentina.avif', label:'Team Logo · Argentina'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-logo-ecuador.avif', label:'Team Logo · Ecuador'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-official-emblem.avif', label:'Official Emblem'},
+  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-base-contender-isak.avif', label:'Contender · Isak'},
+];
+
+const BASE_URL = 'https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/';
+
+// Build showcase
+function buildShowcase() {
+  const grid = document.getElementById('showcase-grid');
+  SHOWCASE_CARDS.forEach(c => {
+    const item = document.createElement('div');
+    item.className = 'showcase-item';
+    item.innerHTML = `<img src="${BASE_URL}${c.src}" alt="${c.label}" loading="lazy" onerror="this.closest('.showcase-item').style.display='none'"><div class="showcase-label">${c.label}</div>`;
+    grid.appendChild(item);
+  });
+}
+
+function parseList(str) {
+  const set = new Set();
+  str.split(',').forEach(p => {
+    p = p.trim();
+    if (!p) return;
+    if (p.includes('-')) {
+      const [a, b] = p.split('-').map(Number);
+      if (!isNaN(a) && !isNaN(b)) for (let i = a; i <= b; i++) if (i >= 1 && i <= TOTAL) set.add(i);
+    } else {
+      const n = parseInt(p);
+      if (!isNaN(n) && n >= 1 && n <= TOTAL) set.add(n);
+    }
+  });
+  return set;
+}
+
+function toCompact(set) {
+  if (set.size === 0) return '(colecție completă! 🏆)';
+  const sorted = [...set].sort((a,b) => a-b);
+  const parts = [];
+  let i = 0;
+  while (i < sorted.length) {
+    let j = i;
+    while (j + 1 < sorted.length && sorted[j+1] === sorted[j] + 1) j++;
+    parts.push(j > i ? sorted[i] + '-' + sorted[j] : String(sorted[i]));
+    i = j + 1;
+  }
+  return parts.join(',');
+}
+
+let missing = new Set();
+let currentFilter = 'all';
+let currentView = 'grid';
+
+function loadState() {
+  try {
+    const s = localStorage.getItem(STORAGE_KEY);
+    if (s) { missing = new Set(JSON.parse(s)); return; }
+  } catch(e) {}
+  missing = parseList(INITIAL_MISSING);
+}
+
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify([...missing]));
+}
+
+function getCardType(n) {
+  if (n <= 9) return 'gb';
+  if (n <= 420) return 'hero';
+  if (n <= 462) return 'fan';
+  if (n <= 504) return 'icon';
+  if (n <= 546) return 'logo';
+  if (n <= 604) return 'special';
+  return 'special';
+}
+
+const TYPE_LABELS = { gb:'Golden Baller', hero:'Hero', fan:'Fan Fav.', icon:'Icon', logo:'Team Logo', special:'Special' };
+const TYPE_CSS = { gb:'lt-gb', hero:'lt-hero', fan:'lt-fan', icon:'lt-icon', logo:'lt-logo', special:'lt-special' };
+
+function buildGrid() {
+  const grid = document.getElementById('card-grid');
+  const list = document.getElementById('list-view');
+  grid.innerHTML = '';
+  list.innerHTML = '';
+
+  for (let i = 1; i <= TOTAL; i++) {
+    const isMiss = missing.has(i);
+    const cd = CARD_DATA[i];
+    const type = getCardType(i);
+
+    // Box
+    const box = document.createElement('div');
+    box.className = 'cbox ' + (isMiss ? 'miss' : 'have');
+    box.dataset.n = i;
+    box.textContent = i;
+    box.addEventListener('click', () => toggleCard(i));
+    box.addEventListener('mouseenter', e => showTip(e, i));
+    box.addEventListener('mousemove', moveTip);
+    box.addEventListener('mouseleave', hideTip);
+    grid.appendChild(box);
+
+    // Row
+    const row = document.createElement('div');
+    row.className = 'list-row';
+    row.dataset.n = i;
+    row.innerHTML = `
+      <span class="list-num">#${String(i).padStart(3,'0')}</span>
+      <span class="list-dot ${isMiss?'miss':'have'}"></span>
+      <span class="list-player">${cd ? cd.name : '—'}</span>
+      <span class="list-team">${cd ? cd.team : ''}</span>
+      <span class="list-type ${TYPE_CSS[type]}">${TYPE_LABELS[type]}</span>
+    `;
+    row.addEventListener('click', () => toggleCard(i));
+    list.appendChild(row);
+  }
+  applyFilter();
+}
+
+function updateCardEl(n) {
+  const isMiss = missing.has(n);
+  const box = document.querySelector(`.cbox[data-n="${n}"]`);
+  if (box) box.className = 'cbox ' + (isMiss ? 'miss' : 'have');
+  const row = document.querySelector(`.list-row[data-n="${n}"]`);
+  if (row) { const dot = row.querySelector('.list-dot'); if (dot) dot.className = 'list-dot ' + (isMiss ? 'miss' : 'have'); }
+  applyFilter();
+}
+
+function toggleCard(n) {
+  if (missing.has(n)) { missing.delete(n); showToast('✓', 'Cartonașul #' + n + ' adăugat în colecție', 'success'); }
+  else { missing.add(n); showToast('✗', 'Cartonașul #' + n + ' marcat ca lipsă', 'error'); }
+  saveState();
+  updateCardEl(n);
+  updateStats();
+  updateMissingText();
+}
+
+function addCards() {
+  const val = document.getElementById('add-input').value.trim();
+  if (!val) { showToast('!', 'Introdu numere sau intervale', 'error'); return; }
+  const toAdd = parseList(val);
+  if (toAdd.size === 0) { showToast('!', 'Format invalid — ex: 5,12-20,42', 'error'); return; }
+  let added = 0;
+  toAdd.forEach(n => { if (missing.has(n)) { missing.delete(n); added++; } });
+  saveState();
+  buildGrid();
+  updateStats();
+  updateMissingText();
+  document.getElementById('add-input').value = '';
+  if (added > 0) showToast('✓', added + ' cartonaș' + (added === 1 ? '' : 'e') + ' adăugate!', 'success');
+  else showToast('ℹ', 'Cartonașele sunt deja în colecție', 'error');
+}
+
+function updateStats() {
+  const have = TOTAL - missing.size;
+  const pct = Math.round((have / TOTAL) * 100);
+  document.getElementById('s-have').textContent = have;
+  document.getElementById('s-miss').textContent = missing.size;
+  document.getElementById('s-pct').textContent = pct + '%';
+  document.getElementById('s-have-sub').textContent = pct + '% din colecție';
+  document.getElementById('s-miss-sub').textContent = (100 - pct) + '% rămase';
+  document.getElementById('s-pct-sub').textContent = have + ' din 630';
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-val').textContent = have + ' / 630';
+}
+
+function updateMissingText() {
+  document.getElementById('missing-text').textContent = toCompact(missing);
+}
+
+function setFilter(f) {
+  currentFilter = f;
+  document.getElementById('f-all').className = 'filter-btn' + (f==='all' ? ' f-all' : '');
+  document.getElementById('f-have').className = 'filter-btn' + (f==='have' ? ' f-active' : '');
+  document.getElementById('f-miss').className = 'filter-btn' + (f==='miss' ? ' f-miss' : '');
+  applyFilter();
+}
+
+function applyFilter() {
+  const search = document.getElementById('search-input').value.trim();
+  document.querySelectorAll('.cbox').forEach(el => {
+    const n = parseInt(el.dataset.n);
+    const isMiss = missing.has(n);
+    let vis = true;
+    if (currentFilter === 'have' && isMiss) vis = false;
+    if (currentFilter === 'miss' && !isMiss) vis = false;
+    if (search && !String(n).startsWith(search)) vis = false;
+    el.classList.toggle('filtered-out', !vis);
+  });
+  document.querySelectorAll('.list-row').forEach(el => {
+    const n = parseInt(el.dataset.n);
+    const isMiss = missing.has(n);
+    let vis = true;
+    if (currentFilter === 'have' && isMiss) vis = false;
+    if (currentFilter === 'miss' && !isMiss) vis = false;
+    if (search && !String(n).startsWith(search)) vis = false;
+    el.classList.toggle('filtered-out', !vis);
+  });
+}
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('card-grid').style.display = v === 'grid' ? 'flex' : 'none';
+  document.getElementById('list-view').style.display = v === 'list' ? 'flex' : 'none';
+  document.getElementById('vb-grid').classList.toggle('active', v === 'grid');
+  document.getElementById('vb-list').classList.toggle('active', v === 'list');
+}
+
+const tip = document.getElementById('ctip');
+function showTip(e, n) {
+  const cd = CARD_DATA[n];
+  const isMiss = missing.has(n);
+  const type = getCardType(n);
+  tip.style.display = 'block';
+  tip.innerHTML = `<strong style="color:${isMiss?'var(--red)':'var(--green)'}">#${n}</strong>`
+    + (cd ? ` <span style="color:var(--text)">${cd.name}</span> <span style="color:var(--muted)">${cd.team}</span>` : '')
+    + ` <span style="color:var(--muted)">· ${TYPE_LABELS[type]}</span>`
+    + ` <span style="color:var(--muted)">· ${isMiss?'❌ Lipsește':'✅ Dețin'}</span>`
+    + `<br><span style="color:var(--muted);font-size:0.58rem">Click pentru a schimba statusul</span>`;
+  moveTip(e);
+}
+function moveTip(e) {
+  tip.style.left = Math.min(e.clientX + 14, window.innerWidth - 310) + 'px';
+  tip.style.top = Math.max(e.clientY - 52, 8) + 'px';
+}
+function hideTip() { tip.style.display = 'none'; }
+
+let toastTimeout;
+function showToast(icon, msg, type) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-icon').textContent = icon;
+  document.getElementById('toast-msg').textContent = msg;
+  t.className = 'show t-' + type;
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => { t.className = ''; }, 3000);
+}
+
+function copyMissing() {
+  navigator.clipboard.writeText(document.getElementById('missing-text').textContent)
+    .then(() => showToast('📋', 'Lista copiată în clipboard!', 'success'))
+    .catch(() => showToast('ℹ', 'Selectează manual textul roșu', 'error'));
+}
+
+document.getElementById('add-input').addEventListener('keydown', e => { if (e.key === 'Enter') addCards(); });
+
+// Init
+loadState();
+buildShowcase();
+buildGrid();
+updateStats();
+updateMissingText();
+setFilter('all');
+</script>
+</body>
+</html>
