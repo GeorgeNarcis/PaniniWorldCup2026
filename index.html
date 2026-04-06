@@ -556,6 +556,227 @@ body {
 #toast.t-error .toast-icon { background: var(--red-dim); color: var(--red); }
 #toast.t-error { border-color: rgba(255,77,109,0.3); }
 
+/* DUBLURI SECTION */
+.dub-section {
+  max-width: 1280px;
+  margin: 1.2rem auto 0;
+  padding: 0 2rem;
+}
+.dub-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.dub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.dub-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.dub-title::before {
+  content: '';
+  display: block;
+  width: 7px; height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--gold);
+}
+.dub-stats {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.dub-stat-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+  background: var(--surface3);
+  border: 1px solid var(--border2);
+  border-radius: 99px;
+  padding: 0.22rem 0.75rem;
+}
+.dub-stat-pill span { color: var(--gold); font-weight: 500; }
+
+.dub-add-row {
+  display: flex;
+  gap: 0.65rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--bg);
+}
+.dub-input {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 9px;
+  color: var(--text);
+  padding: 0.6rem 0.9rem;
+  outline: none;
+  width: 160px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.dub-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-dim); }
+.dub-input::placeholder { color: var(--muted); }
+.dub-qty-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--border2);
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--surface2);
+}
+.dub-qty-btn {
+  width: 32px; height: 36px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+}
+.dub-qty-btn:hover { background: var(--surface3); color: var(--gold); }
+.dub-qty-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  width: 32px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+.dub-hint { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); flex: 1; min-width: 100px; }
+
+/* Duplicates list */
+.dub-list {
+  padding: 0.6rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+.dub-list::-webkit-scrollbar { width: 5px; }
+.dub-list::-webkit-scrollbar-track { background: transparent; }
+.dub-list::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+
+.dub-empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.dub-empty-icon { font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.4; }
+
+.dub-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  transition: border-color 0.15s;
+}
+.dub-row:hover { border-color: var(--border2); }
+.dub-row-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  width: 48px;
+  flex-shrink: 0;
+}
+.dub-row-info { flex: 1; min-width: 0; }
+.dub-row-name { font-size: 0.78rem; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dub-row-type { font-size: 0.62rem; color: var(--muted); margin-top: 1px; font-family: 'DM Mono', monospace; }
+.dub-counter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.dub-cnt-btn {
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  border: 1px solid var(--border2);
+  background: var(--surface3);
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+  line-height: 1;
+}
+.dub-cnt-btn:hover { border-color: rgba(255,255,255,0.25); background: var(--surface2); }
+.dub-cnt-btn.minus:hover { border-color: rgba(255,77,109,0.4); color: var(--red); }
+.dub-cnt-btn.plus:hover { border-color: rgba(34,211,160,0.4); color: var(--green); }
+.dub-cnt-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: var(--text);
+  min-width: 28px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.dub-cnt-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--muted);
+  margin-left: 2px;
+}
+.dub-delete-btn {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+  border: 1px solid rgba(255,77,109,0.2);
+  background: var(--red-dim);
+  color: var(--red);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+.dub-delete-btn:hover { background: rgba(255,77,109,0.2); border-color: rgba(255,77,109,0.4); }
+
+/* Duplicate badge on grid */
+.cbox.dup { position: relative; }
+.cbox.dup::after {
+  content: attr(data-dups);
+  position: absolute;
+  top: -5px; right: -5px;
+  background: var(--gold);
+  color: #0a0d14;
+  font-size: 7px;
+  font-weight: 700;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 5;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
@@ -564,7 +785,7 @@ body {
 }
 @media (max-width: 600px) {
   .hero-inner, .stats-section, .progress-section, .add-section,
-  .types-section, .grid-section, .showcase-section, .missing-section {
+  .types-section, .grid-section, .showcase-section, .dub-section, .missing-section {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -714,6 +935,35 @@ body {
     <div class="grid-inner">
       <div class="card-grid" id="card-grid"></div>
       <div class="list-view" id="list-view"></div>
+    </div>
+  </div>
+</div>
+
+<!-- DUBLURI -->
+<div class="dub-section">
+  <div class="dub-card">
+    <div class="dub-header">
+      <div class="dub-title">Dubluri</div>
+      <div class="dub-stats">
+        <div class="dub-stat-pill">Tipuri unice: <span id="dub-unique">0</span></div>
+        <div class="dub-stat-pill">Total exemplare: <span id="dub-total">0</span></div>
+      </div>
+    </div>
+    <div class="dub-add-row">
+      <input type="text" class="dub-input" id="dub-input" placeholder="Nr. cartonaș…">
+      <div class="dub-qty-wrap">
+        <button class="dub-qty-btn" onclick="dubQtyChange(-1)">−</button>
+        <div class="dub-qty-val" id="dub-qty">1</div>
+        <button class="dub-qty-btn" onclick="dubQtyChange(1)">+</button>
+      </div>
+      <button class="btn btn-gold" onclick="addDuplicate()" style="padding:0.6rem 1.1rem;font-size:0.78rem;">＋ Adaugă dublură</button>
+      <span class="dub-hint">Selectează cartonașul și cantitatea de dubluri de adăugat</span>
+    </div>
+    <div class="dub-list" id="dub-list">
+      <div class="dub-empty">
+        <div class="dub-empty-icon">🃏</div>
+        <div>Nicio dublură înregistrată încă</div>
+      </div>
     </div>
   </div>
 </div>
@@ -892,8 +1142,20 @@ function updateCardEl(n) {
 }
 
 function toggleCard(n) {
-  if (missing.has(n)) { missing.delete(n); showToast('✓', 'Cartonașul #' + n + ' adăugat în colecție', 'success'); }
-  else { missing.add(n); showToast('✗', 'Cartonașul #' + n + ' marcat ca lipsă', 'error'); }
+  if (missing.has(n)) {
+    missing.delete(n);
+    showToast('✓', 'Cartonașul #' + n + ' adăugat în colecție', 'success');
+  } else {
+    missing.add(n);
+    // If card removed from collection, clear its duplicates too
+    if (dubs[n]) {
+      delete dubs[n];
+      saveDubs();
+      renderDubs();
+      updateDubStats();
+    }
+    showToast('✗', 'Cartonașul #' + n + ' marcat ca lipsă', 'error');
+  }
   saveState();
   updateCardEl(n);
   updateStats();
@@ -1006,14 +1268,148 @@ function copyMissing() {
     .catch(() => showToast('ℹ', 'Selectează manual textul roșu', 'error'));
 }
 
+// ===== DUBLURI =====
+const DUB_KEY = 'panini-wc2026-dubs-v1';
+let dubs = {}; // { cardNum: count }
+let dubQty = 1;
+
+function loadDubs() {
+  try {
+    const s = localStorage.getItem(DUB_KEY);
+    if (s) dubs = JSON.parse(s);
+  } catch(e) { dubs = {}; }
+}
+
+function saveDubs() {
+  localStorage.setItem(DUB_KEY, JSON.stringify(dubs));
+}
+
+function dubQtyChange(delta) {
+  dubQty = Math.max(1, Math.min(99, dubQty + delta));
+  document.getElementById('dub-qty').textContent = dubQty;
+}
+
+function addDuplicate() {
+  const val = document.getElementById('dub-input').value.trim();
+  const n = parseInt(val);
+  if (!val || isNaN(n) || n < 1 || n > TOTAL) {
+    showToast('!', 'Introdu un număr valid între 1 și 630', 'error'); return;
+  }
+  if (missing.has(n)) {
+    showToast('!', 'Cartonașul #' + n + ' nu este în colecție', 'error'); return;
+  }
+  dubs[n] = (dubs[n] || 0) + dubQty;
+  saveDubs();
+  renderDubs();
+  updateDubStats();
+  updateCardDubBadge(n);
+  showToast('✓', dubQty + 'x dublură #' + n + ' adăugată', 'success');
+  document.getElementById('dub-input').value = '';
+  dubQty = 1;
+  document.getElementById('dub-qty').textContent = '1';
+}
+
+function changeDubCount(n, delta) {
+  const cur = dubs[n] || 0;
+  const next = cur + delta;
+  if (next <= 0) {
+    removeDuplicate(n);
+    return;
+  }
+  dubs[n] = next;
+  saveDubs();
+  renderDubs();
+  updateDubStats();
+  updateCardDubBadge(n);
+}
+
+function removeDuplicate(n) {
+  delete dubs[n];
+  saveDubs();
+  renderDubs();
+  updateDubStats();
+  updateCardDubBadge(n);
+  showToast('✓', 'Dublurile pentru #' + n + ' șterse', 'success');
+}
+
+function renderDubs() {
+  const list = document.getElementById('dub-list');
+  const keys = Object.keys(dubs).map(Number).filter(n => dubs[n] > 0).sort((a,b) => a-b);
+  if (keys.length === 0) {
+    list.innerHTML = '<div class="dub-empty"><div class="dub-empty-icon">🃏</div><div>Nicio dublură înregistrată încă</div></div>';
+    return;
+  }
+  list.innerHTML = '';
+  keys.forEach(n => {
+    const count = dubs[n];
+    const cd = CARD_DATA[n];
+    const type = getCardType(n);
+    const row = document.createElement('div');
+    row.className = 'dub-row';
+    row.dataset.n = n;
+    row.innerHTML = `
+      <div class="dub-row-num">#${n}</div>
+      <div class="dub-row-info">
+        <div class="dub-row-name">${cd ? cd.name : 'Cartonaș #' + n}</div>
+        <div class="dub-row-type">${cd ? cd.team + ' · ' : ''}${TYPE_LABELS[type]}</div>
+      </div>
+      <div class="dub-counter">
+        <button class="dub-cnt-btn minus" onclick="changeDubCount(${n}, -1)" title="Scade">−</button>
+        <div class="dub-cnt-num">${count}</div>
+        <div class="dub-cnt-label">buc.</div>
+        <button class="dub-cnt-btn plus" onclick="changeDubCount(${n}, 1)" title="Adaugă">+</button>
+      </div>
+      <button class="dub-delete-btn" onclick="removeDuplicate(${n})" title="Șterge toate dublurile">✕</button>
+    `;
+    list.appendChild(row);
+  });
+}
+
+function updateDubStats() {
+  const keys = Object.keys(dubs).filter(n => dubs[n] > 0);
+  const totalEx = keys.reduce((sum, n) => sum + dubs[n], 0);
+  document.getElementById('dub-unique').textContent = keys.length;
+  document.getElementById('dub-total').textContent = totalEx;
+}
+
+function updateCardDubBadge(n) {
+  const box = document.querySelector(`.cbox[data-n="${n}"]`);
+  if (!box) return;
+  const count = dubs[n] || 0;
+  if (count > 0) {
+    box.classList.add('dup');
+    box.dataset.dups = count > 9 ? '9+' : count;
+  } else {
+    box.classList.remove('dup');
+    delete box.dataset.dups;
+  }
+}
+
+function applyDubBadgesToGrid() {
+  Object.keys(dubs).forEach(n => updateCardDubBadge(parseInt(n)));
+}
+
+// Patch buildGrid to apply badges after build
+const _origBuildGrid = buildGrid;
+// We'll call applyDubBadgesToGrid() after buildGrid in init
+
+// Enter on dub input
+document.getElementById('dub-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') addDuplicate();
+});
+
 document.getElementById('add-input').addEventListener('keydown', e => { if (e.key === 'Enter') addCards(); });
 
 // Init
 loadState();
+loadDubs();
 buildShowcase();
 buildGrid();
+applyDubBadgesToGrid();
 updateStats();
 updateMissingText();
+updateDubStats();
+renderDubs();
 setFilter('all');
 </script>
 </body>
