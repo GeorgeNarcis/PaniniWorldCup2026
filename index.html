@@ -777,6 +777,90 @@ body {
   z-index: 5;
 }
 
+/* SYNC STATUS BAR */
+#sync-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 9999;
+  pointer-events: none;
+  background: transparent;
+  transition: background 0.3s;
+}
+#sync-bar.syncing {
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background-size: 200% 100%;
+  animation: syncSlide 1.2s linear infinite;
+}
+#sync-bar.error { background: var(--red); }
+@keyframes syncSlide {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+#sync-status {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+#sync-status.visible { opacity: 1; }
+#sync-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+#sync-status.syncing #sync-dot { background: var(--gold); animation: pulse 1s infinite; }
+#sync-status.saved #sync-dot { background: var(--green); }
+#sync-status.error #sync-dot { background: var(--red); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* LOADING OVERLAY */
+#loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  transition: opacity 0.5s;
+}
+#loading-overlay.hidden { opacity: 0; pointer-events: none; }
+.loading-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 40px rgba(245,200,66,0.4);
+}
+.loading-spinner {
+  width: 32px; height: 32px;
+  border: 2px solid var(--border2);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
@@ -795,6 +879,15 @@ body {
 </style>
 </head>
 <body>
+
+<div id="sync-bar"></div>
+<div id="sync-status"><div id="sync-dot"></div><span id="sync-text">Sincronizat</span></div>
+
+<div id="loading-overlay">
+  <div class="loading-logo">⚽ PANINI 2026</div>
+  <div class="loading-spinner"></div>
+  <div class="loading-text" id="loading-text">Se încarcă colecția…</div>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -984,7 +1077,7 @@ body {
 
 <script>
 const TOTAL = 630;
-const STORAGE_KEY = 'panini-wc2026-v3';
+const API_URL = '/api/state';
 
 const INITIAL_MISSING = "2,4-11,13,15-17,21-23,25,27,29-35,38,45,48,49,51,53,54,58,60-65,68,70-73,76-78,82,89,91,93,95,96,99,101,104,107,109-112,115,117,118,120,122,123,127,128,132,134-136,138,140,142-143,148,150,153,155-160,166,170,172,175,177-181,183-185,190,193,194,196,197,201,205,213,215,216,218-220,222,223,225,231,232,234,236,238,241-243,248,250,251,253-255,260,263-268,270,274,276,277,282,283,286,287,290,292,296,297,300,304-306,308,310,311,315,318,319,322,325,327,329-333,339-342,345-351,353,355,357-363,367-370,372,377,382,383,387,389,393,395,396,398,400,406,408,410,417,419,420,425,430-432,434,435,439,442,445,449,452-454,456-458,461-463,467,468,470,471,473,474,477,483,485-487,489,491,492,494,496-498,502,505,507,509,513,515-519,522,524-529,532,536,537,540-549,552,553,555-557,559-562,564,566,569,571-573,577,579-584,586,588,593,595-600,602,604,606-608,615,617,619-622,624,628-630";
 
@@ -1068,16 +1161,78 @@ let missing = new Set();
 let currentFilter = 'all';
 let currentView = 'grid';
 
-function loadState() {
-  try {
-    const s = localStorage.getItem(STORAGE_KEY);
-    if (s) { missing = new Set(JSON.parse(s)); return; }
-  } catch(e) {}
-  missing = parseList(INITIAL_MISSING);
+// ── SYNC ENGINE ──────────────────────────────────────────────────────────────
+let saveTimer = null;
+let isSaving = false;
+
+function setSyncStatus(state, text) {
+  const bar = document.getElementById('sync-bar');
+  const status = document.getElementById('sync-status');
+  const txt = document.getElementById('sync-text');
+  bar.className = state === 'syncing' ? 'syncing' : (state === 'error' ? 'error' : '');
+  status.className = 'visible ' + state;
+  txt.textContent = text;
+  if (state === 'saved') {
+    clearTimeout(status._hideTimer);
+    status._hideTimer = setTimeout(() => { status.className = ''; }, 3000);
+  }
 }
 
-function saveState() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify([...missing]));
+async function loadFromAPI() {
+  try {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (data.missing !== null && data.missing !== undefined) {
+      missing = new Set(data.missing);
+    } else {
+      missing = parseList(INITIAL_MISSING);
+    }
+    dubs = data.dubs || {};
+    return true;
+  } catch (err) {
+    console.error('Load failed, using localStorage fallback:', err);
+    try {
+      const ls = localStorage.getItem('panini-wc2026-v3');
+      missing = ls ? new Set(JSON.parse(ls)) : parseList(INITIAL_MISSING);
+      const lsDubs = localStorage.getItem('panini-wc2026-dubs-v1');
+      dubs = lsDubs ? JSON.parse(lsDubs) : {};
+    } catch(e) {
+      missing = parseList(INITIAL_MISSING);
+      dubs = {};
+    }
+    return false;
+  }
+}
+
+function scheduleSync() {
+  clearTimeout(saveTimer);
+  setSyncStatus('syncing', 'Se salvează…');
+  saveTimer = setTimeout(syncToAPI, 800);
+}
+
+async function syncToAPI() {
+  if (isSaving) { scheduleSync(); return; }
+  isSaving = true;
+  try {
+    const payload = { missing: [...missing], dubs };
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    localStorage.setItem('panini-wc2026-v3', JSON.stringify([...missing]));
+    localStorage.setItem('panini-wc2026-dubs-v1', JSON.stringify(dubs));
+    setSyncStatus('saved', 'Salvat ✓');
+  } catch(err) {
+    console.error('Sync failed:', err);
+    setSyncStatus('error', 'Eroare sincronizare — se reîncearcă');
+    showToast('!', 'Salvarea a eșuat — se reîncearcă…', 'error');
+    setTimeout(syncToAPI, 5000);
+  } finally {
+    isSaving = false;
+  }
 }
 
 function getCardType(n) {
@@ -1147,16 +1302,14 @@ function toggleCard(n) {
     showToast('✓', 'Cartonașul #' + n + ' adăugat în colecție', 'success');
   } else {
     missing.add(n);
-    // If card removed from collection, clear its duplicates too
     if (dubs[n]) {
       delete dubs[n];
-      saveDubs();
       renderDubs();
       updateDubStats();
     }
     showToast('✗', 'Cartonașul #' + n + ' marcat ca lipsă', 'error');
   }
-  saveState();
+  scheduleSync();
   updateCardEl(n);
   updateStats();
   updateMissingText();
@@ -1169,8 +1322,9 @@ function addCards() {
   if (toAdd.size === 0) { showToast('!', 'Format invalid — ex: 5,12-20,42', 'error'); return; }
   let added = 0;
   toAdd.forEach(n => { if (missing.has(n)) { missing.delete(n); added++; } });
-  saveState();
+  scheduleSync();
   buildGrid();
+  applyDubBadgesToGrid();
   updateStats();
   updateMissingText();
   document.getElementById('add-input').value = '';
@@ -1269,20 +1423,8 @@ function copyMissing() {
 }
 
 // ===== DUBLURI =====
-const DUB_KEY = 'panini-wc2026-dubs-v1';
-let dubs = {}; // { cardNum: count }
+let dubs = {};
 let dubQty = 1;
-
-function loadDubs() {
-  try {
-    const s = localStorage.getItem(DUB_KEY);
-    if (s) dubs = JSON.parse(s);
-  } catch(e) { dubs = {}; }
-}
-
-function saveDubs() {
-  localStorage.setItem(DUB_KEY, JSON.stringify(dubs));
-}
 
 function dubQtyChange(delta) {
   dubQty = Math.max(1, Math.min(99, dubQty + delta));
@@ -1299,7 +1441,7 @@ function addDuplicate() {
     showToast('!', 'Cartonașul #' + n + ' nu este în colecție', 'error'); return;
   }
   dubs[n] = (dubs[n] || 0) + dubQty;
-  saveDubs();
+  scheduleSync();
   renderDubs();
   updateDubStats();
   updateCardDubBadge(n);
@@ -1312,12 +1454,9 @@ function addDuplicate() {
 function changeDubCount(n, delta) {
   const cur = dubs[n] || 0;
   const next = cur + delta;
-  if (next <= 0) {
-    removeDuplicate(n);
-    return;
-  }
+  if (next <= 0) { removeDuplicate(n); return; }
   dubs[n] = next;
-  saveDubs();
+  scheduleSync();
   renderDubs();
   updateDubStats();
   updateCardDubBadge(n);
@@ -1325,7 +1464,7 @@ function changeDubCount(n, delta) {
 
 function removeDuplicate(n) {
   delete dubs[n];
-  saveDubs();
+  scheduleSync();
   renderDubs();
   updateDubStats();
   updateCardDubBadge(n);
@@ -1389,28 +1528,46 @@ function applyDubBadgesToGrid() {
   Object.keys(dubs).forEach(n => updateCardDubBadge(parseInt(n)));
 }
 
-// Patch buildGrid to apply badges after build
-const _origBuildGrid = buildGrid;
-// We'll call applyDubBadgesToGrid() after buildGrid in init
-
-// Enter on dub input
 document.getElementById('dub-input').addEventListener('keydown', e => {
   if (e.key === 'Enter') addDuplicate();
 });
-
 document.getElementById('add-input').addEventListener('keydown', e => { if (e.key === 'Enter') addCards(); });
 
-// Init
-loadState();
-loadDubs();
-buildShowcase();
-buildGrid();
-applyDubBadgesToGrid();
-updateStats();
-updateMissingText();
-updateDubStats();
-renderDubs();
-setFilter('all');
+// ── ASYNC INIT ───────────────────────────────────────────────────────────────
+async function init() {
+  const overlay = document.getElementById('loading-overlay');
+  const loadingText = document.getElementById('loading-text');
+
+  buildShowcase();
+
+  loadingText.textContent = 'Se conectează la Vercel Blob…';
+  const apiOk = await loadFromAPI();
+
+  if (!apiOk) {
+    loadingText.textContent = 'Offline — date din cache local';
+    await new Promise(r => setTimeout(r, 800));
+  }
+
+  buildGrid();
+  applyDubBadgesToGrid();
+  updateStats();
+  updateMissingText();
+  updateDubStats();
+  renderDubs();
+  setFilter('all');
+
+  // Hide overlay
+  overlay.classList.add('hidden');
+  setTimeout(() => { overlay.style.display = 'none'; }, 500);
+
+  if (apiOk) {
+    setSyncStatus('saved', 'Date încărcate ✓');
+  } else {
+    setSyncStatus('error', 'Offline — salvare locală');
+  }
+}
+
+init();
 </script>
 </body>
 </html>
