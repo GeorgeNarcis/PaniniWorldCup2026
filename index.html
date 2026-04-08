@@ -469,14 +469,66 @@ body {
   position: fixed;
   background: var(--surface2);
   border: 1px solid var(--border2);
-  border-radius: 10px;
-  padding: 8px 14px;
+  border-radius: 12px;
+  padding: 0;
   font-size: 0.72rem;
   pointer-events: none;
   z-index: 9999;
   display: none;
   white-space: nowrap;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.7);
+  overflow: hidden;
+  width: 180px;
+}
+#ctip-img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+  background: var(--surface3);
+}
+#ctip-img.loading { opacity: 0.3; }
+#ctip-img.loaded { opacity: 1; transition: opacity 0.2s; }
+#ctip-img.error { display: none; }
+#ctip-body {
+  padding: 8px 11px 10px;
+}
+#ctip-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+#ctip-name {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#ctip-meta {
+  font-size: 0.62rem;
+  color: var(--muted);
+  margin-top: 2px;
+  font-family: 'DM Mono', monospace;
+}
+#ctip-status {
+  font-size: 0.62rem;
+  margin-top: 5px;
+  padding: 2px 7px;
+  border-radius: 99px;
+  display: inline-block;
+  font-weight: 600;
+}
+#ctip-status.have { background: var(--green-dim); color: var(--green); }
+#ctip-status.miss { background: var(--red-dim); color: var(--red); }
+#ctip-hint {
+  font-size: 0.58rem;
+  color: var(--muted);
+  margin-top: 4px;
+  font-family: 'DM Mono', monospace;
 }
 
 /* MISSING */
@@ -1124,7 +1176,16 @@ body {
   </div>
 </div>
 
-<div id="ctip"></div>
+<div id="ctip">
+  <img id="ctip-img" src="" alt="">
+  <div id="ctip-body">
+    <div id="ctip-num"></div>
+    <div id="ctip-name"></div>
+    <div id="ctip-meta"></div>
+    <div id="ctip-status"></div>
+    <div id="ctip-hint">Click pentru a schimba statusul</div>
+  </div>
+</div>
 <div id="toast"><span class="toast-icon" id="toast-icon"></span><span id="toast-msg"></span></div>
 
 <script>
@@ -1440,21 +1501,51 @@ function setView(v) {
 }
 
 const tip = document.getElementById('ctip');
+const tipImg = document.getElementById('ctip-img');
+let tipImgCache = {};
+
 function showTip(e, n) {
   const cd = CARD_DATA[n];
   const isMiss = missing.has(n);
   const type = getCardType(n);
+  const dubCount = dubs[n] || 0;
+
+  // Populate text fields
+  document.getElementById('ctip-num').innerHTML =
+    `<span style="color:${isMiss ? 'var(--red)' : 'var(--green)'}">#${n}</span>`;
+  document.getElementById('ctip-name').textContent = cd ? cd.name : 'Cartonaș #' + n;
+  document.getElementById('ctip-meta').textContent =
+    (cd ? cd.team + ' · ' : '') + TYPE_LABELS[type] + (dubCount > 0 ? ' · ' + dubCount + ' dubluri' : '');
+  const statusEl = document.getElementById('ctip-status');
+  statusEl.textContent = isMiss ? '✗ Lipsește' : '✓ Dețin';
+  statusEl.className = isMiss ? 'miss' : 'have';
+
+  // Card image
+  const imgUrl = `https://www.laststicker.com/i/cards/12029/${n}.jpg`;
+  tipImg.className = 'loading';
+  tipImg.style.display = 'block';
+  if (tipImgCache[n] === 'error') {
+    tipImg.style.display = 'none';
+  } else {
+    tipImg.src = imgUrl;
+    tipImg.onload = () => { tipImg.className = 'loaded'; tipImgCache[n] = 'ok'; };
+    tipImg.onerror = () => { tipImg.style.display = 'none'; tipImgCache[n] = 'error'; };
+  }
+
   tip.style.display = 'block';
-  tip.innerHTML = `<strong style="color:${isMiss?'var(--red)':'var(--green)'}">#${n}</strong>`
-    + (cd ? ` <span style="color:var(--text)">${cd.name}</span> <span style="color:var(--muted)">${cd.team}</span>` : '')
-    + ` <span style="color:var(--muted)">· ${TYPE_LABELS[type]}</span>`
-    + ` <span style="color:var(--muted)">· ${isMiss?'❌ Lipsește':'✅ Dețin'}</span>`
-    + `<br><span style="color:var(--muted);font-size:0.58rem">Click pentru a schimba statusul</span>`;
   moveTip(e);
 }
+
 function moveTip(e) {
-  tip.style.left = Math.min(e.clientX + 14, window.innerWidth - 310) + 'px';
-  tip.style.top = Math.max(e.clientY - 52, 8) + 'px';
+  const tw = 180, th = 320;
+  const margin = 12;
+  let x = e.clientX + margin;
+  let y = e.clientY - th / 2;
+  if (x + tw > window.innerWidth - margin) x = e.clientX - tw - margin;
+  if (y < margin) y = margin;
+  if (y + th > window.innerHeight - margin) y = window.innerHeight - th - margin;
+  tip.style.left = x + 'px';
+  tip.style.top = y + 'px';
 }
 function hideTip() { tip.style.display = 'none'; }
 
