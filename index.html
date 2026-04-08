@@ -759,6 +759,48 @@ body {
 }
 .dub-delete-btn:hover { background: rgba(255,77,109,0.2); border-color: rgba(255,77,109,0.4); }
 
+/* Compact dub list */
+.dub-compact-wrap {
+  border-top: 1px solid var(--border);
+  display: none;
+}
+.dub-compact-wrap.visible { display: block; }
+.dub-compact-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface2);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.dub-compact-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.dub-compact-dot {
+  display: block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px var(--gold);
+  flex-shrink: 0;
+}
+.dub-compact-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.71rem;
+  color: rgba(245, 200, 66, 0.8);
+  line-height: 2;
+  word-break: break-all;
+  padding: 1rem 1.4rem;
+  user-select: all;
+  cursor: text;
+}
+
 /* Duplicate badge on grid */
 .cbox.dup { position: relative; }
 .cbox.dup::after {
@@ -1057,6 +1099,16 @@ body {
         <div class="dub-empty-icon">🃏</div>
         <div>Nicio dublură înregistrată încă</div>
       </div>
+    </div>
+    <div class="dub-compact-wrap" id="dub-compact-wrap">
+      <div class="dub-compact-header">
+        <div class="dub-compact-title">
+          <span class="dub-compact-dot"></span>
+          Listă compactă dubluri
+        </div>
+        <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyDubs()">📋 Copiază</button>
+      </div>
+      <div class="dub-compact-text" id="dub-compact-text">(nicio dublură)</div>
     </div>
   </div>
 </div>
@@ -1504,11 +1556,34 @@ function renderDubs() {
   });
 }
 
+function toCompactDubs() {
+  const keys = Object.keys(dubs).map(Number).filter(n => dubs[n] > 0).sort((a, b) => a - b);
+  if (keys.length === 0) return '(nicio dublura)';
+  return keys.map(n => dubs[n] > 1 ? n + '(' + dubs[n] + ')' : String(n)).join(',');
+}
+
+function updateDubCompact() {
+  const text = toCompactDubs();
+  const el = document.getElementById('dub-compact-text');
+  const wrap = document.getElementById('dub-compact-wrap');
+  el.textContent = text;
+  const hasDubs = Object.keys(dubs).some(n => dubs[n] > 0);
+  wrap.classList.toggle('visible', hasDubs);
+}
+
+function copyDubs() {
+  const text = document.getElementById('dub-compact-text').textContent;
+  navigator.clipboard.writeText(text)
+    .then(() => showToast('📋', 'Lista dublurilor copiată!', 'success'))
+    .catch(() => showToast('ℹ', 'Selectează manual textul galben', 'error'));
+}
+
 function updateDubStats() {
   const keys = Object.keys(dubs).filter(n => dubs[n] > 0);
   const totalEx = keys.reduce((sum, n) => sum + dubs[n], 0);
   document.getElementById('dub-unique').textContent = keys.length;
   document.getElementById('dub-total').textContent = totalEx;
+  updateDubCompact();
 }
 
 function updateCardDubBadge(n) {
