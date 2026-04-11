@@ -1258,16 +1258,7 @@ function parseList(str) {
 
 function toCompact(set) {
   if (set.size === 0) return '(colecție completă! 🏆)';
-  const sorted = [...set].sort((a,b) => a-b);
-  const parts = [];
-  let i = 0;
-  while (i < sorted.length) {
-    let j = i;
-    while (j + 1 < sorted.length && sorted[j+1] === sorted[j] + 1) j++;
-    parts.push(j > i ? sorted[i] + '-' + sorted[j] : String(sorted[i]));
-    i = j + 1;
-  }
-  return parts.join(',');
+  return [...set].sort((a,b) => a-b).join(',');
 }
 
 let missing = new Set();
