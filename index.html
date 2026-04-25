@@ -955,6 +955,369 @@ body {
   letter-spacing: 0.1em;
 }
 
+/* LE SECTION */
+.le-section {
+  max-width: 1280px;
+  margin: 1.2rem auto 0;
+  padding: 0 2rem;
+}
+.le-card {
+  background: var(--surface);
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.le-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(90deg, rgba(168,85,247,0.12) 0%, rgba(79,143,255,0.06) 100%);
+  border-bottom: 1px solid rgba(168,85,247,0.2);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.le-header-left { display: flex; align-items: center; gap: 0.75rem; }
+.le-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(168,85,247,0.15);
+  border: 1px solid rgba(168,85,247,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.le-header-text {}
+.le-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  color: var(--purple);
+  line-height: 1;
+}
+.le-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.le-stats-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.le-stat-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+  background: var(--surface3);
+  border: 1px solid var(--border2);
+  border-radius: 99px;
+  padding: 0.22rem 0.75rem;
+}
+.le-stat-pill span { color: var(--purple); font-weight: 600; }
+
+/* LE Stats grid */
+.le-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.le-stat-card {
+  background: var(--surface2);
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+}
+.le-stat-card-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+.le-stat-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.03em; line-height: 1; }
+.le-sc-total .le-stat-card-num { color: var(--text); }
+.le-sc-have .le-stat-card-num { color: var(--green); }
+.le-sc-miss .le-stat-card-num { color: var(--red); }
+.le-sc-pct .le-stat-card-num { color: var(--purple); }
+
+/* LE Add row */
+.le-add-row {
+  display: flex;
+  gap: 0.65rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--bg);
+}
+.le-name-input {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 9px;
+  color: var(--text);
+  padding: 0.6rem 0.9rem;
+  outline: none;
+  flex: 1;
+  min-width: 180px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.le-name-input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(168,85,247,0.15); }
+.le-name-input::placeholder { color: var(--muted); }
+.le-type-select {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 9px;
+  color: var(--text);
+  padding: 0.6rem 0.75rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b7494'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  padding-right: 1.8rem;
+}
+.le-type-select:focus { border-color: var(--purple); }
+.le-type-select option { background: #141826; }
+.btn-purple {
+  background: rgba(168,85,247,0.15);
+  color: var(--purple);
+  border: 1px solid rgba(168,85,247,0.3);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.btn-purple:hover { background: rgba(168,85,247,0.25); border-color: rgba(168,85,247,0.5); }
+.le-hint { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); flex: 1; min-width: 120px; }
+
+/* LE Toolbar */
+.le-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.le-filter-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.28rem 0.8rem;
+  border-radius: 99px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.le-filter-btn:hover { color: var(--text); }
+.le-filter-btn.lf-all { background: rgba(168,85,247,0.1); color: var(--purple); border-color: rgba(168,85,247,0.3); }
+.le-filter-btn.lf-have { background: var(--green-dim); color: var(--green); border-color: rgba(34,211,160,0.3); }
+.le-filter-btn.lf-miss { background: var(--red-dim); color: var(--red); border-color: rgba(255,77,109,0.3); }
+
+/* LE Card grid */
+.le-grid-inner { padding: 1.2rem; }
+.le-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+.le-card-item {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.12s;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+.le-card-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+}
+.le-card-item.have { border-color: rgba(34,211,160,0.3); }
+.le-card-item.have::before { background: var(--green); }
+.le-card-item.miss { border-color: rgba(255,77,109,0.2); opacity: 0.7; }
+.le-card-item.miss::before { background: var(--red); }
+.le-card-item:hover { transform: translateY(-2px); border-color: rgba(168,85,247,0.4); }
+.le-card-item.have:hover { border-color: rgba(34,211,160,0.5); }
+.le-card-item.miss:hover { border-color: rgba(255,77,109,0.4); opacity: 1; }
+
+.le-item-img {
+  width: 36px; height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+  background: var(--surface3);
+  flex-shrink: 0;
+  border: 1px solid var(--border2);
+}
+.le-item-info { flex: 1; min-width: 0; }
+.le-item-name { font-size: 0.75rem; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.le-item-type {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 2px;
+  padding: 1px 6px;
+  border-radius: 99px;
+  display: inline-block;
+}
+.le-type-std { background: rgba(79,143,255,0.12); color: var(--blue); }
+.le-type-holo { background: rgba(168,85,247,0.12); color: var(--purple); }
+.le-type-prem { background: rgba(245,200,66,0.1); color: var(--gold); }
+.le-type-premgold { background: rgba(245,200,66,0.18); color: #ffd700; }
+.le-type-xxl { background: rgba(255,107,91,0.1); color: #ff7b6b; }
+.le-type-xxlholo { background: rgba(255,107,91,0.15); color: var(--red); }
+.le-type-dream { background: rgba(34,211,160,0.1); color: var(--green); }
+.le-type-upgrade { background: rgba(245,200,66,0.08); color: var(--amber); }
+.le-type-momentum { background: rgba(255,159,67,0.15); color: #ff9f43; }
+
+/* LE fixed card grid - card-based layout */
+.le-group { margin-bottom: 1.5rem; }
+.le-group:last-child { margin-bottom: 0; }
+.le-group-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.le-group-count { font-size: 0.6rem; color: var(--muted); }
+
+.le-fixed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 6px;
+}
+
+.le-tile {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+  position: relative;
+  user-select: none;
+}
+.le-tile:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.4); }
+.le-tile.have { border-color: rgba(34,211,160,0.4); }
+.le-tile.have:hover { border-color: rgba(34,211,160,0.7); box-shadow: 0 6px 20px rgba(34,211,160,0.15); }
+.le-tile.miss { border-color: rgba(255,77,109,0.2); opacity: 0.55; }
+.le-tile.miss:hover { border-color: rgba(255,77,109,0.45); opacity: 1; }
+
+.le-tile-img-wrap {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--surface3);
+  position: relative;
+  overflow: hidden;
+}
+.le-tile-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s;
+}
+.le-tile-img.loading { opacity: 0.2; }
+.le-tile-img.loaded { opacity: 1; }
+
+.le-tile-status {
+  position: absolute;
+  top: 5px; right: 5px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  backdrop-filter: blur(4px);
+}
+.le-tile.have .le-tile-status { background: rgba(34,211,160,0.85); }
+.le-tile.miss .le-tile-status { background: rgba(30,35,55,0.75); color: var(--muted); }
+
+.le-tile-code {
+  position: absolute;
+  top: 5px; left: 5px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: white;
+  background: rgba(0,0,0,0.55);
+  border-radius: 4px;
+  padding: 1px 5px;
+  backdrop-filter: blur(4px);
+  line-height: 1.4;
+}
+
+.le-tile-body {
+  padding: 0.5rem 0.6rem 0.55rem;
+}
+.le-tile-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+.le-tile-sub {
+  font-size: 0.58rem;
+  color: var(--muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.le-tile.hidden { display: none; }
+
+/* LE Progress bar */
+.le-progress-wrap {
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.le-progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+.le-progress-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.le-progress-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: var(--purple); letter-spacing: 0.04em; }
+.le-progress-track { height: 5px; background: var(--surface3); border-radius: 99px; overflow: hidden; }
+.le-progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--blue)); border-radius: 99px; transition: width 0.5s ease; }
+
+.le-empty {
+  text-align: center;
+  padding: 2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  grid-column: 1/-1;
+}
+.le-empty-icon { font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.35; }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
@@ -963,12 +1326,13 @@ body {
 }
 @media (max-width: 600px) {
   .hero-inner, .stats-section, .progress-section, .add-section,
-  .types-section, .grid-section, .showcase-section, .dub-section, .missing-section {
+  .types-section, .grid-section, .showcase-section, .dub-section, .le-section, .missing-section {
     padding-left: 1rem;
     padding-right: 1rem;
   }
   .stats-section { grid-template-columns: 1fr 1fr; }
   .cbox { width: 24px; height: 24px; font-size: 5.5px; }
+  .le-fixed-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
 }
 </style>
 </head>
@@ -1165,6 +1529,64 @@ body {
   </div>
 </div>
 
+<!-- LIMITED EDITIONS -->
+<div class="le-section">
+  <div class="le-card">
+    <div class="le-header">
+      <div class="le-header-left">
+        <div class="le-icon">⭐</div>
+        <div class="le-header-text">
+          <div class="le-title">Limited Editions</div>
+          <div class="le-sub">cartonașe speciale · în afara numerotării principale</div>
+        </div>
+      </div>
+      <div class="le-stats-row">
+        <div class="le-stat-pill">Total: <span id="le-total">0</span></div>
+        <div class="le-stat-pill">Dețin: <span id="le-have-count">0</span></div>
+        <div class="le-stat-pill">Lipsesc: <span id="le-miss-count">0</span></div>
+      </div>
+    </div>
+
+    <!-- LE Stats grid -->
+    <div class="le-stats-grid">
+      <div class="le-stat-card le-sc-total"><div class="le-stat-card-label">Total LE</div><div class="le-stat-card-num" id="le-s-total">0</div></div>
+      <div class="le-stat-card le-sc-have"><div class="le-stat-card-label">Dețin</div><div class="le-stat-card-num" id="le-s-have">0</div></div>
+      <div class="le-stat-card le-sc-miss"><div class="le-stat-card-label">Lipsesc</div><div class="le-stat-card-num" id="le-s-miss">0</div></div>
+      <div class="le-stat-card le-sc-pct"><div class="le-stat-card-label">Completare</div><div class="le-stat-card-num" id="le-s-pct">—</div></div>
+    </div>
+
+    <!-- LE Progress -->
+    <div class="le-progress-wrap">
+      <div class="le-progress-row">
+        <span class="le-progress-label">Progres colecție LE</span>
+        <span class="le-progress-val" id="le-prog-val">0 / 0</span>
+      </div>
+      <div class="le-progress-track"><div class="le-progress-fill" id="le-prog-fill" style="width:0%"></div></div>
+    </div>
+
+    <!-- LE Toolbar -->
+    <div class="le-toolbar">
+      <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+        <button class="le-filter-btn lf-all" id="lf-all" onclick="setLEFilter('all')">Toate</button>
+        <button class="le-filter-btn" id="lf-have" onclick="setLEFilter('have')">✓ Dețin</button>
+        <button class="le-filter-btn" id="lf-miss" onclick="setLEFilter('miss')">✗ Lipsesc</button>
+        <button class="le-filter-btn" id="lf-std" onclick="setLEFilter('std')">Mix 1 &amp; 2</button>
+        <button class="le-filter-btn" id="lf-prem" onclick="setLEFilter('prem')">Premium</button>
+        <button class="le-filter-btn" id="lf-xxl" onclick="setLEFilter('xxl')">XXL</button>
+        <button class="le-filter-btn" id="lf-dream" onclick="setLEFilter('dream')">Dream Box</button>
+        <button class="le-filter-btn" id="lf-momentum" onclick="setLEFilter('momentum')">Momentum</button>
+        <button class="le-filter-btn" id="lf-upgrade" onclick="setLEFilter('upgrade')">Upgrade</button>
+      </div>
+      <span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted)">Click pe card = toggle dețin/lipsă</span>
+    </div>
+
+    <!-- LE Fixed Grid -->
+    <div class="le-grid-inner">
+      <div id="le-grid-root"></div>
+    </div>
+  </div>
+</div>
+
 <!-- MISSING -->
 <div class="missing-section">
   <div class="missing-card">
@@ -1293,6 +1715,7 @@ async function loadFromAPI() {
       missing = parseList(INITIAL_MISSING);
     }
     dubs = data.dubs || {};
+    leOwned = new Set(data.leOwned || []);
     return true;
   } catch (err) {
     console.error('Load failed, using localStorage fallback:', err);
@@ -1301,6 +1724,8 @@ async function loadFromAPI() {
       missing = ls ? new Set(JSON.parse(ls)) : parseList(INITIAL_MISSING);
       const lsDubs = localStorage.getItem('panini-wc2026-dubs-v1');
       dubs = lsDubs ? JSON.parse(lsDubs) : {};
+      const lsLE = localStorage.getItem('panini-wc2026-le-v1');
+      leOwned = lsLE ? new Set(JSON.parse(lsLE)) : new Set();
     } catch(e) {
       missing = parseList(INITIAL_MISSING);
       dubs = {};
@@ -1319,7 +1744,7 @@ async function syncToAPI() {
   if (isSaving) { scheduleSync(); return; }
   isSaving = true;
   try {
-    const payload = { missing: [...missing], dubs };
+    const payload = { missing: [...missing], dubs, leOwned: [...leOwned] };
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -1328,6 +1753,7 @@ async function syncToAPI() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     localStorage.setItem('panini-wc2026-v3', JSON.stringify([...missing]));
     localStorage.setItem('panini-wc2026-dubs-v1', JSON.stringify(dubs));
+    localStorage.setItem('panini-wc2026-le-v1', JSON.stringify([...leOwned]));
     setSyncStatus('saved', 'Salvat ✓');
   } catch(err) {
     console.error('Sync failed:', err);
@@ -1690,6 +2116,308 @@ document.getElementById('dub-input').addEventListener('keydown', e => {
 });
 document.getElementById('add-input').addEventListener('keydown', e => { if (e.key === 'Enter') addCards(); });
 
+// ── LIMITED EDITIONS ─────────────────────────────────────────────────────────
+// Fixed catalog — leOwned: Set of card codes the user has
+let leOwned = new Set();
+let leFilter = 'all';
+
+// laststicker image base (same pattern as numbered cards but with code)
+const LE_IMG_BASE = 'https://www.laststicker.com/i/cards/12029/';
+
+// Full LE catalog with laststicker-style codes
+const LE_CATALOG = [
+  // === MIX 1 — Standard LE (from Eco-Blister / Multipack / Starter) ===
+  {code:'LE01', name:'Lionel Messi',        nation:'Argentina', type:'std'},
+  {code:'LE02', name:'Julián Álvarez',      nation:'Argentina', type:'std'},
+  {code:'LE03', name:'Kevin De Bruyne',     nation:'Belgium',   type:'std'},
+  {code:'LE04', name:'Vinícius Júnior',     nation:'Brazil',    type:'std'},
+  {code:'LE05', name:'Luka Modrić',         nation:'Croatia',   type:'std'},
+  {code:'LE06', name:'Moisés Caicedo',      nation:'Ecuador',   type:'std'},
+  {code:'LE07', name:'Mohamed Salah',       nation:'Egypt',     type:'std'},
+  {code:'LE08', name:'Cole Palmer',         nation:'England',   type:'std'},
+  {code:'LE09', name:'Harry Kane',          nation:'England',   type:'std'},
+  {code:'LE10', name:'Kylian Mbappé',       nation:'France',    type:'std'},
+  {code:'LE11', name:'Ousmane Dembélé',     nation:'France',    type:'std'},
+  {code:'LE12', name:'Florian Wirtz',       nation:'Germany',   type:'std'},
+  {code:'LE13', name:'Heung-Min Son',       nation:'Korea Rep.',type:'std'},
+  {code:'LE14', name:'Achraf Hakimi',       nation:'Morocco',   type:'std'},
+  {code:'LE15', name:'Tijjani Reijnders',   nation:'Netherlands',type:'std'},
+  {code:'LE16', name:'Erling Haaland',      nation:'Norway',    type:'std'},
+  {code:'LE17', name:'Rafael Leão',         nation:'Portugal',  type:'std'},
+  {code:'LE18', name:'Cristiano Ronaldo',   nation:'Portugal',  type:'std'},
+  {code:'LE19', name:'Pedri',               nation:'Spain',     type:'std'},
+  {code:'LE20', name:'Lamine Yamal',        nation:'Spain',     type:'std'},
+  // === MIX 2 — Standard LE (from Classic Tin) ===
+  {code:'LE21', name:'David Alaba',         nation:'Austria',   type:'std'},
+  {code:'LE22', name:'Mathew Ryan',         nation:'Australia', type:'std'},
+  {code:'LE23', name:'Thibaut Courtois',    nation:'Belgium',   type:'std'},
+  {code:'LE24', name:'Raphinha',            nation:'Brazil',    type:'std'},
+  {code:'LE25', name:'Rodrygo',             nation:'Brazil',    type:'std'},
+  {code:'LE26', name:'Jonathan David',      nation:'Canada',    type:'std'},
+  {code:'LE27', name:'Scott McTominay',     nation:'Scotland',  type:'std'},
+  {code:'LE28', name:'Omar Marmoush',       nation:'Egypt',     type:'std'},
+  {code:'LE29', name:'Eberechi Eze',        nation:'England',   type:'std'},
+  {code:'LE30', name:'Bukayo Saka',         nation:'England',   type:'std'},
+  {code:'LE31', name:'Michael Olise',       nation:'France',    type:'std'},
+  {code:'LE32', name:'Joshua Kimmich',      nation:'Germany',   type:'std'},
+  {code:'LE33', name:'Brahim Díaz',         nation:'Morocco',   type:'std'},
+  {code:'LE34', name:'Denzel Dumfries',     nation:'Netherlands',type:'std'},
+  {code:'LE35', name:'Martin Ødegaard',     nation:'Norway',    type:'std'},
+  {code:'LE36', name:'João Neves',          nation:'Portugal',  type:'std'},
+  {code:'LE37', name:'Lamine Yamal',        nation:'Spain',     type:'std'},  // Upgrade parallel
+  {code:'LE38', name:'Jude Bellingham',     nation:'England',   type:'std'},
+  {code:'LE39', name:'Jamal Musiala',       nation:'Germany',   type:'std'},
+  {code:'LE40', name:'Jérémy Doku',         nation:'Belgium',   type:'std'},
+  // === PANINI HOLO LE ===
+  {code:'LH01', name:'Lionel Messi',        nation:'Argentina', type:'holo'},
+  {code:'LH02', name:'Julián Álvarez',      nation:'Argentina', type:'holo'},
+  {code:'LH03', name:'Kevin De Bruyne',     nation:'Belgium',   type:'holo'},
+  {code:'LH04', name:'Vinícius Júnior',     nation:'Brazil',    type:'holo'},
+  {code:'LH05', name:'Luka Modrić',         nation:'Croatia',   type:'holo'},
+  {code:'LH06', name:'Moisés Caicedo',      nation:'Ecuador',   type:'holo'},
+  {code:'LH07', name:'Mohamed Salah',       nation:'Egypt',     type:'holo'},
+  {code:'LH08', name:'Cole Palmer',         nation:'England',   type:'holo'},
+  {code:'LH09', name:'Harry Kane',          nation:'England',   type:'holo'},
+  {code:'LH10', name:'Kylian Mbappé',       nation:'France',    type:'holo'},
+  {code:'LH11', name:'Ousmane Dembélé',     nation:'France',    type:'holo'},
+  {code:'LH12', name:'Florian Wirtz',       nation:'Germany',   type:'holo'},
+  {code:'LH13', name:'Heung-Min Son',       nation:'Korea Rep.',type:'holo'},
+  {code:'LH14', name:'Achraf Hakimi',       nation:'Morocco',   type:'holo'},
+  {code:'LH15', name:'Tijjani Reijnders',   nation:'Netherlands',type:'holo'},
+  {code:'LH16', name:'Erling Haaland',      nation:'Norway',    type:'holo'},
+  {code:'LH17', name:'Rafael Leão',         nation:'Portugal',  type:'holo'},
+  {code:'LH18', name:'Cristiano Ronaldo',   nation:'Portugal',  type:'holo'},
+  {code:'LH19', name:'Pedri',               nation:'Spain',     type:'holo'},
+  {code:'LH20', name:'Lamine Yamal',        nation:'Spain',     type:'holo'},
+  // === PREMIUM LE ===
+  {code:'PLE01', name:'Youri Tielemans',    nation:'Belgium',   type:'prem'},
+  {code:'PLE02', name:'Vinícius Júnior',    nation:'Brazil',    type:'prem'},
+  {code:'PLE03', name:'Phil Foden',         nation:'England',   type:'prem'},
+  {code:'PLE04', name:'Eduardo Camavinga',  nation:'France',    type:'prem'},
+  {code:'PLE05', name:'Leroy Sané',         nation:'Germany',   type:'prem'},
+  {code:'PLE06', name:'Takumi Minamino',    nation:'Japan',     type:'prem'},
+  {code:'PLE07', name:'Raúl Jiménez',       nation:'Mexico',    type:'prem'},
+  {code:'PLE08', name:'Sofyan Amrabat',     nation:'Morocco',   type:'prem'},
+  {code:'PLE09', name:'Erling Haaland',     nation:'Norway',    type:'prem'},
+  {code:'PLE10', name:'Kalidou Koulibaly',  nation:'Senegal',   type:'prem'},
+  {code:'PLE11', name:'Manuel Akanji',      nation:'Switzerland',type:'prem'},
+  {code:'PLE12', name:'Folarin Balogun',    nation:'USA',       type:'prem'},
+  // === PREMIUM GOLD LE ===
+  {code:'PGL01', name:'Lionel Messi',       nation:'Argentina', type:'premgold'},
+  {code:'PGL02', name:'James Rodríguez',    nation:'Colombia',  type:'premgold'},
+  {code:'PGL03', name:'Marcus Rashford',    nation:'England',   type:'premgold'},
+  {code:'PGL04', name:'Mike Maignan',       nation:'France',    type:'premgold'},
+  {code:'PGL05', name:'Memphis Depay',      nation:'Netherlands',type:'premgold'},
+  {code:'PGL06', name:'Lamine Yamal',       nation:'Spain',     type:'premgold'},
+  // === XXL LE ===
+  {code:'XXL01', name:'Lionel Messi',       nation:'Argentina', type:'xxl'},
+  {code:'XXL02', name:'Vinícius Júnior',    nation:'Brazil',    type:'xxl'},
+  {code:'XXL03', name:'Jérémy Doku',        nation:'Belgium',   type:'xxl'},
+  {code:'XXL04', name:'Harry Kane',         nation:'England',   type:'xxl'},
+  {code:'XXL05', name:'Kylian Mbappé',      nation:'France',    type:'xxl'},
+  {code:'XXL06', name:'Jamal Musiala',      nation:'Germany',   type:'xxl'},
+  {code:'XXL07', name:'Achraf Hakimi',      nation:'Morocco',   type:'xxl'},
+  {code:'XXL08', name:'Erling Haaland',     nation:'Norway',    type:'xxl'},
+  {code:'XXL09', name:'Cristiano Ronaldo',  nation:'Portugal',  type:'xxl'},
+  {code:'XXL10', name:'Lamine Yamal',       nation:'Spain',     type:'xxl'},
+  {code:'XXL11', name:'Luis Díaz',          nation:'Colombia',  type:'xxl'},
+  {code:'XXL12', name:'Christian Pulisic',  nation:'USA',       type:'xxl'},
+  {code:'XXL13', name:'Jonathan David',     nation:'Canada',    type:'xxl'},
+  {code:'XXL14', name:'Mohamed Salah',      nation:'Egypt',     type:'xxl'},
+  {code:'XXL15', name:'Virgil van Dijk',    nation:'Netherlands',type:'xxl'},
+  {code:'XXL16', name:'Ousmane Dembélé',    nation:'France',    type:'xxl'},
+  {code:'XXL17', name:'Jude Bellingham',    nation:'England',   type:'xxl'},
+  // === XXL HOLO LE ===
+  {code:'XLH01', name:'Lionel Messi',       nation:'Argentina', type:'xxlholo'},
+  {code:'XLH02', name:'Vinícius Júnior',    nation:'Brazil',    type:'xxlholo'},
+  {code:'XLH03', name:'Harry Kane',         nation:'England',   type:'xxlholo'},
+  {code:'XLH04', name:'Kylian Mbappé',      nation:'France',    type:'xxlholo'},
+  {code:'XLH05', name:'Jamal Musiala',      nation:'Germany',   type:'xxlholo'},
+  {code:'XLH06', name:'Achraf Hakimi',      nation:'Morocco',   type:'xxlholo'},
+  {code:'XLH07', name:'Erling Haaland',     nation:'Norway',    type:'xxlholo'},
+  {code:'XLH08', name:'Cristiano Ronaldo',  nation:'Portugal',  type:'xxlholo'},
+  {code:'XLH09', name:'Lamine Yamal',       nation:'Spain',     type:'xxlholo'},
+  {code:'XLH10', name:'Jérémy Doku',        nation:'Belgium',   type:'xxlholo'},
+  // === MOMENTUM LE ===
+  {code:'MOM01', name:'Jude Bellingham',    nation:'England',   type:'momentum'},
+  {code:'MOM02', name:'Ousmane Dembélé',    nation:'France',    type:'momentum'},
+  {code:'MOM03', name:'Christian Pulisic',  nation:'USA',       type:'momentum'},
+  // === DREAM BOX ===
+  {code:'DB01',  name:'Ángel Di María',     nation:'Argentina', type:'dream'},
+  {code:'DB02',  name:'Javier Mascherano',  nation:'Argentina', type:'dream'},
+  {code:'DB03',  name:'Lionel Messi',       nation:'Argentina', type:'dream'},
+  {code:'DB04',  name:'Gabriel Batistuta',  nation:'Argentina', type:'dream'},
+  {code:'DB05',  name:'Pelé',               nation:'Brazil',    type:'dream'},
+  {code:'DB06',  name:'Ronaldo',            nation:'Brazil',    type:'dream'},
+  {code:'DB07',  name:'Rivaldo',            nation:'Brazil',    type:'dream'},
+  {code:'DB08',  name:'Kaká',               nation:'Brazil',    type:'dream'},
+  {code:'DB09',  name:'Luka Modrić',        nation:'Croatia',   type:'dream'},
+  {code:'DB10',  name:'Michel Platini',     nation:'France',    type:'dream'},
+  {code:'DB11',  name:'Zinédine Zidane',    nation:'France',    type:'dream'},
+  {code:'DB12',  name:'Thierry Henry',      nation:'France',    type:'dream'},
+  {code:'DB13',  name:'Manuel Neuer',       nation:'Germany',   type:'dream'},
+  {code:'DB14',  name:'Franz Beckenbauer',  nation:'Germany',   type:'dream'},
+  {code:'DB15',  name:'Lothar Matthäus',    nation:'Germany',   type:'dream'},
+  {code:'DB16',  name:'Miroslav Klose',     nation:'Germany',   type:'dream'},
+  {code:'DB17',  name:'Paolo Maldini',      nation:'Italy',     type:'dream'},
+  {code:'DB18',  name:'Fabio Cannavaro',    nation:'Italy',     type:'dream'},
+  {code:'DB19',  name:'Francesco Totti',    nation:'Italy',     type:'dream'},
+  {code:'DB20',  name:'Robin van Persie',   nation:'Netherlands',type:'dream'},
+  {code:'DB21',  name:'Andrés Iniesta',     nation:'Spain',     type:'dream'},
+  {code:'DB22',  name:'Sergio Busquets',    nation:'Spain',     type:'dream'},
+  {code:'DB23',  name:'David Villa',        nation:'Spain',     type:'dream'},
+  {code:'DB24',  name:'Luis Suárez',        nation:'Uruguay',   type:'dream'},
+  // === UPGRADE SET LE ===
+  {code:'UPG01', name:'Marc Cucurella',     nation:'Spain',     type:'upgrade'},
+  {code:'UPG02', name:'Giuliano Simeone',   nation:'Argentina', type:'upgrade'},
+];
+
+const LE_TYPE_LABELS = {
+  std:'Standard LE', holo:'Holo LE', prem:'Premium LE', premgold:'Premium Gold LE',
+  xxl:'XXL LE', xxlholo:'XXL Holo LE', momentum:'Momentum', dream:'Dream Box', upgrade:'Upgrade LE'
+};
+const LE_TYPE_CSS = {
+  std:'le-type-std', holo:'le-type-holo', prem:'le-type-prem', premgold:'le-type-premgold',
+  xxl:'le-type-xxl', xxlholo:'le-type-xxlholo', momentum:'le-type-momentum', dream:'le-type-dream', upgrade:'le-type-upgrade'
+};
+const LE_GROUPS = [
+  { key:'std',      label:'Standard LE · Mix 1 & Mix 2',       types:['std'] },
+  { key:'holo',     label:'Panini Holo LE',                    types:['holo'] },
+  { key:'prem',     label:'Premium LE',                        types:['prem'] },
+  { key:'premgold', label:'Premium Gold LE',                   types:['premgold'] },
+  { key:'xxl',      label:'XXL Limited Edition',               types:['xxl'] },
+  { key:'xxlholo',  label:'XXL Panini Holo LE',                types:['xxlholo'] },
+  { key:'momentum', label:'Momentum LE',                       types:['momentum'] },
+  { key:'dream',    label:'Dream Box · Icoane Istorice (DB)',   types:['dream'] },
+  { key:'upgrade',  label:'Upgrade Set LE',                    types:['upgrade'] },
+];
+
+function toggleLE(code) {
+  if (leOwned.has(code)) {
+    leOwned.delete(code);
+    showToast('✗', code + ' — marcat ca lipsă', 'error');
+  } else {
+    leOwned.add(code);
+    showToast('✓', code + ' — adăugat în colecție', 'success');
+  }
+  scheduleSync();
+  updateLETile(code);
+  updateLEStats();
+}
+
+function updateLETile(code) {
+  const tile = document.querySelector(`.le-tile[data-code="${code}"]`);
+  if (!tile) return;
+  const have = leOwned.has(code);
+  tile.className = `le-tile ${have ? 'have' : 'miss'}`;
+  const statusEl = tile.querySelector('.le-tile-status');
+  if (statusEl) statusEl.textContent = have ? '✓' : '○';
+  // Reapply filter visibility
+  applyLEFilter();
+}
+
+function applyLEFilter() {
+  document.querySelectorAll('.le-tile').forEach(tile => {
+    const type = tile.dataset.type;
+    const code = tile.dataset.code;
+    const have = leOwned.has(code);
+    let vis = true;
+    if (leFilter === 'have' && !have) vis = false;
+    if (leFilter === 'miss' && have) vis = false;
+    if (leFilter === 'std' && !['std'].includes(type)) vis = false;
+    if (leFilter === 'prem' && !['prem','premgold'].includes(type)) vis = false;
+    if (leFilter === 'xxl' && !['xxl','xxlholo'].includes(type)) vis = false;
+    if (leFilter === 'dream' && type !== 'dream') vis = false;
+    if (leFilter === 'momentum' && type !== 'momentum') vis = false;
+    if (leFilter === 'upgrade' && type !== 'upgrade') vis = false;
+    tile.classList.toggle('hidden', !vis);
+  });
+  // Show/hide groups based on whether any tiles are visible
+  document.querySelectorAll('.le-group').forEach(grp => {
+    const anyVis = [...grp.querySelectorAll('.le-tile')].some(t => !t.classList.contains('hidden'));
+    grp.style.display = anyVis ? '' : 'none';
+  });
+}
+
+function setLEFilter(f) {
+  leFilter = f;
+  document.querySelectorAll('.le-filter-btn').forEach(b => b.className = 'le-filter-btn');
+  const el = document.getElementById('lf-' + f);
+  if (el) el.classList.add(f === 'all' ? 'lf-all' : f === 'have' ? 'lf-have' : f === 'miss' ? 'lf-miss' : 'lf-all');
+  applyLEFilter();
+}
+
+let leTileImgCache = {};
+
+function buildLEGrid() {
+  const root = document.getElementById('le-grid-root');
+  root.innerHTML = '';
+  LE_GROUPS.forEach(group => {
+    const cards = LE_CATALOG.filter(c => group.types.includes(c.type));
+    if (cards.length === 0) return;
+    const grpDiv = document.createElement('div');
+    grpDiv.className = 'le-group';
+    grpDiv.dataset.group = group.key;
+    const haveInGroup = cards.filter(c => leOwned.has(c.code)).length;
+    grpDiv.innerHTML = `<div class="le-group-title">${group.label}<span class="le-group-count">${haveInGroup}/${cards.length}</span></div><div class="le-fixed-grid" id="le-fg-${group.key}"></div>`;
+    root.appendChild(grpDiv);
+    const grid = grpDiv.querySelector('.le-fixed-grid');
+    cards.forEach(card => {
+      const have = leOwned.has(card.code);
+      const tile = document.createElement('div');
+      tile.className = `le-tile ${have ? 'have' : 'miss'}`;
+      tile.dataset.code = card.code;
+      tile.dataset.type = card.type;
+      // Try laststicker image with the code as slug
+      const imgSlug = card.code.toLowerCase();
+      tile.innerHTML = `
+        <div class="le-tile-img-wrap">
+          <img class="le-tile-img loading" src="${LE_IMG_BASE}${imgSlug}.jpg" alt="${card.name}"
+            onload="this.classList.remove('loading');this.classList.add('loaded')"
+            onerror="this.onerror=null;this.src='';this.style.display='none'">
+          <div class="le-tile-code">${card.code}</div>
+          <div class="le-tile-status">${have ? '✓' : '○'}</div>
+        </div>
+        <div class="le-tile-body">
+          <div class="le-tile-name">${card.name}</div>
+          <div class="le-tile-sub">${card.nation} · <span class="${LE_TYPE_CSS[card.type]}" style="font-size:0.57rem;padding:1px 5px;border-radius:99px;font-weight:600;">${LE_TYPE_LABELS[card.type]}</span></div>
+        </div>`;
+      tile.addEventListener('click', () => toggleLE(card.code));
+      grid.appendChild(tile);
+    });
+  });
+}
+
+function updateLEGroupCounts() {
+  LE_GROUPS.forEach(group => {
+    const cards = LE_CATALOG.filter(c => group.types.includes(c.type));
+    const have = cards.filter(c => leOwned.has(c.code)).length;
+    const grp = document.querySelector(`.le-group[data-group="${group.key}"]`);
+    if (grp) {
+      const cnt = grp.querySelector('.le-group-count');
+      if (cnt) cnt.textContent = `${have}/${cards.length}`;
+    }
+  });
+}
+
+function updateLEStats() {
+  const total = LE_CATALOG.length;
+  const have = LE_CATALOG.filter(c => leOwned.has(c.code)).length;
+  const miss = total - have;
+  const pct = total > 0 ? Math.round((have / total) * 100) : 0;
+  const pctStr = pct + '%';
+  document.getElementById('le-total').textContent = total;
+  document.getElementById('le-have-count').textContent = have;
+  document.getElementById('le-miss-count').textContent = miss;
+  document.getElementById('le-s-total').textContent = total;
+  document.getElementById('le-s-have').textContent = have;
+  document.getElementById('le-s-miss').textContent = miss;
+  document.getElementById('le-s-pct').textContent = pctStr;
+  document.getElementById('le-prog-val').textContent = have + ' / ' + total;
+  document.getElementById('le-prog-fill').style.width = pctStr;
+  updateLEGroupCounts();
+}
+
 // ── ASYNC INIT ───────────────────────────────────────────────────────────────
 async function init() {
   const overlay = document.getElementById('loading-overlay');
@@ -1711,6 +2439,8 @@ async function init() {
   updateMissingText();
   updateDubStats();
   renderDubs();
+  buildLEGrid();
+  updateLEStats();
   setFilter('all');
 
   // Hide overlay
