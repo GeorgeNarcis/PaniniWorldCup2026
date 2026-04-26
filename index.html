@@ -1500,32 +1500,62 @@ body {
         <div class="dub-stat-pill">Total exemplare: <span id="dub-total">0</span></div>
       </div>
     </div>
-    <div class="dub-add-row">
-      <input type="text" class="dub-input" id="dub-input" placeholder="Nr. cartonaș…">
-      <div class="dub-qty-wrap">
-        <button class="dub-qty-btn" onclick="dubQtyChange(-1)">−</button>
-        <div class="dub-qty-val" id="dub-qty">1</div>
-        <button class="dub-qty-btn" onclick="dubQtyChange(1)">+</button>
-      </div>
-      <button class="btn btn-gold" onclick="addDuplicate()" style="padding:0.6rem 1.1rem;font-size:0.78rem;">＋ Adaugă dublură</button>
-      <span class="dub-hint">Selectează cartonașul și cantitatea de dubluri de adăugat</span>
+
+    <!-- Tabs: Numbered / LE -->
+    <div style="display:flex;gap:2px;padding:0.75rem 1.25rem 0;border-bottom:1px solid var(--border);background:var(--surface2);">
+      <button class="view-btn active" id="dub-tab-num" onclick="setDubTab('num')" style="font-size:0.72rem;padding:4px 14px;border-radius:7px 7px 0 0;">Numerotate</button>
+      <button class="view-btn" id="dub-tab-le" onclick="setDubTab('le')" style="font-size:0.72rem;padding:4px 14px;border-radius:7px 7px 0 0;">Limited Edition</button>
     </div>
-    <div class="dub-list" id="dub-list">
-      <div class="dub-empty">
-        <div class="dub-empty-icon">🃏</div>
-        <div>Nicio dublură înregistrată încă</div>
-      </div>
-    </div>
-    <div class="dub-compact-wrap" id="dub-compact-wrap">
-      <div class="dub-compact-header">
-        <div class="dub-compact-title">
-          <span class="dub-compact-dot"></span>
-          Listă compactă dubluri
+
+    <!-- Numbered dubs panel -->
+    <div id="dub-panel-num">
+      <div class="dub-add-row">
+        <input type="text" class="dub-input" id="dub-input" placeholder="Nr. cartonaș…">
+        <div class="dub-qty-wrap">
+          <button class="dub-qty-btn" onclick="dubQtyChange(-1)">−</button>
+          <div class="dub-qty-val" id="dub-qty">1</div>
+          <button class="dub-qty-btn" onclick="dubQtyChange(1)">+</button>
         </div>
-        <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyDubs()">📋 Copiază</button>
+        <button class="btn btn-gold" onclick="addDuplicate()" style="padding:0.6rem 1.1rem;font-size:0.78rem;">＋ Adaugă dublură</button>
+        <span class="dub-hint">Selectează cartonașul și cantitatea</span>
       </div>
-      <div class="dub-compact-text" id="dub-compact-text">(nicio dublură)</div>
+      <div class="dub-list" id="dub-list">
+        <div class="dub-empty"><div class="dub-empty-icon">🃏</div><div>Nicio dublură înregistrată încă</div></div>
+      </div>
+      <div class="dub-compact-wrap" id="dub-compact-wrap">
+        <div class="dub-compact-header">
+          <div class="dub-compact-title"><span class="dub-compact-dot"></span>Listă compactă dubluri numerotate</div>
+          <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyDubs()">📋 Copiază</button>
+        </div>
+        <div class="dub-compact-text" id="dub-compact-text">(nicio dublură)</div>
+      </div>
     </div>
+
+    <!-- LE dubs panel -->
+    <div id="dub-panel-le" style="display:none;">
+      <div class="dub-add-row">
+        <select class="le-type-select" id="le-dub-select" style="flex:1;min-width:200px;max-width:400px;">
+          <option value="">— Selectează cartonașul LE —</option>
+        </select>
+        <div class="dub-qty-wrap">
+          <button class="dub-qty-btn" onclick="leDubQtyChange(-1)">−</button>
+          <div class="dub-qty-val" id="le-dub-qty">1</div>
+          <button class="dub-qty-btn" onclick="leDubQtyChange(1)">+</button>
+        </div>
+        <button class="btn btn-purple" onclick="addLEDuplicate()" style="padding:0.6rem 1.1rem;font-size:0.78rem;">⭐ Adaugă dublură LE</button>
+      </div>
+      <div class="dub-list" id="le-dub-list">
+        <div class="dub-empty"><div class="dub-empty-icon">⭐</div><div>Nicio dublură LE înregistrată</div></div>
+      </div>
+      <div class="dub-compact-wrap" id="le-dub-compact-wrap">
+        <div class="dub-compact-header">
+          <div class="dub-compact-title"><span class="dub-compact-dot" style="background:var(--purple);box-shadow:0 0 6px var(--purple);"></span>Listă compactă dubluri LE</div>
+          <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyLEDubs()">📋 Copiază</button>
+        </div>
+        <div class="dub-compact-text" id="le-dub-compact-text" style="color:rgba(168,85,247,0.85);">(nicio dublură)</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -1593,7 +1623,13 @@ body {
   <div class="missing-card">
     <div class="missing-header">
       <div class="missing-title">Lista lipsuri · format compact</div>
-      <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyMissing()">📋 Copiază</button>
+      <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+        <div style="display:flex;gap:2px;background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:2px;">
+          <button class="view-btn active" id="miss-tab-num" onclick="setMissTab('num')" style="font-size:0.7rem;padding:3px 10px;">Numerotate</button>
+          <button class="view-btn" id="miss-tab-le" onclick="setMissTab('le')" style="font-size:0.7rem;padding:3px 10px;">Limited Edition</button>
+        </div>
+        <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyMissing()">📋 Copiază</button>
+      </div>
     </div>
     <div class="missing-text" id="missing-text"></div>
   </div>
@@ -1716,6 +1752,7 @@ async function loadFromAPI() {
       missing = parseList(INITIAL_MISSING);
     }
     dubs = data.dubs || {};
+    leDubs = data.leDubs || {};
     leOwned = new Set(data.leOwned || []);
     return true;
   } catch (err) {
@@ -1725,6 +1762,8 @@ async function loadFromAPI() {
       missing = ls ? new Set(JSON.parse(ls)) : parseList(INITIAL_MISSING);
       const lsDubs = localStorage.getItem('panini-wc2026-dubs-v1');
       dubs = lsDubs ? JSON.parse(lsDubs) : {};
+      const lsLeDubs = localStorage.getItem('panini-wc2026-ledubs-v1');
+      leDubs = lsLeDubs ? JSON.parse(lsLeDubs) : {};
       const lsLE = localStorage.getItem('panini-wc2026-le-v1');
       leOwned = lsLE ? new Set(JSON.parse(lsLE)) : new Set();
     } catch(e) {
@@ -1745,7 +1784,7 @@ async function syncToAPI() {
   if (isSaving) { scheduleSync(); return; }
   isSaving = true;
   try {
-    const payload = { missing: [...missing], dubs, leOwned: [...leOwned] };
+    const payload = { missing: [...missing], dubs, leDubs, leOwned: [...leOwned] };
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -1754,6 +1793,7 @@ async function syncToAPI() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     localStorage.setItem('panini-wc2026-v3', JSON.stringify([...missing]));
     localStorage.setItem('panini-wc2026-dubs-v1', JSON.stringify(dubs));
+    localStorage.setItem('panini-wc2026-ledubs-v1', JSON.stringify(leDubs));
     localStorage.setItem('panini-wc2026-le-v1', JSON.stringify([...leOwned]));
     setSyncStatus('saved', 'Salvat ✓');
   } catch(err) {
@@ -1876,8 +1916,33 @@ function updateStats() {
   document.getElementById('prog-val').textContent = have + ' / 630';
 }
 
+let missTab = 'num';
+
+function setMissTab(tab) {
+  missTab = tab;
+  document.getElementById('miss-tab-num').classList.toggle('active', tab === 'num');
+  document.getElementById('miss-tab-le').classList.toggle('active', tab === 'le');
+  updateMissingText();
+}
+
 function updateMissingText() {
-  document.getElementById('missing-text').textContent = toCompact(missing);
+  let text;
+  if (missTab === 'num') {
+    text = toCompact(missing);
+  } else {
+    // LE missing = cards in catalog not in leOwned
+    const leMissing = LE_CATALOG.filter(c => !leOwned.has(c.code));
+    text = leMissing.length === 0
+      ? '(toate LE sunt în colecție! 🏆)'
+      : leMissing.map(c => c.code).join(', ');
+  }
+  document.getElementById('missing-text').textContent = text;
+}
+
+function copyMissing() {
+  navigator.clipboard.writeText(document.getElementById('missing-text').textContent)
+    .then(() => showToast('📋', 'Lista copiată în clipboard!', 'success'))
+    .catch(() => showToast('ℹ', 'Selectează manual textul', 'error'));
 }
 
 function setFilter(f) {
@@ -1977,14 +2042,118 @@ function showToast(icon, msg, type) {
   toastTimeout = setTimeout(() => { t.className = ''; }, 3000);
 }
 
-function copyMissing() {
-  navigator.clipboard.writeText(document.getElementById('missing-text').textContent)
-    .then(() => showToast('📋', 'Lista copiată în clipboard!', 'success'))
-    .catch(() => showToast('ℹ', 'Selectează manual textul roșu', 'error'));
+// ===== DUB TAB =====
+let dubTabActive = 'num';
+
+function setDubTab(tab) {
+  dubTabActive = tab;
+  document.getElementById('dub-tab-num').classList.toggle('active', tab === 'num');
+  document.getElementById('dub-tab-le').classList.toggle('active', tab === 'le');
+  document.getElementById('dub-panel-num').style.display = tab === 'num' ? '' : 'none';
+  document.getElementById('dub-panel-le').style.display = tab === 'le' ? '' : 'none';
+}
+
+// ===== LE DUBS =====
+let leDubs = {}; // { code: count }
+let leDubQty = 1;
+
+function leDubQtyChange(delta) {
+  leDubQty = Math.max(1, Math.min(99, leDubQty + delta));
+  document.getElementById('le-dub-qty').textContent = leDubQty;
+}
+
+function populateLEDubSelect() {
+  const sel = document.getElementById('le-dub-select');
+  sel.innerHTML = '<option value="">— Selectează cartonașul LE —</option>';
+  // Only show cards that are owned (leOwned)
+  LE_CATALOG.forEach(c => {
+    if (!leOwned.has(c.code)) return;
+    const opt = document.createElement('option');
+    opt.value = c.code;
+    opt.textContent = c.code + ' · ' + c.name + ' (' + LE_TYPE_LABELS[c.type] + ')';
+    sel.appendChild(opt);
+  });
+}
+
+function addLEDuplicate() {
+  const code = document.getElementById('le-dub-select').value;
+  if (!code) { showToast('!', 'Selectează un cartonaș LE', 'error'); return; }
+  leDubs[code] = (leDubs[code] || 0) + leDubQty;
+  scheduleSync();
+  renderLEDubs();
+  updateDubStats();
+  showToast('⭐', leDubQty + 'x dublură ' + code + ' adăugată', 'success');
+  document.getElementById('le-dub-select').value = '';
+  leDubQty = 1;
+  document.getElementById('le-dub-qty').textContent = '1';
+}
+
+function changeLEDubCount(code, delta) {
+  const next = (leDubs[code] || 0) + delta;
+  if (next <= 0) { removeLEDuplicate(code); return; }
+  leDubs[code] = next;
+  scheduleSync();
+  renderLEDubs();
+  updateDubStats();
+}
+
+function removeLEDuplicate(code) {
+  delete leDubs[code];
+  scheduleSync();
+  renderLEDubs();
+  updateDubStats();
+  showToast('✓', 'Dublurile pentru ' + code + ' șterse', 'success');
+}
+
+function renderLEDubs() {
+  const list = document.getElementById('le-dub-list');
+  const keys = Object.keys(leDubs).filter(c => leDubs[c] > 0).sort();
+  if (keys.length === 0) {
+    list.innerHTML = '<div class="dub-empty"><div class="dub-empty-icon">⭐</div><div>Nicio dublură LE înregistrată</div></div>';
+    updateLEDubCompact();
+    return;
+  }
+  list.innerHTML = '';
+  keys.forEach(code => {
+    const count = leDubs[code];
+    const card = LE_CATALOG.find(c => c.code === code);
+    const row = document.createElement('div');
+    row.className = 'dub-row';
+    row.innerHTML = `
+      <div class="dub-row-num" style="font-size:1rem;width:auto;min-width:60px;">${code}</div>
+      <div class="dub-row-info">
+        <div class="dub-row-name">${card ? card.name : code}</div>
+        <div class="dub-row-type">${card ? card.nation + ' · ' + LE_TYPE_LABELS[card.type] : ''}</div>
+      </div>
+      <div class="dub-counter">
+        <button class="dub-cnt-btn minus" onclick="changeLEDubCount('${code}', -1)">−</button>
+        <div class="dub-cnt-num">${count}</div>
+        <div class="dub-cnt-label">buc.</div>
+        <button class="dub-cnt-btn plus" onclick="changeLEDubCount('${code}', 1)">+</button>
+      </div>
+      <button class="dub-delete-btn" onclick="removeLEDuplicate('${code}')" title="Șterge">✕</button>
+    `;
+    list.appendChild(row);
+  });
+  updateLEDubCompact();
+}
+
+function updateLEDubCompact() {
+  const keys = Object.keys(leDubs).filter(c => leDubs[c] > 0).sort();
+  const text = keys.length === 0 ? '(nicio dublură)' : keys.map(c => leDubs[c] > 1 ? c + '(' + leDubs[c] + ')' : c).join(',');
+  document.getElementById('le-dub-compact-text').textContent = text;
+  document.getElementById('le-dub-compact-wrap').classList.toggle('visible', keys.length > 0);
+}
+
+function copyLEDubs() {
+  navigator.clipboard.writeText(document.getElementById('le-dub-compact-text').textContent)
+    .then(() => showToast('📋', 'Lista dublurilor LE copiată!', 'success'))
+    .catch(() => showToast('ℹ', 'Selectează manual textul', 'error'));
 }
 
 // ===== DUBLURI =====
 let dubs = {};
+let leDubs = {};
 let dubQty = 1;
 
 function dubQtyChange(delta) {
@@ -2088,11 +2257,14 @@ function copyDubs() {
 }
 
 function updateDubStats() {
-  const keys = Object.keys(dubs).filter(n => dubs[n] > 0);
-  const totalEx = keys.reduce((sum, n) => sum + dubs[n], 0);
-  document.getElementById('dub-unique').textContent = keys.length;
+  const numKeys = Object.keys(dubs).filter(n => dubs[n] > 0);
+  const leKeys = Object.keys(leDubs).filter(c => leDubs[c] > 0);
+  const totalUnique = numKeys.length + leKeys.length;
+  const totalEx = numKeys.reduce((s, n) => s + dubs[n], 0) + leKeys.reduce((s, c) => s + leDubs[c], 0);
+  document.getElementById('dub-unique').textContent = totalUnique;
   document.getElementById('dub-total').textContent = totalEx;
   updateDubCompact();
+  updateLEDubCompact();
 }
 
 function updateCardDubBadge(n) {
@@ -2431,6 +2603,8 @@ function toggleLE(code) {
   scheduleSync();
   updateLETile(code);
   updateLEStats();
+  updateMissingText();
+  populateLEDubSelect();
 }
 
 function updateLETile(code) {
@@ -2566,8 +2740,11 @@ async function init() {
   updateMissingText();
   updateDubStats();
   renderDubs();
+  renderLEDubs();
   buildLEGrid();
   updateLEStats();
+  updateMissingText(); // re-call after LE_CATALOG is fully available
+  populateLEDubSelect();
   setFilter('all');
 
   // Hide overlay
