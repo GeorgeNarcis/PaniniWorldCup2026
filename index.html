@@ -853,6 +853,9 @@ body {
   cursor: text;
 }
 
+.lt-nordic { background: rgba(100,200,255,0.12); color: #64c8ff; }
+.lt-giant  { background: rgba(255,159,67,0.15);  color: #ff9f43; }
+
 /* Duplicate badge on grid */
 .cbox.dup { position: relative; }
 .cbox.dup::after {
@@ -1354,7 +1357,7 @@ body {
     <div class="hero-text">
       <div class="hero-eyebrow">Panini · Adrenalyn XL™ · FIFA World Cup 2026™</div>
       <h1 class="hero-title">COLECȚIA<br><span class="hl">MEA</span></h1>
-      <p class="hero-sub">Manager personal · 630 cartonașe oficiale<br>USA · México · Canada · 11 iunie – 19 iulie 2026</p>
+      <p class="hero-sub">Manager personal · 648 cartonașe oficiale<br>USA · México · Canada · 11 iunie – 19 iulie 2026 · Nordic Edition</p>
     </div>
     <div class="hero-cards">
       <img class="hero-card-img"
@@ -1375,8 +1378,8 @@ body {
   <div class="stat-card sc-gold">
     <div class="stat-emoji">📦</div>
     <div class="stat-label">Total Colecție</div>
-    <div class="stat-num">630</div>
-    <div class="stat-sub">cartonașe oficiale</div>
+    <div class="stat-num">648</div>
+    <div class="stat-sub">648 cartonașe oficiale</div>
   </div>
   <div class="stat-card sc-green">
     <div class="stat-emoji">✅</div>
@@ -1413,7 +1416,7 @@ body {
       <span class="milestone">25%</span>
       <span class="milestone">50%</span>
       <span class="milestone">75%</span>
-      <span class="milestone">630</span>
+      <span class="milestone">648</span>
     </div>
   </div>
 </div>
@@ -1450,10 +1453,11 @@ body {
     <div class="type-pill"><div class="type-name">Master Rookie</div><div class="type-count" style="color:#ea5cff">16</div></div>
     <div class="type-pill"><div class="type-name">Golden Baller</div><div class="type-count" style="color:var(--gold)">9</div></div>
     <div class="type-pill"><div class="type-name">Special/Rare</div><div class="type-count" style="color:var(--red)">43</div></div>
+    <div class="type-pill"><div class="type-name">Scandinavian Stars</div><div class="type-count" style="color:#64c8ff">8</div></div>
+    <div class="type-pill"><div class="type-name">Nordic Rookies</div><div class="type-count" style="color:#64c8ff">7</div></div>
+    <div class="type-pill"><div class="type-name">Giant Cards</div><div class="type-count" style="color:#ff9f43">3</div></div>
   </div>
 </div>
-
-<!-- CARD SHOWCASE -->
 <div class="showcase-section">
   <div class="section-label">Preview cartonașe din colecție</div>
   <div class="showcase-grid" id="showcase-grid"></div>
@@ -1648,10 +1652,10 @@ body {
 <div id="toast"><span class="toast-icon" id="toast-icon"></span><span id="toast-msg"></span></div>
 
 <script>
-const TOTAL = 630;
+const TOTAL = 648;
 const API_URL = '/api/state';
 
-const INITIAL_MISSING = "2,4-11,13,15-17,21-23,25,27,29-35,38,45,48,49,51,53,54,58,60-65,68,70-73,76-78,82,89,91,93,95,96,99,101,104,107,109-112,115,117,118,120,122,123,127,128,132,134-136,138,140,142-143,148,150,153,155-160,166,170,172,175,177-181,183-185,190,193,194,196,197,201,205,213,215,216,218-220,222,223,225,231,232,234,236,238,241-243,248,250,251,253-255,260,263-268,270,274,276,277,282,283,286,287,290,292,296,297,300,304-306,308,310,311,315,318,319,322,325,327,329-333,339-342,345-351,353,355,357-363,367-370,372,377,382,383,387,389,393,395,396,398,400,406,408,410,417,419,420,425,430-432,434,435,439,442,445,449,452-454,456-458,461-463,467,468,470,471,473,474,477,483,485-487,489,491,492,494,496-498,502,505,507,509,513,515-519,522,524-529,532,536,537,540-549,552,553,555-557,559-562,564,566,569,571-573,577,579-584,586,588,593,595-600,602,604,606-608,615,617,619-622,624,628-630";
+const INITIAL_MISSING = "2,4-11,13,15-17,21-23,25,27,29-35,38,45,48,49,51,53,54,58,60-65,68,70-73,76-78,82,89,91,93,95,96,99,101,104,107,109-112,115,117,118,120,122,123,127,128,132,134-136,138,140,142-143,148,150,153,155-160,166,170,172,175,177-181,183-185,190,193,194,196,197,201,205,213,215,216,218-220,222,223,225,231,232,234,236,238,241-243,248,250,251,253-255,260,263-268,270,274,276,277,282,283,286,287,290,292,296,297,300,304-306,308,310,311,315,318,319,322,325,327,329-333,339-342,345-351,353,355,357-363,367-370,372,377,382,383,387,389,393,395,396,398,400,406,408,410,417,419,420,425,430-432,434,435,439,442,445,449,452-454,456-458,461-463,467,468,470,471,473,474,477,483,485-487,489,491,492,494,496-498,502,505,507,509,513,515-519,522,524-529,532,536,537,540-549,552,553,555-557,559-562,564,566,569,571-573,577,579-584,586,588,593,595-600,602,604,606-608,615,617,619-622,624,628-648";
 
 // Known card data
 const CARD_DATA = {
@@ -1664,6 +1668,25 @@ const CARD_DATA = {
   7:{name:'Erling Haaland',team:'Norway',type:'Golden Baller'},
   8:{name:'Cristiano Ronaldo',team:'Portugal',type:'Golden Baller'},
   9:{name:'Lamine Yamal',team:'Spain',type:'Golden Baller'},
+  // Nordic Edition 631-648
+  631:{name:'Sander Berge',        team:'Norway',  type:'Scandinavian Star'},
+  632:{name:'Thelo Aasgaard',      team:'Norway',  type:'Nordic Master Rookie'},
+  633:{name:'Erling Haaland',      team:'Norway',  type:'Giant'},
+  634:{name:'Martin Ødegaard',     team:'Norway',  type:'Scandinavian Star'},
+  635:{name:'Antonio Nusa',        team:'Norway',  type:'Nordic Master Rookie'},
+  636:{name:'Erling Haaland',      team:'Norway',  type:'Giant'},
+  637:{name:'Alexander Sørloth',   team:'Norway',  type:'Scandinavian Star'},
+  638:{name:'Oscar Bobb',          team:'Norway',  type:'Nordic Master Rookie'},
+  639:{name:'Erling Haaland',      team:'Norway',  type:'Giant'},
+  640:{name:'Kasper Schmeichel',   team:'Denmark', type:'Scandinavian Star'},
+  641:{name:'Andreas Christensen', team:'Denmark', type:'Scandinavian Star'},
+  642:{name:'Rasmus Højlund',      team:'Denmark', type:'Scandinavian Star'},
+  643:{name:'Patrick Dorgu',       team:'Denmark', type:'Nordic Master Rookie'},
+  644:{name:'Victor Froholdt',     team:'Denmark', type:'Nordic Master Rookie'},
+  645:{name:'Viktor Gyökeres',     team:'Sweden',  type:'Scandinavian Star'},
+  646:{name:'Alexander Isak',      team:'Sweden',  type:'Scandinavian Star'},
+  647:{name:'Lucas Bergvall',      team:'Sweden',  type:'Nordic Master Rookie'},
+  648:{name:'Roony Bardghji',      team:'Sweden',  type:'Nordic Master Rookie'},
 };
 
 // Showcase card images from collectosk
@@ -1813,11 +1836,17 @@ function getCardType(n) {
   if (n <= 504) return 'icon';
   if (n <= 546) return 'logo';
   if (n <= 604) return 'special';
-  return 'special';
+  if (n <= 630) return 'special';
+  // Nordic Edition
+  const cd = CARD_DATA[n];
+  if (!cd) return 'nordic';
+  if (cd.type === 'Giant') return 'giant';
+  if (cd.type === 'Nordic Master Rookie') return 'nordic-rookie';
+  return 'nordic-star';
 }
 
-const TYPE_LABELS = { gb:'Golden Baller', hero:'Hero', fan:'Fan Fav.', icon:'Icon', logo:'Team Logo', special:'Special' };
-const TYPE_CSS = { gb:'lt-gb', hero:'lt-hero', fan:'lt-fan', icon:'lt-icon', logo:'lt-logo', special:'lt-special' };
+const TYPE_LABELS = { gb:'Golden Baller', hero:'Hero', fan:'Fan Fav.', icon:'Icon', logo:'Team Logo', special:'Special', 'nordic-star':'Scandinavian Star', 'nordic-rookie':'Nordic Master Rookie', giant:'Giant' };
+const TYPE_CSS = { gb:'lt-gb', hero:'lt-hero', fan:'lt-fan', icon:'lt-icon', logo:'lt-logo', special:'lt-special', 'nordic-star':'lt-nordic', 'nordic-rookie':'lt-nordic', giant:'lt-giant' };
 
 function buildGrid() {
   const grid = document.getElementById('card-grid');
@@ -1826,6 +1855,24 @@ function buildGrid() {
   list.innerHTML = '';
 
   for (let i = 1; i <= TOTAL; i++) {
+    // Insert Nordic Edition divider
+    if (i === 631) {
+      const divider = document.createElement('div');
+      divider.style.cssText = 'width:100%;display:flex;align-items:center;gap:0.75rem;margin:0.75rem 0 0.4rem;';
+      divider.innerHTML = `
+        <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(100,200,255,0.4),transparent)"></div>
+        <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#64c8ff;white-space:nowrap;">Nordic Edition 631–648</span>
+        <div style="height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(100,200,255,0.4))"></div>
+      `;
+      grid.appendChild(divider);
+      // Also add to list view
+      const lDivider = document.createElement('div');
+      lDivider.style.cssText = 'padding:0.5rem 0.7rem;font-family:\'DM Mono\',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:#64c8ff;border-bottom:1px solid rgba(100,200,255,0.2);';
+      lDivider.textContent = '⬇ Nordic Edition 631–648';
+      lDivider.dataset.divider = '1';
+      list.appendChild(lDivider);
+    }
+
     const isMiss = missing.has(i);
     const cd = CARD_DATA[i];
     const type = getCardType(i);
@@ -1913,7 +1960,7 @@ function updateStats() {
   document.getElementById('s-miss-sub').textContent = (100 - pct) + '% rămase';
   document.getElementById('s-pct-sub').textContent = have + ' din 630';
   document.getElementById('prog-fill').style.width = pct + '%';
-  document.getElementById('prog-val').textContent = have + ' / 630';
+  document.getElementById('prog-val').textContent = have + ' / 648';
 }
 
 let missTab = 'num';
@@ -1973,6 +2020,8 @@ function applyFilter() {
     if (search && !String(n).startsWith(search)) vis = false;
     el.classList.toggle('filtered-out', !vis);
   });
+  // Hide list dividers if no cards visible after them
+  document.querySelectorAll('[data-divider]').forEach(d => { d.style.display = ''; });
 }
 
 function setView(v) {
