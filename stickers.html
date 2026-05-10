@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panini FIFA WC 2026 · Stickers · Colecție</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090e;
+  --surface: #0f1117;
+  --surface2: #15171f;
+  --surface3: #1c1f2a;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.12);
+  --text: #f0f2ff;
+  --muted: #6b7494;
+  --gold: #f5c842;
+  --gold-dim: rgba(245,200,66,0.12);
+  --red: #ff4d6d;
+  --red-dim: rgba(255,77,109,0.1);
+  --green: #22d3a0;
+  --green-dim: rgba(34,211,160,0.1);
+  --blue: #4f8fff;
+  --teal: #00c9b1;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; overflow-x: hidden; }
+
+/* HERO */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #08090e 0%, #0c1020 50%, #0e1530 100%);
+  border-bottom: 1px solid var(--border2);
+  padding: 2rem 2rem 1.8rem;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 100% at 90% 50%, rgba(0,201,177,0.07) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 80% at 10% 30%, rgba(245,200,66,0.05) 0%, transparent 60%);
+  background-image: linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; }
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.hero-eyebrow::before { content: ''; display: inline-block; width: 18px; height: 2px; background: var(--teal); }
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+.hero-title .hl { color: var(--teal); text-shadow: 0 0 40px rgba(0,201,177,0.35); }
+.hero-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.6rem; line-height: 1.6; }
+
+/* STATS */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.stats-section { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 1.5rem auto 0; }
+.stat-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.1rem 1.3rem;
+  position: relative; overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s; cursor: default;
+}
+.stat-card:hover { transform: translateY(-2px); }
+.stat-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 14px 14px 0 0; }
+.sc-total::after { background: var(--text); }
+.sc-have::after { background: var(--green); }
+.sc-miss::after { background: var(--red); }
+.sc-pct::after { background: var(--teal); }
+.sc-total:hover { border-color: rgba(255,255,255,0.15); }
+.sc-have:hover { border-color: rgba(34,211,160,0.25); }
+.sc-miss:hover { border-color: rgba(255,77,109,0.25); }
+.sc-pct:hover { border-color: rgba(0,201,177,0.25); }
+.stat-emoji { font-size: 1.1rem; margin-bottom: 0.4rem; opacity: 0.7; }
+.stat-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; letter-spacing: 0.02em; line-height: 1; }
+.sc-total .stat-num { color: var(--text); }
+.sc-have .stat-num { color: var(--green); }
+.sc-miss .stat-num { color: var(--red); }
+.sc-pct .stat-num { color: var(--teal); }
+.stat-sub { font-size: 0.63rem; color: var(--muted); margin-top: 0.2rem; font-family: 'DM Mono', monospace; }
+
+/* PROGRESS */
+.progress-section { margin: 1.2rem auto 0; }
+.progress-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem 1.4rem; }
+.progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem; }
+.progress-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.progress-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; color: var(--teal); letter-spacing: 0.05em; }
+.progress-track { height: 6px; background: var(--surface3); border-radius: 99px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); border-radius: 99px; transition: width 0.7s cubic-bezier(0.4,0,0.2,1); }
+.milestones { display: flex; justify-content: space-between; margin-top: 0.3rem; }
+.milestone { font-family: 'DM Mono', monospace; font-size: 0.57rem; color: var(--muted); }
+
+/* ADD SECTION */
+.add-section { margin: 1.2rem auto 0; }
+.add-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.2rem 1.4rem; }
+.add-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.9rem; }
+.add-icon { width: 30px; height: 30px; background: rgba(0,201,177,0.12); border: 1px solid rgba(0,201,177,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+.add-header-text { font-size: 0.85rem; font-weight: 700; color: var(--text); }
+.add-header-sub { font-size: 0.67rem; color: var(--muted); font-family: 'DM Mono', monospace; }
+.add-row { display: flex; gap: 0.65rem; flex-wrap: wrap; align-items: stretch; }
+.add-input {
+  font-family: 'DM Mono', monospace; font-size: 0.85rem;
+  background: var(--bg); border: 1px solid var(--border2); border-radius: 9px;
+  color: var(--text); padding: 0.65rem 0.9rem; outline: none; flex: 1; min-width: 200px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.add-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,201,177,0.12); }
+.add-input::placeholder { color: var(--muted); }
+.btn {
+  font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700;
+  padding: 0.65rem 1.2rem; border-radius: 9px; border: none; cursor: pointer;
+  transition: all 0.15s; white-space: nowrap; display: inline-flex; align-items: center; gap: 0.3rem;
+}
+.btn:active { transform: scale(0.97); }
+.btn-teal { background: var(--teal); color: #06100f; }
+.btn-teal:hover { background: #00e0c6; box-shadow: 0 4px 18px rgba(0,201,177,0.3); }
+.btn-outline { background: transparent; color: var(--muted); border: 1px solid var(--border2); }
+.btn-outline:hover { color: var(--text); border-color: rgba(255,255,255,0.2); background: var(--surface2); }
+.add-hint { font-family: 'DM Mono', monospace; font-size: 0.61rem; color: var(--muted); margin-top: 0.55rem; }
+
+/* TEAM GRID SECTION */
+.grid-section { margin: 1.2rem auto 0; }
+.grid-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.grid-toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.8rem 1.2rem; border-bottom: 1px solid var(--border);
+  background: var(--surface2); flex-wrap: wrap; gap: 0.6rem;
+}
+.filter-btn {
+  font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600;
+  padding: 0.3rem 0.8rem; border-radius: 99px; border: 1px solid var(--border2);
+  background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover { color: var(--text); }
+.f-all { background: rgba(0,201,177,0.1); color: var(--teal); border-color: rgba(0,201,177,0.3); }
+.f-have { background: var(--green-dim); color: var(--green); border-color: rgba(34,211,160,0.3); }
+.f-miss { background: var(--red-dim); color: var(--red); border-color: rgba(255,77,109,0.3); }
+.search-wrap { position: relative; }
+.search-input {
+  font-family: 'DM Mono', monospace; font-size: 0.72rem;
+  background: var(--bg); border: 1px solid var(--border2); border-radius: 8px;
+  color: var(--text); padding: 0.36rem 0.7rem 0.36rem 1.7rem; outline: none;
+  width: 130px; transition: border-color 0.2s, width 0.2s;
+}
+.search-input:focus { border-color: var(--teal); width: 190px; }
+.search-input::placeholder { color: var(--muted); }
+.search-icon { position: absolute; left: 0.55rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 11px; pointer-events: none; }
+.legend { display: flex; gap: 0.7rem; align-items: center; }
+.leg-item { display: flex; align-items: center; gap: 4px; font-size: 0.62rem; color: var(--muted); }
+.leg-dot { width: 9px; height: 9px; border-radius: 3px; }
+.leg-have { background: rgba(34,211,160,0.3); border: 1px solid rgba(34,211,160,0.5); }
+.leg-miss { background: rgba(255,77,109,0.2); border: 1px solid rgba(255,77,109,0.4); }
+.grid-inner { padding: 1.2rem; }
+
+/* TEAM GROUPS */
+.team-group { margin-bottom: 1.5rem; }
+.team-group:last-child { margin-bottom: 0; }
+.team-group-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 0.55rem; padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+.team-group-name { font-size: 0.72rem; font-weight: 700; color: var(--text); }
+.team-group-progress {
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.team-prog-bar { width: 60px; height: 4px; background: var(--surface3); border-radius: 99px; overflow: hidden; }
+.team-prog-fill { height: 100%; border-radius: 99px; transition: width 0.4s ease; }
+.team-prog-count { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); }
+.sticker-grid { display: flex; flex-wrap: wrap; gap: 3px; }
+.sbox {
+  min-width: 36px; height: 28px; padding: 0 5px;
+  border-radius: 5px; display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace; font-size: 6.5px; font-weight: 600;
+  cursor: pointer; transition: transform 0.12s, box-shadow 0.15s;
+  border: 1px solid transparent; user-select: none; white-space: nowrap;
+}
+.sbox:hover { transform: scale(1.25); z-index: 10; }
+.sbox:active { transform: scale(1.1); }
+.sbox.have { background: rgba(34,211,160,0.12); border-color: rgba(34,211,160,0.28); color: var(--green); }
+.sbox.have:hover { background: rgba(34,211,160,0.22); border-color: rgba(34,211,160,0.55); box-shadow: 0 0 10px rgba(34,211,160,0.2); }
+.sbox.miss { background: rgba(255,77,109,0.08); border-color: rgba(255,77,109,0.2); color: var(--red); }
+.sbox.miss:hover { background: rgba(255,77,109,0.18); border-color: rgba(255,77,109,0.5); box-shadow: 0 0 10px rgba(255,77,109,0.15); }
+.sbox.foil.have { background: rgba(245,200,66,0.12); border-color: rgba(245,200,66,0.35); color: var(--gold); }
+.sbox.foil.miss { background: rgba(245,200,66,0.05); border-color: rgba(245,200,66,0.15); color: rgba(245,200,66,0.5); }
+.sbox.foil.have:hover { background: rgba(245,200,66,0.22); border-color: rgba(245,200,66,0.6); box-shadow: 0 0 10px rgba(245,200,66,0.2); }
+.sbox.hidden { display: none; }
+.team-group.all-hidden { display: none; }
+
+/* MISSING SECTION */
+.missing-section { margin: 1.2rem auto 0; padding-bottom: 3rem; }
+.missing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.missing-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.8rem 1.2rem; background: var(--surface2);
+  border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 0.5rem;
+}
+.missing-title {
+  font-size: 0.77rem; font-weight: 700; color: var(--text);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.missing-title::before { content: ''; display: block; width: 7px; height: 7px; background: var(--red); border-radius: 50%; box-shadow: 0 0 6px var(--red); }
+.missing-text {
+  font-family: 'DM Mono', monospace; font-size: 0.7rem;
+  color: rgba(255,77,109,0.8); line-height: 2; word-break: break-all;
+  padding: 1.1rem 1.3rem; user-select: all; cursor: text;
+}
+
+/* DUB SECTION */
+.dub-section { margin: 1.2rem auto 0; }
+.dub-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.dub-header { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1.2rem; background: var(--surface2); border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 0.5rem; }
+.dub-title { font-size: 0.78rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+.dub-title::before { content: ''; display: block; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 6px var(--gold); }
+.dub-stat-pill { font-family: 'DM Mono', monospace; font-size: 0.63rem; color: var(--muted); background: var(--surface3); border: 1px solid var(--border2); border-radius: 99px; padding: 0.2rem 0.7rem; }
+.dub-stat-pill span { color: var(--gold); font-weight: 500; }
+.dub-add-row { display: flex; gap: 0.6rem; padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; align-items: center; background: var(--bg); }
+.dub-input { font-family: 'DM Mono', monospace; font-size: 0.82rem; background: var(--surface2); border: 1px solid var(--border2); border-radius: 8px; color: var(--text); padding: 0.55rem 0.8rem; outline: none; width: 150px; transition: border-color 0.2s; }
+.dub-input:focus { border-color: var(--teal); }
+.dub-input::placeholder { color: var(--muted); }
+.dub-qty-wrap { display: flex; align-items: center; border: 1px solid var(--border2); border-radius: 8px; overflow: hidden; background: var(--surface2); }
+.dub-qty-btn { width: 30px; height: 34px; background: transparent; border: none; color: var(--muted); font-size: 17px; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
+.dub-qty-btn:hover { background: var(--surface3); color: var(--teal); }
+.dub-qty-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; color: var(--teal); width: 30px; text-align: center; user-select: none; }
+.dub-list { padding: 0.5rem 1.2rem 1.1rem; display: flex; flex-direction: column; gap: 4px; max-height: 400px; overflow-y: auto; }
+.dub-list::-webkit-scrollbar { width: 4px; }
+.dub-list::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+.dub-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0.65rem; border-radius: 8px; border: 1px solid var(--border); background: var(--surface2); transition: border-color 0.12s; }
+.dub-row:hover { border-color: var(--border2); }
+.dub-row-code { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: var(--teal); letter-spacing: 0.04em; width: 65px; flex-shrink: 0; }
+.dub-row-info { flex: 1; min-width: 0; }
+.dub-row-name { font-size: 0.75rem; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dub-row-sub { font-size: 0.6rem; color: var(--muted); font-family: 'DM Mono', monospace; }
+.dub-counter { display: flex; align-items: center; gap: 3px; flex-shrink: 0; }
+.dub-cnt-btn { width: 24px; height: 24px; border-radius: 5px; border: 1px solid var(--border2); background: var(--surface3); color: var(--text); font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.12s; }
+.dub-cnt-btn.minus:hover { border-color: rgba(255,77,109,0.4); color: var(--red); }
+.dub-cnt-btn.plus:hover { border-color: rgba(34,211,160,0.4); color: var(--green); }
+.dub-cnt-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--text); min-width: 26px; text-align: center; letter-spacing: 0.04em; }
+.dub-cnt-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--muted); margin-left: 2px; }
+.dub-delete-btn { width: 26px; height: 26px; border-radius: 6px; border: 1px solid rgba(255,77,109,0.2); background: var(--red-dim); color: var(--red); font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.12s; margin-left: 4px; }
+.dub-delete-btn:hover { background: rgba(255,77,109,0.2); border-color: rgba(255,77,109,0.4); }
+.dub-empty { text-align: center; padding: 2rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); }
+.dub-compact-wrap { border-top: 1px solid var(--border); display: none; }
+.dub-compact-wrap.visible { display: block; }
+.dub-compact-header { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.2rem; background: var(--surface2); flex-wrap: wrap; gap: 0.4rem; }
+.dub-compact-title { font-size: 0.73rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.4rem; }
+.dub-compact-text { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(245,200,66,0.8); line-height: 2; word-break: break-all; padding: 1rem 1.3rem; user-select: all; cursor: text; }
+
+/* TOOLTIP */
+#ctip { position: fixed; background: var(--surface2); border: 1px solid var(--border2); border-radius: 10px; padding: 7px 13px; font-size: 0.7rem; pointer-events: none; z-index: 9999; display: none; white-space: nowrap; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
+
+/* SYNC */
+#sync-bar { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; pointer-events: none; }
+#sync-bar.syncing { background: linear-gradient(90deg, transparent, var(--teal), transparent); animation: syncSlide 1.2s linear infinite; }
+#sync-bar.error { background: var(--red); }
+@keyframes syncSlide { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+#sync-status { position: fixed; bottom: 5.5rem; right: 2rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; z-index: 9998; opacity: 0; transition: opacity 0.4s; pointer-events: none; }
+#sync-status.visible { opacity: 1; }
+#sync-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+#sync-status.syncing #sync-dot { background: var(--teal); animation: pulse 1s infinite; }
+#sync-status.saved #sync-dot { background: var(--green); }
+#sync-status.error #sync-dot { background: var(--red); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* LOADING */
+#loading-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; transition: opacity 0.5s; }
+#loading-overlay.hidden { opacity: 0; pointer-events: none; }
+.loading-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--teal); letter-spacing: 0.05em; text-shadow: 0 0 30px rgba(0,201,177,0.4); }
+.loading-spinner { width: 28px; height: 28px; border: 2px solid var(--border2); border-top-color: var(--teal); border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; }
+
+/* TOAST */
+#toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--surface2); border: 1px solid var(--border2); border-radius: 11px; padding: 0.75rem 1.1rem; font-size: 0.77rem; color: var(--text); transform: translateY(80px); opacity: 0; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); z-index: 10000; max-width: 320px; box-shadow: 0 8px 36px rgba(0,0,0,0.6); display: flex; align-items: center; gap: 0.6rem; }
+.toast-icon { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+#toast.show { transform: translateY(0); opacity: 1; }
+#toast.t-success .toast-icon { background: var(--green-dim); color: var(--green); }
+#toast.t-success { border-color: rgba(34,211,160,0.3); }
+#toast.t-error .toast-icon { background: var(--red-dim); color: var(--red); }
+#toast.t-error { border-color: rgba(255,77,109,0.3); }
+
+@media (max-width: 900px) { .stats-section { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 600px) {
+  .hero { padding: 1.4rem 1rem 1.2rem; }
+  .container, .stats-section, .progress-section, .add-section, .grid-section, .missing-section, .dub-section { padding-left: 1rem; padding-right: 1rem; }
+  .stats-section { grid-template-columns: 1fr 1fr; }
+  .stat-num { font-size: 2.1rem; }
+}
+</style>
+</head>
+<body>
+<div id="sync-bar"></div>
+<div id="sync-status"><div id="sync-dot"></div><span id="sync-text">Sincronizat</span></div>
+<div id="loading-overlay">
+  <div class="loading-logo">🏆 PANINI 2026</div>
+  <div class="loading-spinner"></div>
+  <div class="loading-text" id="loading-text">Se încarcă colecția…</div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <a href="/" style="color:var(--muted);text-decoration:none;font-size:0.6rem;letter-spacing:0.1em;display:flex;align-items:center;gap:0.3rem;margin-right:0.75rem;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">← HUB</a>
+      Panini · Sticker Collection · FIFA World Cup 2026™
+    </div>
+    <h1 class="hero-title">ALBUM<br><span class="hl">STICKERE</span></h1>
+    <p class="hero-sub">Manager personal · 980 stickere oficiale · 48 echipe<br>USA · México · Canada · 11 iunie – 19 iulie 2026</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="stats-section">
+    <div class="stat-card sc-total"><div class="stat-emoji">📚</div><div class="stat-label">Total Album</div><div class="stat-num">980</div><div class="stat-sub">stickere oficiale</div></div>
+    <div class="stat-card sc-have"><div class="stat-emoji">✅</div><div class="stat-label">Dețin</div><div class="stat-num" id="s-have">0</div><div class="stat-sub" id="s-have-sub">—</div></div>
+    <div class="stat-card sc-miss"><div class="stat-emoji">❌</div><div class="stat-label">Lipsesc</div><div class="stat-num" id="s-miss">0</div><div class="stat-sub" id="s-miss-sub">—</div></div>
+    <div class="stat-card sc-pct"><div class="stat-emoji">🎯</div><div class="stat-label">Completare</div><div class="stat-num" id="s-pct">0%</div><div class="stat-sub" id="s-pct-sub">—</div></div>
+  </div>
+
+  <div class="progress-section">
+    <div class="progress-card">
+      <div class="progress-header">
+        <span class="progress-label">Progres album</span>
+        <span class="progress-val" id="prog-val">0 / 980</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+      <div class="milestones"><span class="milestone">0</span><span class="milestone">25%</span><span class="milestone">50%</span><span class="milestone">75%</span><span class="milestone">980</span></div>
+    </div>
+  </div>
+
+  <div class="add-section">
+    <div class="add-card">
+      <div class="add-header">
+        <div class="add-icon">+</div>
+        <div>
+          <div class="add-header-text">Adaugă stickere în album</div>
+          <div class="add-header-sub">introdu coduri separate prin virgulă · ex: ARG17, ENG18, FWC1</div>
+        </div>
+      </div>
+      <div class="add-row">
+        <input type="text" class="add-input" id="add-input" placeholder="ARG17, ENG18, FWC1 …">
+        <button class="btn btn-teal" onclick="addStickers()">＋ Adaugă</button>
+        <button class="btn btn-outline" onclick="document.getElementById('add-input').value=''">✕ Șterge</button>
+      </div>
+      <div class="add-hint">💡 Fiecare sticker are un cod unic (ex: ARG17 = Messi, ENG18 = Kane). Click pe orice sticker din grilă pentru toggle rapid.</div>
+    </div>
+  </div>
+
+  <div class="grid-section">
+    <div class="grid-card">
+      <div class="grid-toolbar">
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+          <button class="filter-btn f-all" id="f-all" onclick="setFilter('all')">Toate</button>
+          <button class="filter-btn" id="f-have" onclick="setFilter('have')">✓ Dețin</button>
+          <button class="filter-btn" id="f-miss" onclick="setFilter('miss')">✗ Lipsesc</button>
+          <button class="filter-btn" id="f-foil" onclick="setFilter('foil')">⭐ Foil</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="search-input" placeholder="Echipă sau cod…" oninput="applyFilter()">
+          </div>
+          <div class="legend">
+            <span class="leg-item"><span class="leg-dot leg-have"></span>Dețin</span>
+            <span class="leg-item"><span class="leg-dot leg-miss"></span>Lipsește</span>
+          </div>
+        </div>
+      </div>
+      <div class="grid-inner" id="grid-inner"></div>
+    </div>
+  </div>
+
+  <div class="dub-section">
+    <div class="dub-card">
+      <div class="dub-header">
+        <div class="dub-title">Dubluri</div>
+        <div style="display:flex;gap:0.5rem;">
+          <div class="dub-stat-pill">Unice: <span id="dub-unique">0</span></div>
+          <div class="dub-stat-pill">Total: <span id="dub-total">0</span></div>
+        </div>
+      </div>
+      <div class="dub-add-row">
+        <input type="text" class="dub-input" id="dub-input" placeholder="Cod sticker…">
+        <div class="dub-qty-wrap">
+          <button class="dub-qty-btn" onclick="dubQtyChange(-1)">−</button>
+          <div class="dub-qty-val" id="dub-qty">1</div>
+          <button class="dub-qty-btn" onclick="dubQtyChange(1)">+</button>
+        </div>
+        <button class="btn btn-teal" onclick="addDuplicate()" style="padding:0.58rem 1rem;font-size:0.76rem;">＋ Adaugă dublură</button>
+        <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--muted);">ex: ARG17, ENG18</span>
+      </div>
+      <div class="dub-list" id="dub-list"><div class="dub-empty">🃏 Nicio dublură înregistrată</div></div>
+      <div class="dub-compact-wrap" id="dub-compact-wrap">
+        <div class="dub-compact-header">
+          <div class="dub-compact-title"><span style="width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px var(--gold);display:inline-block;"></span>Listă compactă dubluri</div>
+          <button class="btn btn-outline" style="font-size:0.68rem;padding:0.35rem 0.85rem;" onclick="copyDubs()">📋 Copiază</button>
+        </div>
+        <div class="dub-compact-text" id="dub-compact-text">(nicio dublură)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="missing-section">
+    <div class="missing-card">
+      <div class="missing-header">
+        <div class="missing-title">Lista lipsuri · format compact</div>
+        <button class="btn btn-outline" style="font-size:0.68rem;padding:0.35rem 0.85rem;" onclick="copyMissing()">📋 Copiază</button>
+      </div>
+      <div class="missing-text" id="missing-text"></div>
+    </div>
+  </div>
+</div>
+
+<div id="ctip"></div>
+<div id="toast"><span class="toast-icon" id="toast-icon"></span><span id="toast-msg"></span></div>
+
+<script>
+const API_URL = '/api/state?col=stickers-wc2026';
+const TOTAL = 980;
+
+// Full sticker catalog — code, name, team, foil flag
+const STICKERS = [
+  // FWC Section
+  {code:'00',    name:'Panini Logo',            team:'FWC', foil:true},
+  {code:'FWC1',  name:'Official Emblem',         team:'FWC', foil:true},
+  {code:'FWC2',  name:'Official Emblem',         team:'FWC', foil:true},
+  {code:'FWC3',  name:'Official Mascots',        team:'FWC', foil:true},
+  {code:'FWC4',  name:'Official Slogan',         team:'FWC', foil:true},
+  {code:'FWC5',  name:'Official Ball',           team:'FWC', foil:true},
+  {code:'FWC6',  name:'Canada - Host Cities',    team:'FWC', foil:true},
+  {code:'FWC7',  name:'Mexico - Host Cities',    team:'FWC', foil:true},
+  {code:'FWC8',  name:'USA - Host Cities',       team:'FWC', foil:true},
+  {code:'FWC9',  name:'Italy 1934',              team:'FWC', foil:true},
+  {code:'FWC10', name:'Uruguay 1950',            team:'FWC', foil:true},
+  {code:'FWC11', name:'West Germany 1954',       team:'FWC', foil:true},
+  {code:'FWC12', name:'Brazil 1962',             team:'FWC', foil:true},
+  {code:'FWC13', name:'West Germany 1974',       team:'FWC', foil:true},
+  {code:'FWC14', name:'Argentina 1986',          team:'FWC', foil:true},
+  {code:'FWC15', name:'Brazil 1994',             team:'FWC', foil:true},
+  {code:'FWC16', name:'Brazil 2002',             team:'FWC', foil:true},
+  {code:'FWC17', name:'Italy 2006',              team:'FWC', foil:true},
+  {code:'FWC18', name:'Germany 2014',            team:'FWC', foil:true},
+  {code:'FWC19', name:'Argentina 2022',          team:'FWC', foil:true},
+  // Mexico
+  {code:'MEX1',  name:'Team Logo',          team:'Mexico', foil:true},
+  {code:'MEX2',  name:'Luis Malagón',       team:'Mexico', foil:false},
+  {code:'MEX3',  name:'Johan Vasquez',      team:'Mexico', foil:false},
+  {code:'MEX4',  name:'Jorge Sánchez',      team:'Mexico', foil:false},
+  {code:'MEX5',  name:'Cesar Montes',       team:'Mexico', foil:false},
+  {code:'MEX6',  name:'Jesus Gallardo',     team:'Mexico', foil:false},
+  {code:'MEX7',  name:'Israel Reyes',       team:'Mexico', foil:false},
+  {code:'MEX8',  name:'Diego Lainez',       team:'Mexico', foil:false},
+  {code:'MEX9',  name:'Carlos Rodriguez',   team:'Mexico', foil:false},
+  {code:'MEX10', name:'Edson Alvarez',      team:'Mexico', foil:false},
+  {code:'MEX11', name:'Orbelin Pineda',     team:'Mexico', foil:false},
+  {code:'MEX12', name:'Marcel Ruiz',        team:'Mexico', foil:false},
+  {code:'MEX13', name:'Team Photo',         team:'Mexico', foil:false},
+  {code:'MEX14', name:'Érick Sánchez',      team:'Mexico', foil:false},
+  {code:'MEX15', name:'Hirving Lozano',     team:'Mexico', foil:false},
+  {code:'MEX16', name:'Santiago Giménez',   team:'Mexico', foil:false},
+  {code:'MEX17', name:'Raúl Jiménez',       team:'Mexico', foil:false},
+  {code:'MEX18', name:'Alexis Vega',        team:'Mexico', foil:false},
+  {code:'MEX19', name:'Roberto Alvarado',   team:'Mexico', foil:false},
+  {code:'MEX20', name:'Cesar Huerta',       team:'Mexico', foil:false},
+  // South Africa
+  {code:'RSA1',  name:'Team Logo',          team:'South Africa', foil:true},
+  {code:'RSA2',  name:'Ronwen Williams',    team:'South Africa', foil:false},
+  {code:'RSA3',  name:'Sipho Chaine',       team:'South Africa', foil:false},
+  {code:'RSA4',  name:'Aubrey Modiba',      team:'South Africa', foil:false},
+  {code:'RSA5',  name:'Samukele Kabini',    team:'South Africa', foil:false},
+  {code:'RSA6',  name:'Mbekezeli Mbokazi',  team:'South Africa', foil:false},
+  {code:'RSA7',  name:'Khulumani Ndamane',  team:'South Africa', foil:false},
+  {code:'RSA8',  name:'Siyabonga Ngezana',  team:'South Africa', foil:false},
+  {code:'RSA9',  name:'Khuliso Mudau',      team:'South Africa', foil:false},
+  {code:'RSA10', name:'Nkosinathi Sibisi',  team:'South Africa', foil:false},
+  {code:'RSA11', name:'Teboho Mokoena',     team:'South Africa', foil:false},
+  {code:'RSA12', name:'Thalente Mbatha',    team:'South Africa', foil:false},
+  {code:'RSA13', name:'Team Photo',         team:'South Africa', foil:false},
+  {code:'RSA14', name:'Bathasi Aubaas',     team:'South Africa', foil:false},
+  {code:'RSA15', name:'Yaya Sithole',       team:'South Africa', foil:false},
+  {code:'RSA16', name:'Sipho Mbule',        team:'South Africa', foil:false},
+  {code:'RSA17', name:'Lyle Foster',        team:'South Africa', foil:false},
+  {code:'RSA18', name:'Iqraam Rayners',     team:'South Africa', foil:false},
+  {code:'RSA19', name:'Mohau Nkota',        team:'South Africa', foil:false},
+  {code:'RSA20', name:'Oswin Appollis',     team:'South Africa', foil:false},
+  // South Korea
+  {code:'KOR1',  name:'Team Logo',          team:'South Korea', foil:true},
+  {code:'KOR2',  name:'Hyeon-woo Jo',       team:'South Korea', foil:false},
+  {code:'KOR3',  name:'Seung-Gyu Kim',      team:'South Korea', foil:false},
+  {code:'KOR4',  name:'Min-jae Kim',        team:'South Korea', foil:false},
+  {code:'KOR5',  name:'Yu-min Cho',         team:'South Korea', foil:false},
+  {code:'KOR6',  name:'Young-woo Seol',     team:'South Korea', foil:false},
+  {code:'KOR7',  name:'Han-beom Lee',       team:'South Korea', foil:false},
+  {code:'KOR8',  name:'Tae-seok Lee',       team:'South Korea', foil:false},
+  {code:'KOR9',  name:'Myung-jae Lee',      team:'South Korea', foil:false},
+  {code:'KOR10', name:'Jae-sung Lee',       team:'South Korea', foil:false},
+  {code:'KOR11', name:'In-beom Hwang',      team:'South Korea', foil:false},
+  {code:'KOR12', name:'Kang-in Lee',        team:'South Korea', foil:false},
+  {code:'KOR13', name:'Team Photo',         team:'South Korea', foil:false},
+  {code:'KOR14', name:'Seung-ho Paik',      team:'South Korea', foil:false},
+  {code:'KOR15', name:'Jens Castrop',       team:'South Korea', foil:false},
+  {code:'KOR16', name:'Dong-yeong Lee',     team:'South Korea', foil:false},
+  {code:'KOR17', name:'Gue-sung Cho',       team:'South Korea', foil:false},
+  {code:'KOR18', name:'Heung-min Son',      team:'South Korea', foil:false},
+  {code:'KOR19', name:'Hee-chan Hwang',     team:'South Korea', foil:false},
+  {code:'KOR20', name:'Hyeon-Gyu Oh',       team:'South Korea', foil:false},
+  // Czechia
+  {code:'CZE1',  name:'Team Logo',          team:'Czechia', foil:true},
+  {code:'CZE2',  name:'Matej Kovar',        team:'Czechia', foil:false},
+  {code:'CZE3',  name:'Jindrich Stanek',    team:'Czechia', foil:false},
+  {code:'CZE4',  name:'Ladislav Krejci',    team:'Czechia', foil:false},
+  {code:'CZE5',  name:'Vladimir Coufal',    team:'Czechia', foil:false},
+  {code:'CZE6',  name:'Jaroslav Zeleny',    team:'Czechia', foil:false},
+  {code:'CZE7',  name:'Tomas Holes',        team:'Czechia', foil:false},
+  {code:'CZE8',  name:'David Zima',         team:'Czechia', foil:false},
+  {code:'CZE9',  name:'Michal Sadilek',     team:'Czechia', foil:false},
+  {code:'CZE10', name:'Lukas Provod',       team:'Czechia', foil:false},
+  {code:'CZE11', name:'Lukas Cerv',         team:'Czechia', foil:false},
+  {code:'CZE12', name:'Tomas Soucek',       team:'Czechia', foil:false},
+  {code:'CZE13', name:'Team Photo',         team:'Czechia', foil:false},
+  {code:'CZE14', name:'Pavel Sulc',         team:'Czechia', foil:false},
+  {code:'CZE15', name:'Matej Vydra',        team:'Czechia', foil:false},
+  {code:'CZE16', name:'Vasil Kusej',        team:'Czechia', foil:false},
+  {code:'CZE17', name:'Tomas Chory',        team:'Czechia', foil:false},
+  {code:'CZE18', name:'Vaclav Cerny',       team:'Czechia', foil:false},
+  {code:'CZE19', name:'Adam Hlozek',        team:'Czechia', foil:false},
+  {code:'CZE20', name:'Patrik Schick',      team:'Czechia', foil:false},
+  // Canada
+  {code:'CAN1',  name:'Team Logo',          team:'Canada', foil:true},
+  {code:'CAN2',  name:'Dayne St.Clair',     team:'Canada', foil:false},
+  {code:'CAN3',  name:'Alphonso Davies',    team:'Canada', foil:false},
+  {code:'CAN4',  name:'Alistair Johnston',  team:'Canada', foil:false},
+  {code:'CAN5',  name:'Samuel Adekugbe',    team:'Canada', foil:false},
+  {code:'CAN6',  name:'Richie Laryea',      team:'Canada', foil:false},
+  {code:'CAN7',  name:'Derek Cornelius',    team:'Canada', foil:false},
+  {code:'CAN8',  name:'Moïse Bombito',      team:'Canada', foil:false},
+  {code:'CAN9',  name:'Kamal Miller',       team:'Canada', foil:false},
+  {code:'CAN10', name:'Stephen Eustáquio',  team:'Canada', foil:false},
+  {code:'CAN11', name:'Ismaël Koné',        team:'Canada', foil:false},
+  {code:'CAN12', name:'Jonathan Osorio',    team:'Canada', foil:false},
+  {code:'CAN13', name:'Team Photo',         team:'Canada', foil:false},
+  {code:'CAN14', name:'Jacob Shaffelburg',  team:'Canada', foil:false},
+  {code:'CAN15', name:'Mathieu Choinière',  team:'Canada', foil:false},
+  {code:'CAN16', name:'Niko Sigur',         team:'Canada', foil:false},
+  {code:'CAN17', name:'Tajon Buchanan',     team:'Canada', foil:false},
+  {code:'CAN18', name:'Liam Millar',        team:'Canada', foil:false},
+  {code:'CAN19', name:'Cyle Larin',         team:'Canada', foil:false},
+  {code:'CAN20', name:'Jonathan David',     team:'Canada', foil:false},
+  // Bosnia and Herzegovina
+  {code:'BIH1',  name:'Team Logo',              team:'Bosnia-Herzegovina', foil:true},
+  {code:'BIH2',  name:'Nikola Vasilj',           team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH3',  name:'Amer Dedic',              team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH4',  name:'Sead Kolasinac',          team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH5',  name:'Tarik Muharemovic',       team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH6',  name:'Nihad Mujakic',           team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH7',  name:'Nikola Katic',            team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH8',  name:'Amir Hadziahmetovic',     team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH9',  name:'Benjamin Tahirovic',      team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH10', name:'Armin Gigovic',           team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH11', name:'Ivan Sunjic',             team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH12', name:'Ivan Basic',              team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH13', name:'Team Photo',              team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH14', name:'Dzenis Burnic',           team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH15', name:'Esmir Bajraktarevic',     team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH16', name:'Amar Memic',              team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH17', name:'Ermedin Demirovic',       team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH18', name:'Edin Dzeko',              team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH19', name:'Samed Bazdar',            team:'Bosnia-Herzegovina', foil:false},
+  {code:'BIH20', name:'Haris Tabakovic',         team:'Bosnia-Herzegovina', foil:false},
+  // Qatar
+  {code:'QAT1',  name:'Team Logo',          team:'Qatar', foil:true},
+  {code:'QAT2',  name:'Meshaal Barsham',    team:'Qatar', foil:false},
+  {code:'QAT3',  name:'Sultan Albrake',     team:'Qatar', foil:false},
+  {code:'QAT4',  name:'Lucas Mendes',       team:'Qatar', foil:false},
+  {code:'QAT5',  name:'Homam Ahmed',        team:'Qatar', foil:false},
+  {code:'QAT6',  name:'Boualem Khoukhi',    team:'Qatar', foil:false},
+  {code:'QAT7',  name:'Pedro Miguel',       team:'Qatar', foil:false},
+  {code:'QAT8',  name:'Tarek Salman',       team:'Qatar', foil:false},
+  {code:'QAT9',  name:'Mohamed Al-Mannai',  team:'Qatar', foil:false},
+  {code:'QAT10', name:'Karim Boudiaf',      team:'Qatar', foil:false},
+  {code:'QAT11', name:'Assim Madibo',       team:'Qatar', foil:false},
+  {code:'QAT12', name:'Ahmed Fatehi',       team:'Qatar', foil:false},
+  {code:'QAT13', name:'Team Photo',         team:'Qatar', foil:false},
+  {code:'QAT14', name:'Mohammed Waad',      team:'Qatar', foil:false},
+  {code:'QAT15', name:'Abdulaziz Hatem',    team:'Qatar', foil:false},
+  {code:'QAT16', name:'Hassan Al-Haydos',   team:'Qatar', foil:false},
+  {code:'QAT17', name:'Edmilson Junior',    team:'Qatar', foil:false},
+  {code:'QAT18', name:'Akram Hassan Afif',  team:'Qatar', foil:false},
+  {code:'QAT19', name:'Ahmed Al Ganehi',    team:'Qatar', foil:false},
+  {code:'QAT20', name:'Almoez Ali',         team:'Qatar', foil:false},
+  // Switzerland
+  {code:'SUI1',  name:'Team Logo',          team:'Switzerland', foil:true},
+  {code:'SUI2',  name:'Gregor Kobel',       team:'Switzerland', foil:false},
+  {code:'SUI3',  name:'Yvon Mvogo',         team:'Switzerland', foil:false},
+  {code:'SUI4',  name:'Manuel Akanji',      team:'Switzerland', foil:false},
+  {code:'SUI5',  name:'Ricardo Rodriguez',  team:'Switzerland', foil:false},
+  {code:'SUI6',  name:'Nico Elvedi',        team:'Switzerland', foil:false},
+  {code:'SUI7',  name:'Aurèle Amenda',      team:'Switzerland', foil:false},
+  {code:'SUI8',  name:'Silvan Widmer',      team:'Switzerland', foil:false},
+  {code:'SWI9',  name:'Granit Xhaka',       team:'Switzerland', foil:false},
+  {code:'SUI10', name:'Denis Zakaria',      team:'Switzerland', foil:false},
+  {code:'SUI11', name:'Remo Freuler',       team:'Switzerland', foil:false},
+  {code:'SUI12', name:'Fabian Rieder',      team:'Switzerland', foil:false},
+  {code:'SUI13', name:'Team Photo',         team:'Switzerland', foil:false},
+  {code:'SUI14', name:'Ardon Jashari',      team:'Switzerland', foil:false},
+  {code:'SUI15', name:'Johan Manzambi',     team:'Switzerland', foil:false},
+  {code:'SUI16', name:'Michel Aebischer',   team:'Switzerland', foil:false},
+  {code:'SUI17', name:'Breel Embolo',       team:'Switzerland', foil:false},
+  {code:'SUI18', name:'Ruben Vargas',       team:'Switzerland', foil:false},
+  {code:'SUI19', name:'Dan Ndoye',          team:'Switzerland', foil:false},
+  {code:'SWI20', name:'Zeki Amdouni',       team:'Switzerland', foil:false},
+  // Brazil
+  {code:'BRA1',  name:'Team Logo',          team:'Brazil', foil:true},
+  {code:'BRA2',  name:'Alisson',            team:'Brazil', foil:false},
+  {code:'BRA3',  name:'Bento',              team:'Brazil', foil:false},
+  {code:'BRA4',  name:'Marquinhos',         team:'Brazil', foil:false},
+  {code:'BRA5',  name:'Éder Militão',       team:'Brazil', foil:false},
+  {code:'BRA6',  name:'Gabriel Magalhães',  team:'Brazil', foil:false},
+  {code:'BRA7',  name:'Danilo',             team:'Brazil', foil:false},
+  {code:'BRA8',  name:'Wesley',             team:'Brazil', foil:false},
+  {code:'BRA9',  name:'Lucas Paquetá',      team:'Brazil', foil:false},
+  {code:'BRA10', name:'Casemiro',           team:'Brazil', foil:false},
+  {code:'BRA11', name:'Bruno Guimarães',    team:'Brazil', foil:false},
+  {code:'BRA12', name:'Luiz Henrique',      team:'Brazil', foil:false},
+  {code:'BRA13', name:'Team Photo',         team:'Brazil', foil:false},
+  {code:'BRA14', name:'Vinícius Júnior',    team:'Brazil', foil:false},
+  {code:'BRA15', name:'Rodrygo',            team:'Brazil', foil:false},
+  {code:'BRA16', name:'João Pedro',         team:'Brazil', foil:false},
+  {code:'BRA17', name:'Matheus Cunha',      team:'Brazil', foil:false},
+  {code:'BRA18', name:'Gabriel Martinelli', team:'Brazil', foil:false},
+  {code:'BRA19', name:'Raphinha',           team:'Brazil', foil:false},
+  {code:'BRA20', name:'Estévão',            team:'Brazil', foil:false},
+  // Morocco
+  {code:'MAR1',  name:'Team Logo',          team:'Morocco', foil:true},
+  {code:'MAR2',  name:'Yassine Bounou',     team:'Morocco', foil:false},
+  {code:'MAR3',  name:'Munir El Kajoui',    team:'Morocco', foil:false},
+  {code:'MAR4',  name:'Achraf Hakimi',      team:'Morocco', foil:false},
+  {code:'MAR5',  name:'Noussair Mazraoui',  team:'Morocco', foil:false},
+  {code:'MAR6',  name:'Nayef Aguerd',       team:'Morocco', foil:false},
+  {code:'MAR7',  name:'Romain Saiss',       team:'Morocco', foil:false},
+  {code:'MAR8',  name:'Jawad El Yamiq',     team:'Morocco', foil:false},
+  {code:'MAR9',  name:'Adam Masina',        team:'Morocco', foil:false},
+  {code:'MAR10', name:'Sofyan Amrabat',     team:'Morocco', foil:false},
+  {code:'MAR11', name:'Azzedine Ounahi',    team:'Morocco', foil:false},
+  {code:'MAR12', name:'Eliesse Ben Seghir', team:'Morocco', foil:false},
+  {code:'MAR13', name:'Team Photo',         team:'Morocco', foil:false},
+  {code:'MAR14', name:'Bilal El Khannouss', team:'Morocco', foil:false},
+  {code:'MAR15', name:'Ismael Saibari',     team:'Morocco', foil:false},
+  {code:'MAR16', name:'Youssef En-Nesyri',  team:'Morocco', foil:false},
+  {code:'MAR17', name:'Abde Ezzalzouli',    team:'Morocco', foil:false},
+  {code:'MAR18', name:'Soufiane Rahimi',    team:'Morocco', foil:false},
+  {code:'MAR19', name:'Brahim Diaz',        team:'Morocco', foil:false},
+  {code:'MAR20', name:'Ayoub El Kaabi',     team:'Morocco', foil:false},
+  // Haiti
+  {code:'HAI1',  name:'Team Logo',              team:'Haiti', foil:true},
+  {code:'HAI2',  name:'Johny Placide',           team:'Haiti', foil:false},
+  {code:'HAI3',  name:'Carlens Arcus',           team:'Haiti', foil:false},
+  {code:'HAI4',  name:'Martin Expérience',       team:'Haiti', foil:false},
+  {code:'HAI5',  name:'Jean-Kevin Duverne',      team:'Haiti', foil:false},
+  {code:'HAI6',  name:'Ricardo Adé',             team:'Haiti', foil:false},
+  {code:'HAI7',  name:'Duke Lacroix',            team:'Haiti', foil:false},
+  {code:'HAI8',  name:'Garven Metusala',         team:'Haiti', foil:false},
+  {code:'HAI9',  name:'Hannes Delcroix',         team:'Haiti', foil:false},
+  {code:'HAI10', name:'Leverton Pierre',         team:'Haiti', foil:false},
+  {code:'HAI11', name:'Danley Jean Jacques',     team:'Haiti', foil:false},
+  {code:'HAI12', name:'Jean-Ricner Bellegarde',  team:'Haiti', foil:false},
+  {code:'HAI13', name:'Team Photo',              team:'Haiti', foil:false},
+  {code:'HAI14', name:'Christopher Attys',       team:'Haiti', foil:false},
+  {code:'HAI15', name:'Derrick Etienne Jr',      team:'Haiti', foil:false},
+  {code:'HAI16', name:'Josue Casimir',           team:'Haiti', foil:false},
+  {code:'HAI17', name:'Ruben Providence',        team:'Haiti', foil:false},
+  {code:'HAI18', name:'Duckens Nazon',           team:'Haiti', foil:false},
+  {code:'HAI19', name:'Louicius Deedson',        team:'Haiti', foil:false},
+  {code:'HAI20', name:'Frantzdy Pierrot',        team:'Haiti', foil:false},
+  // Scotland
+  {code:'SCO1',  name:'Team Logo',          team:'Scotland', foil:true},
+  {code:'SCO2',  name:'Angus Gunn',         team:'Scotland', foil:false},
+  {code:'SCO3',  name:'Jack Hendry',        team:'Scotland', foil:false},
+  {code:'SCO4',  name:'Kieran Tierney',     team:'Scotland', foil:false},
+  {code:'SCO5',  name:'Aaron Hickey',       team:'Scotland', foil:false},
+  {code:'SCO6',  name:'Andrew Robertson',   team:'Scotland', foil:false},
+  {code:'SCO7',  name:'Scott McKenna',      team:'Scotland', foil:false},
+  {code:'SCO8',  name:'John Souttar',       team:'Scotland', foil:false},
+  {code:'SCO9',  name:'Anthony Ralston',    team:'Scotland', foil:false},
+  {code:'SCO10', name:'Grant Hanley',       team:'Scotland', foil:false},
+  {code:'SCO11', name:'Scott McTominay',    team:'Scotland', foil:false},
+  {code:'SCO12', name:'Billy Gilmour',      team:'Scotland', foil:false},
+  {code:'SCO13', name:'Team Photo',         team:'Scotland', foil:false},
+  {code:'SCO14', name:'Lewis Ferguson',     team:'Scotland', foil:false},
+  {code:'SCO15', name:'Ryan Christie',      team:'Scotland', foil:false},
+  {code:'SCO16', name:'Kenny McLean',       team:'Scotland', foil:false},
+  {code:'SCO17', name:'John McGinn',        team:'Scotland', foil:false},
+  {code:'SCO18', name:'Lyndon Dykes',       team:'Scotland', foil:false},
+  {code:'SCO19', name:'Che Adams',          team:'Scotland', foil:false},
+  {code:'SCO20', name:'Ben Doak',           team:'Scotland', foil:false},
+  // USA
+  {code:'USA1',  name:'Team Logo',          team:'USA', foil:true},
+  {code:'USA2',  name:'Matt Freese',        team:'USA', foil:false},
+  {code:'USA3',  name:'Chris Richards',     team:'USA', foil:false},
+  {code:'USA4',  name:'Tim Ream',           team:'USA', foil:false},
+  {code:'USA5',  name:'Mark McKenzie',      team:'USA', foil:false},
+  {code:'USA6',  name:'Alex Freeman',       team:'USA', foil:false},
+  {code:'USA7',  name:'Antonee Robinson',   team:'USA', foil:false},
+  {code:'USA8',  name:'Tyler Adams',        team:'USA', foil:false},
+  {code:'USA9',  name:'Tanner Tessmann',    team:'USA', foil:false},
+  {code:'USA10', name:'Weston McKennie',    team:'USA', foil:false},
+  {code:'USA11', name:'Christian Roldan',   team:'USA', foil:false},
+  {code:'USA12', name:'Timothy Weah',       team:'USA', foil:false},
+  {code:'USA13', name:'Team Photo',         team:'USA', foil:false},
+  {code:'USA14', name:'Diego Luna',         team:'USA', foil:false},
+  {code:'USA15', name:'Malik Tillman',      team:'USA', foil:false},
+  {code:'USA16', name:'Christian Pulisic',  team:'USA', foil:false},
+  {code:'USA17', name:'Brenden Aaronson',   team:'USA', foil:false},
+  {code:'USA18', name:'Ricardo Pepi',       team:'USA', foil:false},
+  {code:'USA19', name:'Haji Wright',        team:'USA', foil:false},
+  {code:'USA20', name:'Folarin Balogun',    team:'USA', foil:false},
+  // Paraguay
+  {code:'PAR1',  name:'Team Logo',               team:'Paraguay', foil:true},
+  {code:'PAR2',  name:'Roberto Fernandez',        team:'Paraguay', foil:false},
+  {code:'PAR3',  name:'Orlando Gill',             team:'Paraguay', foil:false},
+  {code:'PAR4',  name:'Gustavo Gomez',            team:'Paraguay', foil:false},
+  {code:'PAR5',  name:'Fabián Balbuena',          team:'Paraguay', foil:false},
+  {code:'PAR6',  name:'Juan José Cáceres',        team:'Paraguay', foil:false},
+  {code:'PAR7',  name:'Omar Alderete',            team:'Paraguay', foil:false},
+  {code:'PAR8',  name:'Junior Alonso',            team:'Paraguay', foil:false},
+  {code:'PAR9',  name:'Mathías Villasanti',       team:'Paraguay', foil:false},
+  {code:'PAR10', name:'Diego Gomez',              team:'Paraguay', foil:false},
+  {code:'PAR11', name:'Damián Bobadilla',         team:'Paraguay', foil:false},
+  {code:'PAR12', name:'Andres Cubas',             team:'Paraguay', foil:false},
+  {code:'PAR13', name:'Team Photo',               team:'Paraguay', foil:false},
+  {code:'PAR14', name:'Matias Galarza Fonda',     team:'Paraguay', foil:false},
+  {code:'PAR15', name:'Julio Enciso',             team:'Paraguay', foil:false},
+  {code:'PAR16', name:'Alejandro Romero Gamarra', team:'Paraguay', foil:false},
+  {code:'PAR17', name:'Miguel Almirón',           team:'Paraguay', foil:false},
+  {code:'PAR18', name:'Ramon Sosa',               team:'Paraguay', foil:false},
+  {code:'PAR19', name:'Angel Romero',             team:'Paraguay', foil:false},
+  {code:'PAR20', name:'Antonio Sanabria',         team:'Paraguay', foil:false},
+  // Australia
+  {code:'AUS1',  name:'Team Logo',           team:'Australia', foil:true},
+  {code:'AUS2',  name:'Mathew Ryan',         team:'Australia', foil:false},
+  {code:'AUS3',  name:'Joe Gauci',           team:'Australia', foil:false},
+  {code:'AUS4',  name:'Harry Souttar',       team:'Australia', foil:false},
+  {code:'AUS5',  name:'Alessandro Circati',  team:'Australia', foil:false},
+  {code:'AUS6',  name:'Jordan Bos',          team:'Australia', foil:false},
+  {code:'AUS7',  name:'Aziz Behich',         team:'Australia', foil:false},
+  {code:'AUS8',  name:'Cameron Burgess',     team:'Australia', foil:false},
+  {code:'AUS9',  name:'Lewis Miller',        team:'Australia', foil:false},
+  {code:'AUS10', name:'Milos Degenek',       team:'Australia', foil:false},
+  {code:'AUS11', name:'Jackson Irvine',      team:'Australia', foil:false},
+  {code:'AUS12', name:'Riley McGree',        team:'Australia', foil:false},
+  {code:'AUS13', name:'Team Photo',          team:'Australia', foil:false},
+  {code:'AUS14', name:'Aiden O\'Neill',      team:'Australia', foil:false},
+  {code:'AUS15', name:'Connor Metcalfe',     team:'Australia', foil:false},
+  {code:'AUS16', name:'Patrick Yazbek',      team:'Australia', foil:false},
+  {code:'AUS17', name:'Craig Goodwin',       team:'Australia', foil:false},
+  {code:'AUS18', name:'Kusini Vengi',        team:'Australia', foil:false},
+  {code:'AUS19', name:'Nestory Irankunda',   team:'Australia', foil:false},
+  {code:'AUS20', name:'Mohamed Touré',       team:'Australia', foil:false},
+  // Türkiye
+  {code:'TUR1',  name:'Team Logo',            team:'Türkiye', foil:true},
+  {code:'TUR2',  name:'Ugurcan Cakir',        team:'Türkiye', foil:false},
+  {code:'TUR3',  name:'Mert Muldur',          team:'Türkiye', foil:false},
+  {code:'TUR4',  name:'Zeki Celik',           team:'Türkiye', foil:false},
+  {code:'TUR5',  name:'Abdulkerim Bardakci',  team:'Türkiye', foil:false},
+  {code:'TUR6',  name:'Caglar Soyuncu',       team:'Türkiye', foil:false},
+  {code:'TUR7',  name:'Merih Demiral',        team:'Türkiye', foil:false},
+  {code:'TUR8',  name:'Ferdi Kadioglu',       team:'Türkiye', foil:false},
+  {code:'TUR9',  name:'Kaan Ayhan',           team:'Türkiye', foil:false},
+  {code:'TUR10', name:'Ismail Yuksek',        team:'Türkiye', foil:false},
+  {code:'TUR11', name:'Hakan Calhanoglu',     team:'Türkiye', foil:false},
+  {code:'TUR12', name:'Orkun Kokcu',          team:'Türkiye', foil:false},
+  {code:'TUR13', name:'Team Photo',           team:'Türkiye', foil:false},
+  {code:'TUR14', name:'Arda Guler',           team:'Türkiye', foil:false},
+  {code:'TUR15', name:'Irfan Can Kahveci',    team:'Türkiye', foil:false},
+  {code:'TUR16', name:'Yunus Akgun',          team:'Türkiye', foil:false},
+  {code:'TUR17', name:'Can Uzun',             team:'Türkiye', foil:false},
+  {code:'TUR18', name:'Baris Alper Yilmaz',  team:'Türkiye', foil:false},
+  {code:'TUR19', name:'Kerem Akturkoglu',     team:'Türkiye', foil:false},
+  {code:'TUR20', name:'Kenan Yildiz',         team:'Türkiye', foil:false},
+  // Germany
+  {code:'GER1',  name:'Team Logo',               team:'Germany', foil:true},
+  {code:'GER2',  name:'Marc-André ter Stegen',    team:'Germany', foil:false},
+  {code:'GER3',  name:'Jonathan Tah',             team:'Germany', foil:false},
+  {code:'GER4',  name:'David Raum',               team:'Germany', foil:false},
+  {code:'GER5',  name:'Nico Schlotterbeck',        team:'Germany', foil:false},
+  {code:'GER6',  name:'Antonio Rüdiger',          team:'Germany', foil:false},
+  {code:'GER7',  name:'Waldemar Anton',           team:'Germany', foil:false},
+  {code:'GER8',  name:'Ridle Baku',               team:'Germany', foil:false},
+  {code:'GER9',  name:'Maximilian Mittelstadt',   team:'Germany', foil:false},
+  {code:'GER10', name:'Joshua Kimmich',           team:'Germany', foil:false},
+  {code:'GER11', name:'Florian Wirtz',            team:'Germany', foil:false},
+  {code:'GER12', name:'Felix Nmecha',             team:'Germany', foil:false},
+  {code:'GER13', name:'Team Photo',               team:'Germany', foil:false},
+  {code:'GER14', name:'Leon Goretzka',            team:'Germany', foil:false},
+  {code:'GER15', name:'Jamal Musiala',            team:'Germany', foil:false},
+  {code:'GER16', name:'Serge Gnabry',             team:'Germany', foil:false},
+  {code:'GER17', name:'Kai Havertz',              team:'Germany', foil:false},
+  {code:'GER18', name:'Leroy Sane',               team:'Germany', foil:false},
+  {code:'GER19', name:'Karim Adeyemi',            team:'Germany', foil:false},
+  {code:'GER20', name:'Nick Woltemade',           team:'Germany', foil:false},
+  // Curaçao
+  {code:'CUW1',  name:'Team Logo',           team:'Curaçao', foil:true},
+  {code:'CUW2',  name:'Eloy Room',           team:'Curaçao', foil:false},
+  {code:'CUW3',  name:'Armando Obispo',      team:'Curaçao', foil:false},
+  {code:'CUW4',  name:'Sherel Floranus',     team:'Curaçao', foil:false},
+  {code:'CUW5',  name:'Jurien Gaari',        team:'Curaçao', foil:false},
+  {code:'CUW6',  name:'Joshua Brenet',       team:'Curaçao', foil:false},
+  {code:'CUW7',  name:'Roshon Van Eijma',    team:'Curaçao', foil:false},
+  {code:'CUW8',  name:'Shurandy Sambo',      team:'Curaçao', foil:false},
+  {code:'CUW9',  name:'Livano Comenencia',   team:'Curaçao', foil:false},
+  {code:'CUW10', name:'Godfried Roemeratoe', team:'Curaçao', foil:false},
+  {code:'CUW11', name:'Juninho Bacuna',      team:'Curaçao', foil:false},
+  {code:'CUW12', name:'Leandro Bacuna',      team:'Curaçao', foil:false},
+  {code:'CUW13', name:'Team Photo',          team:'Curaçao', foil:false},
+  {code:'CUW14', name:'Tahith Chong',        team:'Curaçao', foil:false},
+  {code:'CUW15', name:'Kenji Gorre',         team:'Curaçao', foil:false},
+  {code:'CUW16', name:'Jearl Margaritha',    team:'Curaçao', foil:false},
+  {code:'CUW17', name:'Jurgen Locadia',      team:'Curaçao', foil:false},
+  {code:'CUW18', name:'Jeremy Antonisse',    team:'Curaçao', foil:false},
+  {code:'CUW19', name:'Gervane Kastaneer',   team:'Curaçao', foil:false},
+  {code:'CUW20', name:'Sontje Hansen',       team:'Curaçao', foil:false},
+  // Ivory Coast
+  {code:'CIV1',  name:'Team Logo',           team:'Ivory Coast', foil:true},
+  {code:'CIV2',  name:'Yahia Fofana',        team:'Ivory Coast', foil:false},
+  {code:'CIV3',  name:'Ghislain Konan',      team:'Ivory Coast', foil:false},
+  {code:'CIV4',  name:'Wilfried Singo',      team:'Ivory Coast', foil:false},
+  {code:'CIV5',  name:'Odilon Kossounou',    team:'Ivory Coast', foil:false},
+  {code:'CIV6',  name:'Evan Ndicka',         team:'Ivory Coast', foil:false},
+  {code:'CIV7',  name:'Willy Boly',          team:'Ivory Coast', foil:false},
+  {code:'CIV8',  name:'Emmanuel Agbadou',    team:'Ivory Coast', foil:false},
+  {code:'CIV9',  name:'Ousmane Diomande',    team:'Ivory Coast', foil:false},
+  {code:'CIV10', name:'Franck Kessie',       team:'Ivory Coast', foil:false},
+  {code:'CIV11', name:'Seko Fofana',         team:'Ivory Coast', foil:false},
+  {code:'CIV12', name:'Ibrahim Sangare',     team:'Ivory Coast', foil:false},
+  {code:'CIV13', name:'Team Photo',          team:'Ivory Coast', foil:false},
+  {code:'CIV14', name:'Jean-Philippe Gbamin',team:'Ivory Coast', foil:false},
+  {code:'CIV15', name:'Amad Diallo',         team:'Ivory Coast', foil:false},
+  {code:'CIV16', name:'Sébastien Haller',    team:'Ivory Coast', foil:false},
+  {code:'CIV17', name:'Simon Adingra',       team:'Ivory Coast', foil:false},
+  {code:'CIV18', name:'Yan Diomande',        team:'Ivory Coast', foil:false},
+  {code:'CIV19', name:'Evann Guessand',      team:'Ivory Coast', foil:false},
+  {code:'CIV20', name:'Oumar Diakite',       team:'Ivory Coast', foil:false},
+  // Ecuador
+  {code:'ECU1',  name:'Team Logo',           team:'Ecuador', foil:true},
+  {code:'ECU2',  name:'Hernán Galíndez',     team:'Ecuador', foil:false},
+  {code:'ECU3',  name:'Gonzalo Valle',       team:'Ecuador', foil:false},
+  {code:'ECU4',  name:'Piero Hincapié',      team:'Ecuador', foil:false},
+  {code:'ECU5',  name:'Pervis Estupiñán',    team:'Ecuador', foil:false},
+  {code:'ECU6',  name:'Willian Pacho',       team:'Ecuador', foil:false},
+  {code:'ECU7',  name:'Ángelo Preciado',     team:'Ecuador', foil:false},
+  {code:'ECU8',  name:'Joel Ordóñez',        team:'Ecuador', foil:false},
+  {code:'ECU9',  name:'Moisés Caicedo',      team:'Ecuador', foil:false},
+  {code:'ECU10', name:'Alan Franco',         team:'Ecuador', foil:false},
+  {code:'ECU11', name:'Kendry Páez',         team:'Ecuador', foil:false},
+  {code:'ECU12', name:'Pedro Vite',          team:'Ecuador', foil:false},
+  {code:'ECU13', name:'Team Photo',          team:'Ecuador', foil:false},
+  {code:'ECU14', name:'John Yeboah',         team:'Ecuador', foil:false},
+  {code:'ECU15', name:'Leonardo Campana',    team:'Ecuador', foil:false},
+  {code:'ECU16', name:'Gonzalo Plata',       team:'Ecuador', foil:false},
+  {code:'ECU17', name:'Nilson Angulo',       team:'Ecuador', foil:false},
+  {code:'ECU18', name:'Alan Minda',          team:'Ecuador', foil:false},
+  {code:'ECU19', name:'Kevin Rodriguez',     team:'Ecuador', foil:false},
+  {code:'ECU20', name:'Enner Valencia',      team:'Ecuador', foil:false},
+  // Netherlands
+  {code:'NED1',  name:'Team Logo',           team:'Netherlands', foil:true},
+  {code:'NED2',  name:'Bart Verbruggen',     team:'Netherlands', foil:false},
+  {code:'NED3',  name:'Virgil van Dijk',     team:'Netherlands', foil:false},
+  {code:'NED4',  name:'Micky van de Ven',    team:'Netherlands', foil:false},
+  {code:'NED5',  name:'Jurrien Timber',      team:'Netherlands', foil:false},
+  {code:'NED6',  name:'Denzel Dumfries',     team:'Netherlands', foil:false},
+  {code:'NED7',  name:'Nathan Aké',          team:'Netherlands', foil:false},
+  {code:'NED8',  name:'Jeremie Frimpong',    team:'Netherlands', foil:false},
+  {code:'NED9',  name:'Jan Paul van Hecke',  team:'Netherlands', foil:false},
+  {code:'NED10', name:'Tijjani Reijnders',   team:'Netherlands', foil:false},
+  {code:'NED11', name:'Ryan Gravenberch',    team:'Netherlands', foil:false},
+  {code:'NED12', name:'Teun Koopmeiners',    team:'Netherlands', foil:false},
+  {code:'NED13', name:'Team Photo',          team:'Netherlands', foil:false},
+  {code:'NED14', name:'Frenkie de Jong',     team:'Netherlands', foil:false},
+  {code:'NED15', name:'Xavi Simons',         team:'Netherlands', foil:false},
+  {code:'NED16', name:'Justin Kluivert',     team:'Netherlands', foil:false},
+  {code:'NED17', name:'Memphis Depay',       team:'Netherlands', foil:false},
+  {code:'NED18', name:'Donyell Malen',       team:'Netherlands', foil:false},
+  {code:'NED19', name:'Wout Weghorst',       team:'Netherlands', foil:false},
+  {code:'NED20', name:'Cody Gakpo',          team:'Netherlands', foil:false},
+  // Japan
+  {code:'JPN1',  name:'Team Logo',            team:'Japan', foil:true},
+  {code:'JPN2',  name:'Zion Suzuki',          team:'Japan', foil:false},
+  {code:'JPN3',  name:'Henry Heroki Mochizuki',team:'Japan', foil:false},
+  {code:'JPN4',  name:'Ayumu Seko',           team:'Japan', foil:false},
+  {code:'JPN5',  name:'Junnosuke Suzuki',     team:'Japan', foil:false},
+  {code:'JPN6',  name:'Shogo Taniguchi',      team:'Japan', foil:false},
+  {code:'JPN7',  name:'Tsuyoshi Watanabe',    team:'Japan', foil:false},
+  {code:'JPN8',  name:'Kaishu Sano',          team:'Japan', foil:false},
+  {code:'JPN9',  name:'Yuki Soma',            team:'Japan', foil:false},
+  {code:'JPN10', name:'Ao Tanaka',            team:'Japan', foil:false},
+  {code:'JPN11', name:'Daichi Kamada',        team:'Japan', foil:false},
+  {code:'JPN12', name:'Takefusa Kubo',        team:'Japan', foil:false},
+  {code:'JPN13', name:'Team Photo',           team:'Japan', foil:false},
+  {code:'JPN14', name:'Ritsu Doan',           team:'Japan', foil:false},
+  {code:'JPN15', name:'Keito Nakamura',       team:'Japan', foil:false},
+  {code:'JPN16', name:'Takumi Minamino',      team:'Japan', foil:false},
+  {code:'JPN17', name:'Shuto Machino',        team:'Japan', foil:false},
+  {code:'JPN18', name:'Junya Ito',            team:'Japan', foil:false},
+  {code:'JPN19', name:'Koki Ogawa',           team:'Japan', foil:false},
+  {code:'JPN20', name:'Ayase Ueda',           team:'Japan', foil:false},
+  // Sweden
+  {code:'SWE1',  name:'Team Logo',                team:'Sweden', foil:true},
+  {code:'SWE2',  name:'Victor Johansson',          team:'Sweden', foil:false},
+  {code:'SWE3',  name:'Isak Hien',                team:'Sweden', foil:false},
+  {code:'SWE4',  name:'Gabriel Gudmundsson',       team:'Sweden', foil:false},
+  {code:'SWE5',  name:'Emil Holm',                 team:'Sweden', foil:false},
+  {code:'SWE6',  name:'Victor Nilsson Lindelöf',   team:'Sweden', foil:false},
+  {code:'SWE7',  name:'Gustaf Lagerbielke',        team:'Sweden', foil:false},
+  {code:'SWE8',  name:'Lucas Bergvall',            team:'Sweden', foil:false},
+  {code:'SWE9',  name:'Hugo Larsson',              team:'Sweden', foil:false},
+  {code:'SWE10', name:'Jesper Karlström',          team:'Sweden', foil:false},
+  {code:'SWE11', name:'Yasin Ayari',               team:'Sweden', foil:false},
+  {code:'SWE12', name:'Mattias Svanberg',          team:'Sweden', foil:false},
+  {code:'SWE13', name:'Team Photo',                team:'Sweden', foil:false},
+  {code:'SWE14', name:'Daniel Svensson',           team:'Sweden', foil:false},
+  {code:'SWE15', name:'Ken Sema',                  team:'Sweden', foil:false},
+  {code:'SWE16', name:'Roony Bardghji',            team:'Sweden', foil:false},
+  {code:'SWE17', name:'Dejan Kulusevski',          team:'Sweden', foil:false},
+  {code:'SWE18', name:'Anthony Elanga',            team:'Sweden', foil:false},
+  {code:'SWE19', name:'Alexander Isak',            team:'Sweden', foil:false},
+  {code:'SWE20', name:'Viktor Gyökeres',           team:'Sweden', foil:false},
+  // Tunisia
+  {code:'TUN1',  name:'Team Logo',                 team:'Tunisia', foil:true},
+  {code:'TUN2',  name:'Bechir Ben Said',           team:'Tunisia', foil:false},
+  {code:'TUN3',  name:'Aymen Dahmen',              team:'Tunisia', foil:false},
+  {code:'TUN4',  name:'Yan Valery',                team:'Tunisia', foil:false},
+  {code:'TUN5',  name:'Montassar Talbi',           team:'Tunisia', foil:false},
+  {code:'TUN6',  name:'Yassine Meriah',            team:'Tunisia', foil:false},
+  {code:'TUN7',  name:'Ali Abdi',                  team:'Tunisia', foil:false},
+  {code:'TUN8',  name:'Dylan Bronn',               team:'Tunisia', foil:false},
+  {code:'TUN9',  name:'Ellyes Skhiri',             team:'Tunisia', foil:false},
+  {code:'TUN10', name:'Aissa Laidouni',            team:'Tunisia', foil:false},
+  {code:'TUN11', name:'Ferjani Sassi',             team:'Tunisia', foil:false},
+  {code:'TUN12', name:'Mohamed Ali Ben Romdhane',  team:'Tunisia', foil:false},
+  {code:'TUN13', name:'Team Photo',                team:'Tunisia', foil:false},
+  {code:'TUN14', name:'Hannibal Mejbri',           team:'Tunisia', foil:false},
+  {code:'TUN15', name:'Elias Achouri',             team:'Tunisia', foil:false},
+  {code:'TUN16', name:'Elias Saad',                team:'Tunisia', foil:false},
+  {code:'TUN17', name:'Hazem Mastouri',            team:'Tunisia', foil:false},
+  {code:'TUN18', name:'Ismael Gharbi',             team:'Tunisia', foil:false},
+  {code:'TUN19', name:'Sayfallah Ltaief',          team:'Tunisia', foil:false},
+  {code:'TUN20', name:'Naim Sliti',                team:'Tunisia', foil:false},
+  // Belgium
+  {code:'BEL1',  name:'Team Logo',            team:'Belgium', foil:true},
+  {code:'BEL2',  name:'Thibaut Courtois',     team:'Belgium', foil:false},
+  {code:'BEL3',  name:'Arthur Theate',        team:'Belgium', foil:false},
+  {code:'BEL4',  name:'Timothy Castagne',     team:'Belgium', foil:false},
+  {code:'BEL5',  name:'Zeno Debast',          team:'Belgium', foil:false},
+  {code:'BEL6',  name:'Brandon Mechele',      team:'Belgium', foil:false},
+  {code:'BEL7',  name:'Maxim De Cuyper',      team:'Belgium', foil:false},
+  {code:'BEL8',  name:'Thomas Meunier',       team:'Belgium', foil:false},
+  {code:'BEL9',  name:'Youri Tielemans',      team:'Belgium', foil:false},
+  {code:'BEL10', name:'Amadou Onana',         team:'Belgium', foil:false},
+  {code:'BEL11', name:'Nicolas Raskin',       team:'Belgium', foil:false},
+  {code:'BEL12', name:'Alexis Saelemaekers', team:'Belgium', foil:false},
+  {code:'BEL13', name:'Team Photo',           team:'Belgium', foil:false},
+  {code:'BEL14', name:'Hans Vanaken',         team:'Belgium', foil:false},
+  {code:'BEL15', name:'Kevin De Bruyne',      team:'Belgium', foil:false},
+  {code:'BEL16', name:'Jérémy Doku',          team:'Belgium', foil:false},
+  {code:'BEL17', name:'Charles De Ketelaere', team:'Belgium', foil:false},
+  {code:'BEL18', name:'Leandro Trossard',     team:'Belgium', foil:false},
+  {code:'BEL19', name:'Loïs Openda',          team:'Belgium', foil:false},
+  {code:'BEL20', name:'Romelu Lukaku',        team:'Belgium', foil:false},
+  // Egypt
+  {code:'EGY1',  name:'Team Logo',             team:'Egypt', foil:true},
+  {code:'EGY2',  name:'Mohamed El Shenawy',    team:'Egypt', foil:false},
+  {code:'EGY3',  name:'Mohamed Hany',          team:'Egypt', foil:false},
+  {code:'EGY4',  name:'Mohamed Hamdy',         team:'Egypt', foil:false},
+  {code:'EGY5',  name:'Yasser Ibrahim',        team:'Egypt', foil:false},
+  {code:'EGY6',  name:'Khaled Sobhi',          team:'Egypt', foil:false},
+  {code:'EGY7',  name:'Ramy Rabia',            team:'Egypt', foil:false},
+  {code:'EGY8',  name:'Hossam Abdelmaguid',    team:'Egypt', foil:false},
+  {code:'EGY9',  name:'Ahmed Fatouh',          team:'Egypt', foil:false},
+  {code:'EGY10', name:'Marwan Attia',          team:'Egypt', foil:false},
+  {code:'EGY11', name:'Zizo',                  team:'Egypt', foil:false},
+  {code:'EGY12', name:'Hamdy Fathy',           team:'Egypt', foil:false},
+  {code:'EGY13', name:'Team Photo',            team:'Egypt', foil:false},
+  {code:'EGY14', name:'Mohamed Lasheen',       team:'Egypt', foil:false},
+  {code:'EGY15', name:'Emam Ashour',           team:'Egypt', foil:false},
+  {code:'EGY16', name:'Osama Faisal',          team:'Egypt', foil:false},
+  {code:'EGY17', name:'Mohamed Salah',         team:'Egypt', foil:false},
+  {code:'EGY18', name:'Mostafa Mohamed',       team:'Egypt', foil:false},
+  {code:'EGY19', name:'Trezeguet',             team:'Egypt', foil:false},
+  {code:'EGY20', name:'Omar Marmoush',         team:'Egypt', foil:false},
+  // Iran
+  {code:'IRN1',  name:'Team Logo',              team:'Iran', foil:true},
+  {code:'IRN2',  name:'Alireza Beiranvand',     team:'Iran', foil:false},
+  {code:'IRN3',  name:'Morteza Pouraliganji',   team:'Iran', foil:false},
+  {code:'IRN4',  name:'Ehsan Hajsafi',          team:'Iran', foil:false},
+  {code:'IRN5',  name:'Milad Mohammadi',        team:'Iran', foil:false},
+  {code:'IRN6',  name:'Shojae Khalilzadeh',     team:'Iran', foil:false},
+  {code:'IRN7',  name:'Ramin Rezaeian',         team:'Iran', foil:false},
+  {code:'IRN8',  name:'Hossein Kanaani',        team:'Iran', foil:false},
+  {code:'IRN9',  name:'Sadegh Moharrami',       team:'Iran', foil:false},
+  {code:'IRN10', name:'Saleh Hardani',          team:'Iran', foil:false},
+  {code:'IRN11', name:'Saeed Ezatolahi',        team:'Iran', foil:false},
+  {code:'IRN12', name:'Saman Ghoddos',          team:'Iran', foil:false},
+  {code:'IRN13', name:'Team Photo',             team:'Iran', foil:false},
+  {code:'IRN14', name:'Omid Noorafkan',         team:'Iran', foil:false},
+  {code:'IRN15', name:'Roozbeh Cheshmi',        team:'Iran', foil:false},
+  {code:'IRN16', name:'Mohammad Mohebi',        team:'Iran', foil:false},
+  {code:'IRN17', name:'Sardar Azmoun',          team:'Iran', foil:false},
+  {code:'IRN18', name:'Mehdi Taremi',           team:'Iran', foil:false},
+  {code:'IRN19', name:'Alireza Jahanbakhsh',    team:'Iran', foil:false},
+  {code:'IRN20', name:'Ali Gholizadeh',         team:'Iran', foil:false},
+  // New Zealand
+  {code:'NZL1',  name:'Team Logo',              team:'New Zealand', foil:true},
+  {code:'NZL2',  name:'Max Crocombe Payne',     team:'New Zealand', foil:false},
+  {code:'NZL3',  name:'Alex Paulsen',           team:'New Zealand', foil:false},
+  {code:'NZL4',  name:'Michael Boxall',         team:'New Zealand', foil:false},
+  {code:'NZL5',  name:'Liberato Cacace',        team:'New Zealand', foil:false},
+  {code:'NZL6',  name:'Tim Payne',              team:'New Zealand', foil:false},
+  {code:'NZL7',  name:'Tyler Bindon',           team:'New Zealand', foil:false},
+  {code:'NZL8',  name:'Francis de Vries',       team:'New Zealand', foil:false},
+  {code:'NZL9',  name:'Finn Surman',            team:'New Zealand', foil:false},
+  {code:'NZL10', name:'Joe Bell',               team:'New Zealand', foil:false},
+  {code:'NZL11', name:'Sarpreet Singh',         team:'New Zealand', foil:false},
+  {code:'NZL12', name:'Ryan Thomas',            team:'New Zealand', foil:false},
+  {code:'NZL13', name:'Team Photo',             team:'New Zealand', foil:false},
+  {code:'NZL14', name:'Matthew Garbett',        team:'New Zealand', foil:false},
+  {code:'NZL15', name:'Marko Stamenić',         team:'New Zealand', foil:false},
+  {code:'NZL16', name:'Ben Old',                team:'New Zealand', foil:false},
+  {code:'NZL17', name:'Chris Wood',             team:'New Zealand', foil:false},
+  {code:'NZL18', name:'Elijah Just',            team:'New Zealand', foil:false},
+  {code:'NZL19', name:'Callum McCowatt',        team:'New Zealand', foil:false},
+  {code:'NZL20', name:'Kosta Barbarouses',      team:'New Zealand', foil:false},
+  // Spain
+  {code:'ESP1',  name:'Team Logo',          team:'Spain', foil:true},
+  {code:'ESP2',  name:'Unai Simon',         team:'Spain', foil:false},
+  {code:'ESP3',  name:'Robin Le Normand',   team:'Spain', foil:false},
+  {code:'ESP4',  name:'Aymeric Laporte',    team:'Spain', foil:false},
+  {code:'ESP5',  name:'Dean Huijsen',       team:'Spain', foil:false},
+  {code:'ESP6',  name:'Pedro Porro',        team:'Spain', foil:false},
+  {code:'ESP7',  name:'Dani Carvajal',      team:'Spain', foil:false},
+  {code:'ESP8',  name:'Marc Cucurella',     team:'Spain', foil:false},
+  {code:'ESP9',  name:'Martín Zubimendi',   team:'Spain', foil:false},
+  {code:'ESP10', name:'Rodri',              team:'Spain', foil:false},
+  {code:'ESP11', name:'Pedri',              team:'Spain', foil:false},
+  {code:'ESP12', name:'Fabian Ruiz',        team:'Spain', foil:false},
+  {code:'ESP13', name:'Team Photo',         team:'Spain', foil:false},
+  {code:'ESP14', name:'Mikel Merino',       team:'Spain', foil:false},
+  {code:'ESP15', name:'Lamine Yamal',       team:'Spain', foil:false},
+  {code:'ESP16', name:'Dani Olmo',          team:'Spain', foil:false},
+  {code:'ESP17', name:'Nico Williams',      team:'Spain', foil:false},
+  {code:'ESP18', name:'Ferran Torres',      team:'Spain', foil:false},
+  {code:'ESP19', name:'Álvaro Morata',      team:'Spain', foil:false},
+  {code:'ESP20', name:'Mikel Oyarzabal',    team:'Spain', foil:false},
+  // Cape Verde
+  {code:'CPV1',  name:'Team Logo',          team:'Cape Verde', foil:true},
+  {code:'CPV2',  name:'Vozinha',            team:'Cape Verde', foil:false},
+  {code:'CPV3',  name:'Logan Costa',        team:'Cape Verde', foil:false},
+  {code:'CPV4',  name:'Pico',               team:'Cape Verde', foil:false},
+  {code:'CPV5',  name:'Diney',              team:'Cape Verde', foil:false},
+  {code:'CPV6',  name:'Steven Moreira',     team:'Cape Verde', foil:false},
+  {code:'CPV7',  name:'Wagner Pina',        team:'Cape Verde', foil:false},
+  {code:'CPV8',  name:'Joao Paulo',         team:'Cape Verde', foil:false},
+  {code:'CPV9',  name:'Yannick Semedo',     team:'Cape Verde', foil:false},
+  {code:'CPV10', name:'Kevin Pina',         team:'Cape Verde', foil:false},
+  {code:'CPV11', name:'Patrick Andrade',    team:'Cape Verde', foil:false},
+  {code:'CPV12', name:'Jamiro Monteiro',    team:'Cape Verde', foil:false},
+  {code:'CPV13', name:'Team Photo',         team:'Cape Verde', foil:false},
+  {code:'CPV14', name:'Deroy Duarte',       team:'Cape Verde', foil:false},
+  {code:'CPV15', name:'Garry Rodrigues',    team:'Cape Verde', foil:false},
+  {code:'CPV16', name:'Jovane Cabral',      team:'Cape Verde', foil:false},
+  {code:'CPV17', name:'Ryan Mendes',        team:'Cape Verde', foil:false},
+  {code:'CPV18', name:'Dailon Livramento',  team:'Cape Verde', foil:false},
+  {code:'CPV19', name:'Willy Semedo',       team:'Cape Verde', foil:false},
+  {code:'CPV20', name:'Bebe',               team:'Cape Verde', foil:false},
+  // Saudi Arabia
+  {code:'KSA1',  name:'Team Logo',              team:'Saudi Arabia', foil:true},
+  {code:'KSA2',  name:'Nawaf Alaqidi',           team:'Saudi Arabia', foil:false},
+  {code:'KSA3',  name:'Abdulrahman Al-Sanbi',    team:'Saudi Arabia', foil:false},
+  {code:'KSA4',  name:'Saud Abdulhamid',         team:'Saudi Arabia', foil:false},
+  {code:'KSA5',  name:'Nawaf Bouwashl',          team:'Saudi Arabia', foil:false},
+  {code:'KSA6',  name:'Jihad Thakri',            team:'Saudi Arabia', foil:false},
+  {code:'KSA7',  name:'Moteb Al-Harbi',          team:'Saudi Arabia', foil:false},
+  {code:'KSA8',  name:'Hassan Altambakti',       team:'Saudi Arabia', foil:false},
+  {code:'KSA9',  name:'Musab Aljuwayr',          team:'Saudi Arabia', foil:false},
+  {code:'KSA10', name:'Ziyad Aljohani',          team:'Saudi Arabia', foil:false},
+  {code:'KSA11', name:'Abdullah Alkhaibari',     team:'Saudi Arabia', foil:false},
+  {code:'KAS12', name:'Nasser Aldawsari',        team:'Saudi Arabia', foil:false},
+  {code:'KSA13', name:'Team Photo',              team:'Saudi Arabia', foil:false},
+  {code:'KSA14', name:'Saleh Abu Alshamat',      team:'Saudi Arabia', foil:false},
+  {code:'KSA15', name:'Marwan Alsahafi',         team:'Saudi Arabia', foil:false},
+  {code:'KSA16', name:'Salem Aldawsari',         team:'Saudi Arabia', foil:false},
+  {code:'KSA17', name:'Abdulrahman Al-Aboud',    team:'Saudi Arabia', foil:false},
+  {code:'KSA18', name:'Feras Akbrikan',          team:'Saudi Arabia', foil:false},
+  {code:'KSA19', name:'Saleh Alshehri',          team:'Saudi Arabia', foil:false},
+  {code:'KSA20', name:'Abdullah Al-Hamdan',      team:'Saudi Arabia', foil:false},
+  // Uruguay
+  {code:'URU1',  name:'Team Logo',           team:'Uruguay', foil:true},
+  {code:'URU2',  name:'Sergio Rochet',       team:'Uruguay', foil:false},
+  {code:'URU3',  name:'Santiago Mele',       team:'Uruguay', foil:false},
+  {code:'URU4',  name:'Ronald Araujo',       team:'Uruguay', foil:false},
+  {code:'URU5',  name:'José María Giménez',  team:'Uruguay', foil:false},
+  {code:'URU6',  name:'Sebastian Caceres',   team:'Uruguay', foil:false},
+  {code:'URU7',  name:'Mathias Olivera',     team:'Uruguay', foil:false},
+  {code:'URU8',  name:'Guillermo Varela',    team:'Uruguay', foil:false},
+  {code:'URU9',  name:'Nahitan Nandez',      team:'Uruguay', foil:false},
+  {code:'URU10', name:'Federico Valverde',   team:'Uruguay', foil:false},
+  {code:'URU11', name:'Giorgian De Arrascaeta',team:'Uruguay', foil:false},
+  {code:'URU12', name:'Rodrigo Bentancur',   team:'Uruguay', foil:false},
+  {code:'URU13', name:'Team Photo',          team:'Uruguay', foil:false},
+  {code:'URU14', name:'Manuel Ugarte',       team:'Uruguay', foil:false},
+  {code:'URU15', name:'Nicolás de la Cruz',  team:'Uruguay', foil:false},
+  {code:'URU16', name:'Maxi Araujo',         team:'Uruguay', foil:false},
+  {code:'URU17', name:'Darwin Núñez',        team:'Uruguay', foil:false},
+  {code:'URU18', name:'Federico Viñas',      team:'Uruguay', foil:false},
+  {code:'URU19', name:'Rodrigo Aguirre',     team:'Uruguay', foil:false},
+  {code:'URU20', name:'Facundo Pellistri',   team:'Uruguay', foil:false},
+  // France
+  {code:'FRA1',  name:'Team Logo',           team:'France', foil:true},
+  {code:'FRA2',  name:'Mike Maignan',        team:'France', foil:false},
+  {code:'FRA3',  name:'Theo Hernandez',      team:'France', foil:false},
+  {code:'FRA4',  name:'William Saliba',      team:'France', foil:false},
+  {code:'FRA5',  name:'Jules Kounde',        team:'France', foil:false},
+  {code:'FRA6',  name:'Ibrahima Konate',     team:'France', foil:false},
+  {code:'FRA7',  name:'Dayot Upamecano',     team:'France', foil:false},
+  {code:'FRA8',  name:'Lucas Digne',         team:'France', foil:false},
+  {code:'FRA9',  name:'Aurélien Tchouaméni', team:'France', foil:false},
+  {code:'FRA10', name:'Eduardo Camavinga',   team:'France', foil:false},
+  {code:'FRA11', name:'Manu Kone',           team:'France', foil:false},
+  {code:'FRA12', name:'Adrien Rabiot',       team:'France', foil:false},
+  {code:'FRA13', name:'Team Photo',          team:'France', foil:false},
+  {code:'FRA14', name:'Michael Olise',       team:'France', foil:false},
+  {code:'FRA15', name:'Ousmane Dembele',     team:'France', foil:false},
+  {code:'FRA16', name:'Bradley Barcola',     team:'France', foil:false},
+  {code:'FRA17', name:'Désiré Doué',         team:'France', foil:false},
+  {code:'FRA18', name:'Kingsley Coman',      team:'France', foil:false},
+  {code:'FRA19', name:'Hugo Ekitike',        team:'France', foil:false},
+  {code:'FRA20', name:'Kylian Mbappe',       team:'France', foil:false},
+  // Senegal
+  {code:'SEN1',  name:'Team Logo',           team:'Senegal', foil:true},
+  {code:'SEN2',  name:'Edouard Mendy',       team:'Senegal', foil:false},
+  {code:'SEN3',  name:'Yehvann Diouf',       team:'Senegal', foil:false},
+  {code:'SEN4',  name:'Moussa Niakhaté',     team:'Senegal', foil:false},
+  {code:'SEN5',  name:'Abdoulaye Seck',      team:'Senegal', foil:false},
+  {code:'SEN6',  name:'Ismail Jakobs',       team:'Senegal', foil:false},
+  {code:'SEN7',  name:'El Hadji Malick Diouf',team:'Senegal', foil:false},
+  {code:'SEN8',  name:'Kalidou Koulibaly',   team:'Senegal', foil:false},
+  {code:'SEN9',  name:'Idrissa Gana Gueye',  team:'Senegal', foil:false},
+  {code:'SEN10', name:'Pape Matar Sarr',     team:'Senegal', foil:false},
+  {code:'SEN11', name:'Pape Gueye',          team:'Senegal', foil:false},
+  {code:'SEN12', name:'Habib Diarra',        team:'Senegal', foil:false},
+  {code:'SEN13', name:'Team Photo',          team:'Senegal', foil:false},
+  {code:'SEN14', name:'Lamine Camara',       team:'Senegal', foil:false},
+  {code:'SEN15', name:'Sadio Mane',          team:'Senegal', foil:false},
+  {code:'SEN16', name:'Ismaïla Sarr',        team:'Senegal', foil:false},
+  {code:'SEN17', name:'Boulaye Dia',         team:'Senegal', foil:false},
+  {code:'SEN18', name:'Iliman Ndiaye',       team:'Senegal', foil:false},
+  {code:'SEN19', name:'Nicolas Jackson',     team:'Senegal', foil:false},
+  {code:'SEN20', name:'Krepin Diatta',       team:'Senegal', foil:false},
+  // Iraq
+  {code:'IRQ1',  name:'Team Logo',          team:'Iraq', foil:true},
+  {code:'IRQ2',  name:'Jalal Hassan',       team:'Iraq', foil:false},
+  {code:'IRQ3',  name:'Rebin Sulaka',       team:'Iraq', foil:false},
+  {code:'IRQ4',  name:'Hussein Ali',        team:'Iraq', foil:false},
+  {code:'IRQ5',  name:'Akam Hashem',        team:'Iraq', foil:false},
+  {code:'IRQ6',  name:'Merchas Doski',      team:'Iraq', foil:false},
+  {code:'IRQ7',  name:'Zaid Tahseen',       team:'Iraq', foil:false},
+  {code:'IRQ8',  name:'Manaf Younis',       team:'Iraq', foil:false},
+  {code:'IRQ9',  name:'Zidane Iqbal',       team:'Iraq', foil:false},
+  {code:'IRQ10', name:'Amir Al-Ammari',     team:'Iraq', foil:false},
+  {code:'IRQ11', name:'Ibrahim Bavesh',     team:'Iraq', foil:false},
+  {code:'IRQ12', name:'Ali Jasim',          team:'Iraq', foil:false},
+  {code:'IRQ13', name:'Team Photo',         team:'Iraq', foil:false},
+  {code:'IRQ14', name:'Youssef Amyn',       team:'Iraq', foil:false},
+  {code:'IRQ15', name:'Aimar Sher',         team:'Iraq', foil:false},
+  {code:'IRQ16', name:'Marko Farji',        team:'Iraq', foil:false},
+  {code:'IRQ17', name:'Osama Rashid',       team:'Iraq', foil:false},
+  {code:'IRQ18', name:'Ali Al-Hamadi',      team:'Iraq', foil:false},
+  {code:'IRQ19', name:'Aymen Hussein',      team:'Iraq', foil:false},
+  {code:'IRQ20', name:'Mohanad Ali',        team:'Iraq', foil:false},
+  // Norway
+  {code:'NOR1',  name:'Team Logo',                   team:'Norway', foil:true},
+  {code:'NOR2',  name:'Ørjan Nyland',                team:'Norway', foil:false},
+  {code:'NOR3',  name:'Julian Ryerson',               team:'Norway', foil:false},
+  {code:'NOR4',  name:'Leo Østigård',                 team:'Norway', foil:false},
+  {code:'NOR5',  name:'Kristoffer Ajer',              team:'Norway', foil:false},
+  {code:'NOR6',  name:'Marcus Holmgren Pedersen',     team:'Norway', foil:false},
+  {code:'NOR7',  name:'David Møller Wolfe',           team:'Norway', foil:false},
+  {code:'NOR8',  name:'Torbjørn Heggem',              team:'Norway', foil:false},
+  {code:'NOR9',  name:'Morten Thorsby',               team:'Norway', foil:false},
+  {code:'NOR10', name:'Martin Ødegaard',              team:'Norway', foil:false},
+  {code:'NOR11', name:'Sander Berge',                 team:'Norway', foil:false},
+  {code:'NOR12', name:'Andreas Schjelderup',          team:'Norway', foil:false},
+  {code:'NOR13', name:'Team Photo',                   team:'Norway', foil:false},
+  {code:'NOR14', name:'Patrick Berg',                 team:'Norway', foil:false},
+  {code:'NOR15', name:'Erling Haaland',               team:'Norway', foil:false},
+  {code:'NOR16', name:'Alexander Sørloth',            team:'Norway', foil:false},
+  {code:'NOR17', name:'Aron Dønnum',                  team:'Norway', foil:false},
+  {code:'NOR18', name:'Jørgen Strand Larsen',         team:'Norway', foil:false},
+  {code:'NOR19', name:'Antonio Nusa',                 team:'Norway', foil:false},
+  {code:'NOR20', name:'Oscar Bobb',                   team:'Norway', foil:false},
+  // Argentina
+  {code:'ARG1',  name:'Team Logo',           team:'Argentina', foil:true},
+  {code:'ARG2',  name:'Emiliano Martinez',   team:'Argentina', foil:false},
+  {code:'ARG3',  name:'Nahuel Molina',       team:'Argentina', foil:false},
+  {code:'ARG4',  name:'Cristian Romero',     team:'Argentina', foil:false},
+  {code:'ARG5',  name:'Nicolas Otamendi',    team:'Argentina', foil:false},
+  {code:'ARG6',  name:'Nicolas Tagliafico',  team:'Argentina', foil:false},
+  {code:'ARG7',  name:'Leonardo Balerdi',    team:'Argentina', foil:false},
+  {code:'ARG8',  name:'Enzo Fernandez',      team:'Argentina', foil:false},
+  {code:'ARG9',  name:'Alexis Mac Allister', team:'Argentina', foil:false},
+  {code:'ARG10', name:'Rodrigo De Paul',     team:'Argentina', foil:false},
+  {code:'ARG11', name:'Exequiel Palacios',   team:'Argentina', foil:false},
+  {code:'ARG12', name:'Leandro Paredes',     team:'Argentina', foil:false},
+  {code:'ARG13', name:'Team Photo',          team:'Argentina', foil:false},
+  {code:'ARG14', name:'Nico Paz',            team:'Argentina', foil:false},
+  {code:'ARG15', name:'Franco Mastantuono', team:'Argentina', foil:false},
+  {code:'ARG16', name:'Nico Gonzalez',       team:'Argentina', foil:false},
+  {code:'ARG17', name:'Lionel Messi',        team:'Argentina', foil:false},
+  {code:'ARG18', name:'Lautaro Martinez',    team:'Argentina', foil:false},
+  {code:'ARG19', name:'Julian Alvarez',      team:'Argentina', foil:false},
+  {code:'ARG20', name:'Giuliano Simeone',    team:'Argentina', foil:false},
+  // Algeria
+  {code:'ALG1',  name:'Team Logo',           team:'Algeria', foil:true},
+  {code:'ALG2',  name:'Alexis Guendouz',     team:'Algeria', foil:false},
+  {code:'ALG3',  name:'Ramy Bensebaini',     team:'Algeria', foil:false},
+  {code:'ALG4',  name:'Youcef Atal',         team:'Algeria', foil:false},
+  {code:'ALG5',  name:'Rayan Aït-Nouri',     team:'Algeria', foil:false},
+  {code:'ALG6',  name:'Mohamed Amine Tougai',team:'Algeria', foil:false},
+  {code:'ALG7',  name:'Aïssa Mandi',         team:'Algeria', foil:false},
+  {code:'ALG8',  name:'Ismael Bennacer',     team:'Algeria', foil:false},
+  {code:'ALG9',  name:'Houssem Aquar',       team:'Algeria', foil:false},
+  {code:'ALG10', name:'Hicham Boudaoui',     team:'Algeria', foil:false},
+  {code:'ALG11', name:'Ramiz Zerrouki',      team:'Algeria', foil:false},
+  {code:'ALG12', name:'Nabil Bentalab',      team:'Algeria', foil:false},
+  {code:'ALG13', name:'Team Photo',          team:'Algeria', foil:false},
+  {code:'ALG14', name:'Farés Chaibi',        team:'Algeria', foil:false},
+  {code:'ALG15', name:'Riyad Mahrez',        team:'Algeria', foil:false},
+  {code:'ALG16', name:'Said Benrahma',       team:'Algeria', foil:false},
+  {code:'ALG17', name:'Anis Hadj Moussa',    team:'Algeria', foil:false},
+  {code:'ALG18', name:'Amine Gouiri',        team:'Algeria', foil:false},
+  {code:'ALG19', name:'Baghdad Bounedjah',   team:'Algeria', foil:false},
+  {code:'ALG20', name:'Mohammed Amoura',     team:'Algeria', foil:false},
+  // Austria
+  {code:'AUT1',  name:'Team Logo',             team:'Austria', foil:true},
+  {code:'AUT2',  name:'Alexander Schlager',    team:'Austria', foil:false},
+  {code:'AUT3',  name:'Patrick Pentz',         team:'Austria', foil:false},
+  {code:'AUT4',  name:'David Alaba',           team:'Austria', foil:false},
+  {code:'AUT5',  name:'Kevin Danso',           team:'Austria', foil:false},
+  {code:'AUT6',  name:'Philipp Lienhart',      team:'Austria', foil:false},
+  {code:'AUT7',  name:'Stefan Posch',          team:'Austria', foil:false},
+  {code:'AUT8',  name:'Phillipp Mwene',        team:'Austria', foil:false},
+  {code:'AUT9',  name:'Alexander Prass',       team:'Austria', foil:false},
+  {code:'AUT10', name:'Xaver Schlager',        team:'Austria', foil:false},
+  {code:'AUT11', name:'Marcel Sabitzer',       team:'Austria', foil:false},
+  {code:'AUT12', name:'Konrad Laimer',         team:'Austria', foil:false},
+  {code:'AUT13', name:'Team Photo',            team:'Austria', foil:false},
+  {code:'AUT14', name:'Florian Grillitsch',    team:'Austria', foil:false},
+  {code:'AUT15', name:'Nicolas Seiwald',       team:'Austria', foil:false},
+  {code:'AUT16', name:'Romano Schmid',         team:'Austria', foil:false},
+  {code:'AUT17', name:'Patrick Wimmer',        team:'Austria', foil:false},
+  {code:'AUT18', name:'Christoph Baumgartner', team:'Austria', foil:false},
+  {code:'AUT19', name:'Michael Gregoritsch',   team:'Austria', foil:false},
+  {code:'AUT20', name:'Marko Arnautović',      team:'Austria', foil:false},
+  // Jordan
+  {code:'JOR1',  name:'Team Logo',              team:'Jordan', foil:true},
+  {code:'JOR2',  name:'Yazeed Abulaila',        team:'Jordan', foil:false},
+  {code:'JOR3',  name:'Ihsan Haddad',           team:'Jordan', foil:false},
+  {code:'JOR4',  name:'Mohammad Abu Hashish',   team:'Jordan', foil:false},
+  {code:'JOR5',  name:'Yazan Al-Arab',          team:'Jordan', foil:false},
+  {code:'JOR6',  name:'Abdallah Nasib',         team:'Jordan', foil:false},
+  {code:'JOR7',  name:'Saleem Obaid',           team:'Jordan', foil:false},
+  {code:'JOR8',  name:'Mohammad Abualnadi',     team:'Jordan', foil:false},
+  {code:'JOR9',  name:'Ibrahim Saadeh',         team:'Jordan', foil:false},
+  {code:'JOR10', name:'Nizar Al-Rashdan',       team:'Jordan', foil:false},
+  {code:'JOR11', name:'Noor Al-Rawabdeh',       team:'Jordan', foil:false},
+  {code:'JOR12', name:'Mohannad Abu Taha',      team:'Jordan', foil:false},
+  {code:'JOR13', name:'Team Photo',             team:'Jordan', foil:false},
+  {code:'JOR14', name:'Amer Jamous',            team:'Jordan', foil:false},
+  {code:'JOR15', name:'Musa Al-Taamari',        team:'Jordan', foil:false},
+  {code:'JOR16', name:'Yazan Al-Naimat',        team:'Jordan', foil:false},
+  {code:'JOR17', name:'Mahmoud Al-Mardi',       team:'Jordan', foil:false},
+  {code:'JOR18', name:'Ali Olwan',              team:'Jordan', foil:false},
+  {code:'JOR19', name:'Mohammad Abu Zrayq',     team:'Jordan', foil:false},
+  {code:'JOR20', name:'Ibrahim Sabra',          team:'Jordan', foil:false},
+  // Portugal
+  {code:'POR1',  name:'Team Logo',          team:'Portugal', foil:true},
+  {code:'POR2',  name:'Diogo Costa',        team:'Portugal', foil:false},
+  {code:'POR3',  name:'Jose Sa',            team:'Portugal', foil:false},
+  {code:'POR4',  name:'Ruben Dias',         team:'Portugal', foil:false},
+  {code:'POR5',  name:'João Cancelo',       team:'Portugal', foil:false},
+  {code:'POR6',  name:'Diogo Dalot',        team:'Portugal', foil:false},
+  {code:'POR7',  name:'Nuno Mendes',        team:'Portugal', foil:false},
+  {code:'POR8',  name:'Gonçalo Inácio',     team:'Portugal', foil:false},
+  {code:'POR9',  name:'Bernardo Silva',     team:'Portugal', foil:false},
+  {code:'POR10', name:'Bruno Fernandes',    team:'Portugal', foil:false},
+  {code:'POR11', name:'Ruben Neves',        team:'Portugal', foil:false},
+  {code:'POR12', name:'Vitinha',            team:'Portugal', foil:false},
+  {code:'POR13', name:'Team Photo',         team:'Portugal', foil:false},
+  {code:'POR14', name:'João Neves',         team:'Portugal', foil:false},
+  {code:'POR15', name:'Cristiano Ronaldo',  team:'Portugal', foil:false},
+  {code:'POR16', name:'Francisco Trincao',  team:'Portugal', foil:false},
+  {code:'POR17', name:'João Felix',         team:'Portugal', foil:false},
+  {code:'POR18', name:'Gonçalo Ramos',      team:'Portugal', foil:false},
+  {code:'POR19', name:'Pedro Neto',         team:'Portugal', foil:false},
+  {code:'POR20', name:'Rafael Leão',        team:'Portugal', foil:false},
+  // Congo DR
+  {code:'COD1',  name:'Team Logo',            team:'Congo DR', foil:true},
+  {code:'COD2',  name:'Lionel Mpasi',         team:'Congo DR', foil:false},
+  {code:'COD3',  name:'Aaron Wan-Bissaka',    team:'Congo DR', foil:false},
+  {code:'COD4',  name:'Axel Tuanzebe',        team:'Congo DR', foil:false},
+  {code:'COD5',  name:'Arthur Masuaku',       team:'Congo DR', foil:false},
+  {code:'COD6',  name:'Chancel Mbemba',       team:'Congo DR', foil:false},
+  {code:'COD7',  name:'Joris Kayembe',        team:'Congo DR', foil:false},
+  {code:'COD8',  name:'Charles Pickel',       team:'Congo DR', foil:false},
+  {code:'COD9',  name:'Ngal\'ayel Mukau',     team:'Congo DR', foil:false},
+  {code:'COD10', name:'Edo Kayembe',          team:'Congo DR', foil:false},
+  {code:'COD11', name:'Samuel Moutoussamy',   team:'Congo DR', foil:false},
+  {code:'COD12', name:'Noah Sadiki',          team:'Congo DR', foil:false},
+  {code:'COD13', name:'Team Photo',           team:'Congo DR', foil:false},
+  {code:'COD14', name:'Théo Bongonda',        team:'Congo DR', foil:false},
+  {code:'COD15', name:'Meschak Elia',         team:'Congo DR', foil:false},
+  {code:'COD16', name:'Yoane Wissa',          team:'Congo DR', foil:false},
+  {code:'COD17', name:'Brian Cipenga',        team:'Congo DR', foil:false},
+  {code:'COD18', name:'Fiston Mayele',        team:'Congo DR', foil:false},
+  {code:'COD19', name:'Cédric Bakambu',       team:'Congo DR', foil:false},
+  {code:'COD20', name:'Nathanaël Mbuku',      team:'Congo DR', foil:false},
+  // Uzbekistan
+  {code:'UZB1',  name:'Team Logo',              team:'Uzbekistan', foil:true},
+  {code:'UZB2',  name:'Utkir Yusupov',          team:'Uzbekistan', foil:false},
+  {code:'UZB3',  name:'Farrukh Sayfiev',        team:'Uzbekistan', foil:false},
+  {code:'UZB4',  name:'Sherzod Nasrullaev',     team:'Uzbekistan', foil:false},
+  {code:'UZB5',  name:'Umar Eshmurodov',        team:'Uzbekistan', foil:false},
+  {code:'UZB6',  name:'Husniddin Aliqulov',     team:'Uzbekistan', foil:false},
+  {code:'UZB7',  name:'Rustamjon Ashurmatov',   team:'Uzbekistan', foil:false},
+  {code:'UZB8',  name:'Khojiakbar Alijonov',    team:'Uzbekistan', foil:false},
+  {code:'UZB9',  name:'Abdukodir Khusanov',     team:'Uzbekistan', foil:false},
+  {code:'UZB10', name:'Odiljon Hamrobekov',     team:'Uzbekistan', foil:false},
+  {code:'UZB11', name:'Otabek Shukurov',        team:'Uzbekistan', foil:false},
+  {code:'UZB12', name:'Jamshid Iskanderov',     team:'Uzbekistan', foil:false},
+  {code:'UZB13', name:'Team Photo',             team:'Uzbekistan', foil:false},
+  {code:'UZB14', name:'Azizbek Turgunboev',     team:'Uzbekistan', foil:false},
+  {code:'UZB15', name:'Khojimat Erkinov',       team:'Uzbekistan', foil:false},
+  {code:'UZB16', name:'Eldor Shomurodov',       team:'Uzbekistan', foil:false},
+  {code:'UZB17', name:'Oston Urunov',           team:'Uzbekistan', foil:false},
+  {code:'UZB18', name:'Jaloliddin Masharipov',  team:'Uzbekistan', foil:false},
+  {code:'UZB19', name:'Igor Sergeev',           team:'Uzbekistan', foil:false},
+  {code:'UZB20', name:'Abbosbek Fayzullaev',    team:'Uzbekistan', foil:false},
+  // Colombia
+  {code:'COL1',  name:'Team Logo',              team:'Colombia', foil:true},
+  {code:'COL2',  name:'Camilo Vargas',          team:'Colombia', foil:false},
+  {code:'COL3',  name:'David Ospina',           team:'Colombia', foil:false},
+  {code:'COL4',  name:'Dávinson Sánchez',       team:'Colombia', foil:false},
+  {code:'COL5',  name:'Yerry Mina',             team:'Colombia', foil:false},
+  {code:'COL6',  name:'Daniel Munoz',           team:'Colombia', foil:false},
+  {code:'COL7',  name:'Johan Mojica',           team:'Colombia', foil:false},
+  {code:'COL8',  name:'Jhon Lucumí',            team:'Colombia', foil:false},
+  {code:'COL9',  name:'Santiago Arias',         team:'Colombia', foil:false},
+  {code:'COL10', name:'Jefferson Lerma',        team:'Colombia', foil:false},
+  {code:'COL11', name:'Kevin Castaño',          team:'Colombia', foil:false},
+  {code:'COL12', name:'Richard Rios',           team:'Colombia', foil:false},
+  {code:'COL13', name:'Team Photo',             team:'Colombia', foil:false},
+  {code:'COL14', name:'James Rodriguez',        team:'Colombia', foil:false},
+  {code:'COL15', name:'Juan Fernando Quintero', team:'Colombia', foil:false},
+  {code:'COL16', name:'Jorge Carrascal',        team:'Colombia', foil:false},
+  {code:'COL17', name:'Jon Arias',              team:'Colombia', foil:false},
+  {code:'COL18', name:'Jhon Cordova',           team:'Colombia', foil:false},
+  {code:'COL19', name:'Luis Suarez',            team:'Colombia', foil:false},
+  {code:'COL20', name:'Luis Diaz',              team:'Colombia', foil:false},
+  // England
+  {code:'ENG1',  name:'Team Logo',          team:'England', foil:true},
+  {code:'ENG2',  name:'Jordan Pickford',    team:'England', foil:false},
+  {code:'ENG3',  name:'John Stones',        team:'England', foil:false},
+  {code:'ENG4',  name:'Marc Guéhi',         team:'England', foil:false},
+  {code:'ENG5',  name:'Ezri Konsa',         team:'England', foil:false},
+  {code:'ENG6',  name:'Trent Alexander-Arnold',team:'England', foil:false},
+  {code:'ENG7',  name:'Reece James',        team:'England', foil:false},
+  {code:'ENG8',  name:'Dan Burn',           team:'England', foil:false},
+  {code:'ENG9',  name:'Jordan Henderson',   team:'England', foil:false},
+  {code:'ENG10', name:'Declan Rice',        team:'England', foil:false},
+  {code:'ENG11', name:'Jude Bellingham',    team:'England', foil:false},
+  {code:'ENG12', name:'Cole Palmer',        team:'England', foil:false},
+  {code:'ENG13', name:'Team Photo',         team:'England', foil:false},
+  {code:'ENG14', name:'Morgan Rogers',      team:'England', foil:false},
+  {code:'ENG15', name:'Anthony Gordon',     team:'England', foil:false},
+  {code:'ENG16', name:'Phil Foden',         team:'England', foil:false},
+  {code:'ENG17', name:'Bukayo Saka',        team:'England', foil:false},
+  {code:'ENG18', name:'Harry Kane',         team:'England', foil:false},
+  {code:'ENG19', name:'Marcus Rashford',    team:'England', foil:false},
+  {code:'ENG20', name:'Ollie Watkins',      team:'England', foil:false},
+  // Croatia
+  {code:'CRO1',  name:'Team Logo',          team:'Croatia', foil:true},
+  {code:'CRO2',  name:'Dominik Livaković',  team:'Croatia', foil:false},
+  {code:'CRO3',  name:'Duje Caleta-Car',    team:'Croatia', foil:false},
+  {code:'CRO4',  name:'Josko Gvardiol',     team:'Croatia', foil:false},
+  {code:'CRO5',  name:'Josip Stanišić',     team:'Croatia', foil:false},
+  {code:'CRO6',  name:'Luka Vušković',      team:'Croatia', foil:false},
+  {code:'CRO7',  name:'Josip Sutalo',       team:'Croatia', foil:false},
+  {code:'CRO8',  name:'Kristijan Jakic',    team:'Croatia', foil:false},
+  {code:'CRO9',  name:'Luka Modrić',        team:'Croatia', foil:false},
+  {code:'CRO10', name:'Mateo Kovacic',      team:'Croatia', foil:false},
+  {code:'CRO11', name:'Martin Baturina',    team:'Croatia', foil:false},
+  {code:'CRO12', name:'Lovro Majer',        team:'Croatia', foil:false},
+  {code:'CRO13', name:'Team Photo',         team:'Croatia', foil:false},
+  {code:'CRO14', name:'Mario Pasalic',      team:'Croatia', foil:false},
+  {code:'CRO15', name:'Petar Sucic',        team:'Croatia', foil:false},
+  {code:'CRO16', name:'Ivan Perišić',       team:'Croatia', foil:false},
+  {code:'CRO17', name:'Marco Pasalic',      team:'Croatia', foil:false},
+  {code:'CRO18', name:'Ante Budimir',       team:'Croatia', foil:false},
+  {code:'CRO19', name:'Andrej Kramarić',    team:'Croatia', foil:false},
+  {code:'CRO20', name:'Franjo Ivanovic',    team:'Croatia', foil:false},
+  // Ghana
+  {code:'GHA1',  name:'Team Logo',          team:'Ghana', foil:true},
+  {code:'GHA2',  name:'Lawrence Ati Zigi',  team:'Ghana', foil:false},
+  {code:'GHA3',  name:'Tariq Lamptey',      team:'Ghana', foil:false},
+  {code:'GHA4',  name:'Mohammed Salisu',    team:'Ghana', foil:false},
+  {code:'GHA5',  name:'Alidu Seidu',        team:'Ghana', foil:false},
+  {code:'GHA6',  name:'Alexander Djiku',    team:'Ghana', foil:false},
+  {code:'GHA7',  name:'Gideon Mensah',      team:'Ghana', foil:false},
+  {code:'GHA8',  name:'Caleb Yirenkyi',     team:'Ghana', foil:false},
+  {code:'GHA9',  name:'Abdul Issahaku Fatawu',team:'Ghana', foil:false},
+  {code:'GHA10', name:'Thomas Partey',      team:'Ghana', foil:false},
+  {code:'GHA11', name:'Salis Abdul Samed',  team:'Ghana', foil:false},
+  {code:'GHA12', name:'Kamaldeen Sulemana', team:'Ghana', foil:false},
+  {code:'GHA13', name:'Team Photo',         team:'Ghana', foil:false},
+  {code:'GHA14', name:'Mohammed Kudus',     team:'Ghana', foil:false},
+  {code:'GHA15', name:'Inaki Williams',     team:'Ghana', foil:false},
+  {code:'GHA16', name:'Jordan Ayew',        team:'Ghana', foil:false},
+  {code:'GHA17', name:'Andrew Ayew',        team:'Ghana', foil:false},
+  {code:'GHA18', name:'Joseph Paintsil',    team:'Ghana', foil:false},
+  {code:'GHA19', name:'Osman Bukari',       team:'Ghana', foil:false},
+  {code:'GHA20', name:'Antoine Semenyo',    team:'Ghana', foil:false},
+  // Panama
+  {code:'PAN1',  name:'Team Logo',               team:'Panama', foil:true},
+  {code:'PAN2',  name:'Orlando Mosquera',         team:'Panama', foil:false},
+  {code:'PAN3',  name:'Luis Mejia',               team:'Panama', foil:false},
+  {code:'PAN4',  name:'Fidel Escobar',            team:'Panama', foil:false},
+  {code:'PAN5',  name:'Andres Andrade',           team:'Panama', foil:false},
+  {code:'PAN6',  name:'Michael Amir Murillo',     team:'Panama', foil:false},
+  {code:'PAN7',  name:'Eric Davis',               team:'Panama', foil:false},
+  {code:'PAN8',  name:'Jose Cordoba',             team:'Panama', foil:false},
+  {code:'PAN9',  name:'Cesar Blackman',           team:'Panama', foil:false},
+  {code:'PAN10', name:'Cristian Martinez',        team:'Panama', foil:false},
+  {code:'PAN11', name:'Aníbal Godoy',             team:'Panama', foil:false},
+  {code:'PAN12', name:'Adalberto Carrasquilla',   team:'Panama', foil:false},
+  {code:'PAN13', name:'Team Photo',               team:'Panama', foil:false},
+  {code:'PAN14', name:'Édgar Bárcenas',           team:'Panama', foil:false},
+  {code:'PAN15', name:'Carlos Harvey',            team:'Panama', foil:false},
+  {code:'PAN16', name:'Ismael Díaz',              team:'Panama', foil:false},
+  {code:'PAN17', name:'Jose Fajardo',             team:'Panama', foil:false},
+  {code:'PAN18', name:'Cecilio Waterman',         team:'Panama', foil:false},
+  {code:'PAN19', name:'Jose Luiz Rodriguez',      team:'Panama', foil:false},
+  {code:'PAN20', name:'Alberto Quintero',         team:'Panama', foil:false},
+];
+
+// Build lookup map
+const STICKER_MAP = {};
+STICKERS.forEach(s => { STICKER_MAP[s.code.toUpperCase()] = s; });
+
+// Team order (display order in grid)
+const TEAMS = [...new Set(STICKERS.map(s => s.team))];
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let owned = new Set(); // set of owned sticker codes (uppercase)
+let dubs = {};         // { code: count }
+let dubQty = 1;
+let currentFilter = 'all';
+let saveTimer = null;
+let isSaving = false;
+
+// ── SYNC ─────────────────────────────────────────────────────────────────────
+function setSyncStatus(state, text) {
+  const bar = document.getElementById('sync-bar');
+  const status = document.getElementById('sync-status');
+  const txt = document.getElementById('sync-text');
+  bar.className = state === 'syncing' ? 'syncing' : (state === 'error' ? 'error' : '');
+  status.className = 'visible ' + state;
+  txt.textContent = text;
+  if (state === 'saved') {
+    clearTimeout(status._hideTimer);
+    status._hideTimer = setTimeout(() => { status.className = ''; }, 3000);
+  }
+}
+
+async function loadFromAPI() {
+  try {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    owned = new Set((data.owned || []).map(c => c.toUpperCase()));
+    dubs = data.dubs || {};
+    return true;
+  } catch (err) {
+    console.error('Load failed, fallback to localStorage:', err);
+    try {
+      const ls = localStorage.getItem('panini-stickers-wc2026');
+      owned = ls ? new Set(JSON.parse(ls)) : new Set();
+      const lsd = localStorage.getItem('panini-stickers-dubs-wc2026');
+      dubs = lsd ? JSON.parse(lsd) : {};
+    } catch(e) { owned = new Set(); dubs = {}; }
+    return false;
+  }
+}
+
+function scheduleSync() {
+  clearTimeout(saveTimer);
+  setSyncStatus('syncing', 'Se salvează…');
+  saveTimer = setTimeout(syncToAPI, 800);
+}
+
+async function syncToAPI() {
+  if (isSaving) { scheduleSync(); return; }
+  isSaving = true;
+  try {
+    const payload = { owned: [...owned], dubs };
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    localStorage.setItem('panini-stickers-wc2026', JSON.stringify([...owned]));
+    localStorage.setItem('panini-stickers-dubs-wc2026', JSON.stringify(dubs));
+    setSyncStatus('saved', 'Salvat ✓');
+  } catch(err) {
+    console.error('Sync failed:', err);
+    setSyncStatus('error', 'Eroare — se reîncearcă');
+    showToast('!', 'Salvarea a eșuat, se reîncearcă…', 'error');
+    setTimeout(syncToAPI, 5000);
+  } finally { isSaving = false; }
+}
+
+// ── GRID ─────────────────────────────────────────────────────────────────────
+function buildGrid() {
+  const root = document.getElementById('grid-inner');
+  root.innerHTML = '';
+  TEAMS.forEach(team => {
+    const stickers = STICKERS.filter(s => s.team === team);
+    const grp = document.createElement('div');
+    grp.className = 'team-group';
+    grp.dataset.team = team.toLowerCase();
+    const haveCount = stickers.filter(s => owned.has(s.code.toUpperCase())).length;
+    const pct = Math.round((haveCount / stickers.length) * 100);
+    const color = pct === 100 ? 'var(--green)' : pct > 50 ? 'var(--teal)' : 'var(--blue)';
+    grp.innerHTML = `
+      <div class="team-group-header">
+        <div class="team-group-name">${team === 'FWC' ? '🏆 FIFA World Cup & Introduction' : team}</div>
+        <div class="team-group-progress">
+          <div class="team-prog-bar"><div class="team-prog-fill" style="width:${pct}%;background:${color}"></div></div>
+          <span class="team-prog-count">${haveCount}/${stickers.length}</span>
+        </div>
+      </div>
+      <div class="sticker-grid" id="sg-${team.replace(/\s/g,'_')}"></div>
+    `;
+    root.appendChild(grp);
+    const grid = grp.querySelector('.sticker-grid');
+    stickers.forEach(s => {
+      const code = s.code.toUpperCase();
+      const have = owned.has(code);
+      const box = document.createElement('div');
+      box.className = `sbox ${have ? 'have' : 'miss'} ${s.foil ? 'foil' : ''}`;
+      box.dataset.code = code;
+      box.dataset.team = team.toLowerCase();
+      box.textContent = s.code;
+      box.title = s.name;
+      box.addEventListener('click', () => toggleSticker(code));
+      box.addEventListener('mouseenter', e => showTip(e, code));
+      box.addEventListener('mousemove', moveTip);
+      box.addEventListener('mouseleave', hideTip);
+      grid.appendChild(box);
+    });
+  });
+  applyFilter();
+}
+
+function updateStickerEl(code) {
+  const box = document.querySelector(`.sbox[data-code="${code}"]`);
+  if (!box) return;
+  const s = STICKER_MAP[code];
+  box.className = `sbox ${owned.has(code) ? 'have' : 'miss'} ${s && s.foil ? 'foil' : ''}`;
+  // Update team progress
+  if (s) {
+    const stickers = STICKERS.filter(x => x.team === s.team);
+    const haveCount = stickers.filter(x => owned.has(x.code.toUpperCase())).length;
+    const pct = Math.round((haveCount / stickers.length) * 100);
+    const color = pct === 100 ? 'var(--green)' : pct > 50 ? 'var(--teal)' : 'var(--blue)';
+    const grp = document.querySelector(`.team-group[data-team="${s.team.toLowerCase()}"]`);
+    if (grp) {
+      const fill = grp.querySelector('.team-prog-fill');
+      const cnt = grp.querySelector('.team-prog-count');
+      if (fill) fill.style.width = pct + '%', fill.style.background = color;
+      if (cnt) cnt.textContent = haveCount + '/' + stickers.length;
+    }
+  }
+  applyFilter();
+}
+
+function toggleSticker(code) {
+  if (owned.has(code)) { owned.delete(code); showToast('✗', code + ' — marcat ca lipsă', 'error'); }
+  else { owned.add(code); showToast('✓', code + ' — adăugat în album', 'success'); }
+  scheduleSync();
+  updateStickerEl(code);
+  updateStats();
+  updateMissingText();
+}
+
+function addStickers() {
+  const val = document.getElementById('add-input').value.trim();
+  if (!val) { showToast('!', 'Introdu coduri de stickere', 'error'); return; }
+  const codes = val.split(/[\s,;]+/).map(c => c.trim().toUpperCase()).filter(Boolean);
+  let added = 0, unknown = [];
+  codes.forEach(code => {
+    if (!STICKER_MAP[code]) { unknown.push(code); return; }
+    if (!owned.has(code)) { owned.add(code); added++; }
+  });
+  scheduleSync();
+  added > 0 && buildGrid();
+  updateStats();
+  updateMissingText();
+  document.getElementById('add-input').value = '';
+  if (added > 0 && unknown.length === 0) showToast('✓', added + ' sticker' + (added===1?'':'e') + ' adăugate!', 'success');
+  else if (added > 0) showToast('✓', added + ' adăugate; necunoscute: ' + unknown.join(', '), 'success');
+  else showToast('!', 'Coduri necunoscute: ' + unknown.join(', '), 'error');
+}
+
+function setFilter(f) {
+  currentFilter = f;
+  document.getElementById('f-all').className = 'filter-btn' + (f==='all'?' f-all':'');
+  document.getElementById('f-have').className = 'filter-btn' + (f==='have'?' f-have':'');
+  document.getElementById('f-miss').className = 'filter-btn' + (f==='miss'?' f-miss':'');
+  document.getElementById('f-foil').className = 'filter-btn' + (f==='foil'?' f-all':'');
+  applyFilter();
+}
+
+function applyFilter() {
+  const search = document.getElementById('search-input').value.trim().toLowerCase();
+  document.querySelectorAll('.team-group').forEach(grp => {
+    const teamMatch = !search || grp.dataset.team.includes(search);
+    let anyVisible = false;
+    grp.querySelectorAll('.sbox').forEach(box => {
+      const code = box.dataset.code;
+      const have = owned.has(code);
+      const isFoil = box.classList.contains('foil');
+      let vis = true;
+      if (currentFilter === 'have' && !have) vis = false;
+      if (currentFilter === 'miss' && have) vis = false;
+      if (currentFilter === 'foil' && !isFoil) vis = false;
+      if (search && !code.toLowerCase().includes(search) && !teamMatch) vis = false;
+      box.classList.toggle('hidden', !vis);
+      if (vis) anyVisible = true;
+    });
+    grp.classList.toggle('all-hidden', !anyVisible);
+  });
+}
+
+// ── STATS ────────────────────────────────────────────────────────────────────
+function updateStats() {
+  const have = owned.size;
+  const miss = TOTAL - have;
+  const pct = Math.round((have / TOTAL) * 100);
+  document.getElementById('s-have').textContent = have;
+  document.getElementById('s-miss').textContent = miss;
+  document.getElementById('s-pct').textContent = pct + '%';
+  document.getElementById('s-have-sub').textContent = pct + '% din album';
+  document.getElementById('s-miss-sub').textContent = (100-pct) + '% rămase';
+  document.getElementById('s-pct-sub').textContent = have + ' din ' + TOTAL;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-val').textContent = have + ' / ' + TOTAL;
+}
+
+function updateMissingText() {
+  const missings = STICKERS.filter(s => !owned.has(s.code.toUpperCase())).map(s => s.code);
+  document.getElementById('missing-text').textContent = missings.length === 0 ? '(album complet! 🏆)' : missings.join(', ');
+}
+
+// ── DUBS ─────────────────────────────────────────────────────────────────────
+function dubQtyChange(delta) {
+  dubQty = Math.max(1, Math.min(99, dubQty + delta));
+  document.getElementById('dub-qty').textContent = dubQty;
+}
+
+function addDuplicate() {
+  const val = document.getElementById('dub-input').value.trim().toUpperCase();
+  if (!val) { showToast('!', 'Introdu codul stickerului', 'error'); return; }
+  if (!STICKER_MAP[val]) { showToast('!', 'Cod necunoscut: ' + val, 'error'); return; }
+  if (!owned.has(val)) { showToast('!', 'Sticker-ul ' + val + ' nu este în album', 'error'); return; }
+  dubs[val] = (dubs[val] || 0) + dubQty;
+  scheduleSync();
+  renderDubs();
+  document.getElementById('dub-input').value = '';
+  dubQty = 1; document.getElementById('dub-qty').textContent = '1';
+  showToast('✓', dubQty + 'x dublură ' + val + ' adăugată', 'success');
+}
+
+function changeDubCount(code, delta) {
+  const next = (dubs[code] || 0) + delta;
+  if (next <= 0) { removeDuplicate(code); return; }
+  dubs[code] = next; scheduleSync(); renderDubs();
+}
+
+function removeDuplicate(code) {
+  delete dubs[code]; scheduleSync(); renderDubs();
+  showToast('✓', 'Dublurile pentru ' + code + ' șterse', 'success');
+}
+
+function renderDubs() {
+  const list = document.getElementById('dub-list');
+  const keys = Object.keys(dubs).filter(c => dubs[c] > 0).sort();
+  if (keys.length === 0) { list.innerHTML = '<div class="dub-empty">🃏 Nicio dublură înregistrată</div>'; updateDubStats(); updateDubCompact(); return; }
+  list.innerHTML = '';
+  keys.forEach(code => {
+    const count = dubs[code];
+    const s = STICKER_MAP[code];
+    const row = document.createElement('div');
+    row.className = 'dub-row';
+    row.innerHTML = `
+      <div class="dub-row-code">${code}</div>
+      <div class="dub-row-info">
+        <div class="dub-row-name">${s ? s.name : code}</div>
+        <div class="dub-row-sub">${s ? s.team : ''}</div>
+      </div>
+      <div class="dub-counter">
+        <button class="dub-cnt-btn minus" onclick="changeDubCount('${code}',-1)">−</button>
+        <div class="dub-cnt-num">${count}</div>
+        <div class="dub-cnt-label">buc.</div>
+        <button class="dub-cnt-btn plus" onclick="changeDubCount('${code}',1)">+</button>
+      </div>
+      <button class="dub-delete-btn" onclick="removeDuplicate('${code}')" title="Șterge">✕</button>
+    `;
+    list.appendChild(row);
+  });
+  updateDubStats();
+  updateDubCompact();
+}
+
+function updateDubStats() {
+  const keys = Object.keys(dubs).filter(c => dubs[c] > 0);
+  document.getElementById('dub-unique').textContent = keys.length;
+  document.getElementById('dub-total').textContent = keys.reduce((s,c) => s+dubs[c], 0);
+}
+
+function updateDubCompact() {
+  const keys = Object.keys(dubs).filter(c => dubs[c] > 0).sort();
+  const text = keys.length === 0 ? '(nicio dublură)' : keys.map(c => dubs[c] > 1 ? c+'('+dubs[c]+')' : c).join(',');
+  document.getElementById('dub-compact-text').textContent = text;
+  document.getElementById('dub-compact-wrap').classList.toggle('visible', keys.length > 0);
+}
+
+function copyDubs() {
+  navigator.clipboard.writeText(document.getElementById('dub-compact-text').textContent)
+    .then(() => showToast('📋', 'Lista dublurilor copiată!', 'success'))
+    .catch(() => showToast('ℹ', 'Selectează manual textul', 'error'));
+}
+
+function copyMissing() {
+  navigator.clipboard.writeText(document.getElementById('missing-text').textContent)
+    .then(() => showToast('📋', 'Lista lipsuri copiată!', 'success'))
+    .catch(() => showToast('ℹ', 'Selectează manual', 'error'));
+}
+
+// ── TOOLTIP ──────────────────────────────────────────────────────────────────
+const tip = document.getElementById('ctip');
+function showTip(e, code) {
+  const s = STICKER_MAP[code];
+  const have = owned.has(code);
+  tip.style.display = 'block';
+  tip.innerHTML = `<strong style="color:${have?'var(--green)':'var(--red)'}">${code}</strong>`
+    + (s ? ` <span style="color:var(--text)">${s.name}</span> <span style="color:var(--muted)">· ${s.team}</span>` : '')
+    + (s && s.foil ? ` <span style="color:var(--gold)">⭐ FOIL</span>` : '')
+    + ` <span style="color:var(--muted)">· ${have?'✅ Dețin':'❌ Lipsă'}</span>`
+    + `<br><span style="color:var(--muted);font-size:0.58rem">Click pentru a schimba</span>`;
+  moveTip(e);
+}
+function moveTip(e) {
+  tip.style.left = Math.min(e.clientX+14, window.innerWidth-300)+'px';
+  tip.style.top = Math.max(e.clientY-50, 8)+'px';
+}
+function hideTip() { tip.style.display = 'none'; }
+
+// ── TOAST ────────────────────────────────────────────────────────────────────
+let toastTimeout;
+function showToast(icon, msg, type) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-icon').textContent = icon;
+  document.getElementById('toast-msg').textContent = msg;
+  t.className = 'show t-' + type;
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => { t.className = ''; }, 3000);
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+document.getElementById('add-input').addEventListener('keydown', e => { if (e.key==='Enter') addStickers(); });
+document.getElementById('dub-input').addEventListener('keydown', e => { if (e.key==='Enter') addDuplicate(); });
+
+async function init() {
+  const overlay = document.getElementById('loading-overlay');
+  const loadingText = document.getElementById('loading-text');
+  loadingText.textContent = 'Se conectează la Vercel Blob…';
+  const ok = await loadFromAPI();
+  if (!ok) { loadingText.textContent = 'Offline — date din cache'; await new Promise(r=>setTimeout(r,700)); }
+  buildGrid();
+  updateStats();
+  updateMissingText();
+  renderDubs();
+  setFilter('all');
+  overlay.classList.add('hidden');
+  setTimeout(() => { overlay.style.display='none'; }, 500);
+  setSyncStatus(ok ? 'saved' : 'error', ok ? 'Date încărcate ✓' : 'Offline — salvare locală');
+}
+
+init();
+</script>
+</body>
+</html>

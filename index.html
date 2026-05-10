@@ -3,28 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panini FIFA WC 2026 · Adrenalyn XL · Colecție</title>
+<title>Panini Collections Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #080a10;
-  --surface: #0e1220;
-  --surface2: #141826;
-  --surface3: #1a2030;
+  --bg: #07080d;
+  --surface: #0d0f18;
+  --surface2: #12141f;
+  --surface3: #181b28;
   --border: rgba(255,255,255,0.06);
-  --border2: rgba(255,255,255,0.12);
+  --border2: rgba(255,255,255,0.11);
   --text: #f0f2ff;
-  --muted: #6b7494;
+  --muted: #656882;
   --gold: #f5c842;
-  --gold-dim: rgba(245,200,66,0.12);
-  --gold-glow: rgba(245,200,66,0.25);
-  --red: #ff4d6d;
-  --red-dim: rgba(255,77,109,0.1);
-  --green: #22d3a0;
-  --green-dim: rgba(34,211,160,0.1);
-  --blue: #4f8fff;
-  --blue-dim: rgba(79,143,255,0.1);
+  --teal: #00c9b1;
   --purple: #a855f7;
+  --red: #ff4d6d;
+  --green: #22d3a0;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -35,2778 +30,438 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO */
-.hero {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #090d1a 0%, #0a1428 40%, #0d1535 100%);
-  border-bottom: 1px solid var(--border2);
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
+/* Background */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
   background:
-    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(79,143,255,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 20% 30%, rgba(245,200,66,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 30% 50% at 50% 100%, rgba(168,85,247,0.06) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,200,66,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(0,201,177,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 90% 60%, rgba(168,85,247,0.04) 0%, transparent 60%);
   pointer-events: none;
 }
-.hero-bg::after {
+body::after {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: fixed; inset: 0; z-index: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
 }
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 2rem;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem 2.2rem;
-}
-.hero-eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.63rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.6rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 20px; height: 2px;
-  background: var(--gold);
-}
-.hero-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
-  line-height: 0.9;
-  letter-spacing: 0.02em;
-  color: var(--text);
-  margin-bottom: 0.5rem;
-}
-.hero-title .hl {
-  color: var(--gold);
-  text-shadow: 0 0 40px rgba(245,200,66,0.4);
-}
-.hero-sub {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-top: 0.75rem;
-  line-height: 1.6;
-}
-.hero-cards {
-  display: flex;
-  align-items: flex-end;
-  height: 155px;
-}
-.hero-card-img {
-  width: 86px;
-  height: 130px;
-  border-radius: 8px;
-  object-fit: cover;
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
-  flex-shrink: 0;
-  transition: transform 0.3s;
-  background: var(--surface2);
-}
-.hero-card-img:nth-child(1) { transform: rotate(-8deg) translateY(8px); z-index: 1; }
-.hero-card-img:nth-child(2) { transform: rotate(-2deg) translateY(-6px); z-index: 2; margin-left: -22px; }
-.hero-card-img:nth-child(3) { transform: rotate(5deg) translateY(10px); z-index: 1; margin-left: -22px; }
-.hero-cards:hover .hero-card-img:nth-child(1) { transform: rotate(-12deg) translateY(12px) translateX(-8px); }
-.hero-cards:hover .hero-card-img:nth-child(2) { transform: rotate(0deg) translateY(-12px); }
-.hero-cards:hover .hero-card-img:nth-child(3) { transform: rotate(9deg) translateY(12px) translateX(8px); }
 
-/* STATS */
-.stats-section {
-  max-width: 1280px;
-  margin: 2rem auto 0;
-  padding: 0 2rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.stat-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.2rem 1.4rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s;
-  cursor: default;
-}
-.stat-card:hover { transform: translateY(-2px); }
-.stat-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  border-radius: 14px 14px 0 0;
-}
-.sc-gold::after { background: linear-gradient(90deg, var(--gold), #ffd700); }
-.sc-green::after { background: linear-gradient(90deg, var(--green), #00e5bb); }
-.sc-red::after { background: linear-gradient(90deg, var(--red), #ff8fa0); }
-.sc-blue::after { background: linear-gradient(90deg, var(--blue), #7eb3ff); }
-.sc-gold:hover { border-color: rgba(245,200,66,0.25); }
-.sc-green:hover { border-color: rgba(34,211,160,0.25); }
-.sc-red:hover { border-color: rgba(255,77,109,0.25); }
-.sc-blue:hover { border-color: rgba(79,143,255,0.25); }
-.stat-emoji { font-size: 1.2rem; margin-bottom: 0.5rem; opacity: 0.75; }
-.stat-label {
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.3rem;
-}
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 0.02em;
-  line-height: 1;
-}
-.sc-gold .stat-num { color: var(--gold); }
-.sc-green .stat-num { color: var(--green); }
-.sc-red .stat-num { color: var(--red); }
-.sc-blue .stat-num { color: var(--blue); }
-.stat-sub { font-size: 0.65rem; color: var(--muted); margin-top: 0.2rem; font-family: 'DM Mono', monospace; }
+.page { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 4rem 2rem 5rem; }
 
-/* PROGRESS */
-.progress-section {
-  max-width: 1280px;
-  margin: 1.2rem auto 0;
-  padding: 0 2rem;
-}
-.progress-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.2rem 1.5rem;
-}
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.7rem;
-}
-.progress-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-.progress-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--gold); letter-spacing: 0.05em; }
-.progress-track { height: 8px; background: var(--surface3); border-radius: 99px; overflow: hidden; }
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--green) 0%, var(--gold) 60%, #ff9f43 100%);
-  border-radius: 99px;
-  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.milestones {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.35rem;
-}
-.milestone { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--muted); }
+/* HEADER */
+.hub-header { text-align: center; margin-bottom: 4rem; }
 
-/* ADD */
-.add-section {
-  max-width: 1280px;
-  margin: 1.2rem auto 0;
-  padding: 0 2rem;
-}
-.add-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.3rem 1.5rem;
-}
-.add-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-.add-header-icon {
-  width: 30px; height: 30px;
-  background: var(--gold-dim);
-  border: 1px solid rgba(245,200,66,0.2);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px; color: var(--gold); font-weight: 800;
-}
-.add-header-text { font-size: 0.88rem; font-weight: 700; color: var(--text); }
-.add-header-sub { font-size: 0.68rem; color: var(--muted); margin-top: 1px; font-family: 'DM Mono', monospace; }
-.add-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: stretch; }
-.add-input {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.88rem;
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  border-radius: 10px;
-  color: var(--text);
-  padding: 0.72rem 1rem;
-  outline: none;
-  flex: 1;
-  min-width: 200px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.add-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-glow); }
-.add-input::placeholder { color: var(--muted); }
-.btn {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 0.72rem 1.3rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
+.hub-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-}
-.btn:active { transform: scale(0.97); }
-.btn-gold { background: var(--gold); color: #090d14; }
-.btn-gold:hover { background: #ffd700; box-shadow: 0 4px 20px rgba(245,200,66,0.35); }
-.btn-outline { background: transparent; color: var(--muted); border: 1px solid var(--border2); }
-.btn-outline:hover { color: var(--text); border-color: rgba(255,255,255,0.22); background: var(--surface2); }
-.add-hint { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); margin-top: 0.6rem; }
-
-/* TYPES */
-.types-section {
-  max-width: 1280px;
-  margin: 1.2rem auto 0;
-  padding: 0 2rem;
-}
-.section-label {
+  gap: 0.5rem;
+  background: rgba(245,200,66,0.08);
+  border: 1px solid rgba(245,200,66,0.2);
+  border-radius: 99px;
+  padding: 0.3rem 1rem;
+  font-family: 'DM Mono', monospace;
   font-size: 0.62rem;
-  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.6rem;
-}
-.types-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 8px;
-}
-.type-pill {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 0.65rem 0.9rem;
-  text-align: center;
-  transition: border-color 0.2s;
-}
-.type-pill:hover { border-color: var(--border2); }
-.type-name { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
-.type-count { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.03em; }
-
-/* GRID SECTION */
-.grid-section {
-  max-width: 1280px;
-  margin: 1.2rem auto 0;
-  padding: 0 2rem;
-}
-.grid-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-}
-.grid-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid var(--border);
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  background: var(--surface2);
-}
-.toolbar-left { display: flex; gap: 0.45rem; align-items: center; flex-wrap: wrap; }
-.filter-btn {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.32rem 0.85rem;
-  border-radius: 99px;
-  border: 1px solid var(--border2);
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.filter-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
-.f-all { background: var(--blue-dim); color: var(--blue); border-color: rgba(79,143,255,0.3); }
-.f-active { background: var(--green-dim); color: var(--green); border-color: rgba(34,211,160,0.3); }
-.f-miss { background: var(--red-dim); color: var(--red); border-color: rgba(255,77,109,0.3); }
-.search-wrap { position: relative; }
-.search-icon { position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 11px; pointer-events: none; }
-.search-input {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  border-radius: 8px;
-  color: var(--text);
-  padding: 0.38rem 0.7rem 0.38rem 1.7rem;
-  outline: none;
-  width: 120px;
-  transition: border-color 0.2s, width 0.25s;
-}
-.search-input:focus { border-color: var(--gold); width: 170px; }
-.search-input::placeholder { color: var(--muted); }
-.toolbar-right { display: flex; gap: 0.85rem; align-items: center; }
-.legend { display: flex; gap: 0.75rem; align-items: center; }
-.leg-item { display: flex; align-items: center; gap: 4px; font-size: 0.63rem; color: var(--muted); font-weight: 500; }
-.leg-dot { width: 9px; height: 9px; border-radius: 3px; }
-.leg-have { background: rgba(34,211,160,0.3); border: 1px solid rgba(34,211,160,0.5); }
-.leg-miss { background: rgba(255,77,109,0.2); border: 1px solid rgba(255,77,109,0.4); }
-.view-toggle { display: flex; gap: 2px; background: var(--bg); border: 1px solid var(--border2); border-radius: 7px; padding: 2px; }
-.view-btn { padding: 3px 7px; border-radius: 5px; border: none; background: transparent; color: var(--muted); cursor: pointer; font-size: 13px; transition: all 0.15s; }
-.view-btn.active { background: var(--surface3); color: var(--text); }
-.grid-inner { padding: 1.2rem; }
-
-/* CARDS */
-.card-grid { display: flex; flex-wrap: wrap; gap: 4px; }
-.cbox {
-  width: 30px; height: 30px;
-  border-radius: 5px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'DM Mono', monospace;
-  font-size: 7px; font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.12s, box-shadow 0.15s;
-  position: relative;
-  border: 1px solid transparent;
-  user-select: none;
-}
-.cbox:hover { transform: scale(1.35); z-index: 10; }
-.cbox:active { transform: scale(1.12); }
-.cbox.have { background: rgba(34,211,160,0.11); border-color: rgba(34,211,160,0.26); color: var(--green); }
-.cbox.have:hover { background: rgba(34,211,160,0.22); border-color: rgba(34,211,160,0.55); box-shadow: 0 0 10px rgba(34,211,160,0.2); }
-.cbox.miss { background: rgba(255,77,109,0.08); border-color: rgba(255,77,109,0.2); color: var(--red); }
-.cbox.miss:hover { background: rgba(255,77,109,0.18); border-color: rgba(255,77,109,0.5); box-shadow: 0 0 10px rgba(255,77,109,0.18); }
-.cbox.filtered-out { opacity:0; pointer-events:none; width:0; margin:0; padding:0; border:none; overflow:hidden; }
-
-/* LIST VIEW */
-.list-view { display: none; flex-direction: column; gap: 1px; }
-.list-row {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0.48rem 0.7rem;
-  border-radius: 7px;
-  cursor: pointer;
-  transition: background 0.12s;
-  border: 1px solid transparent;
-}
-.list-row:hover { background: var(--surface3); border-color: var(--border); }
-.list-num { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); width: 34px; flex-shrink: 0; }
-.list-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-.list-dot.have { background: var(--green); }
-.list-dot.miss { background: var(--red); }
-.list-player { font-size: 0.78rem; font-weight: 500; flex: 1; color: var(--text); }
-.list-team { font-size: 0.68rem; color: var(--muted); font-family: 'DM Mono', monospace; flex-shrink: 0; }
-.list-type { font-size: 0.6rem; padding: 2px 7px; border-radius: 99px; font-weight: 600; flex-shrink: 0; }
-.lt-gb { background: rgba(245,200,66,0.15); color: var(--gold); }
-.lt-hero { background: var(--blue-dim); color: var(--blue); }
-.lt-fan { background: var(--green-dim); color: var(--green); }
-.lt-icon { background: rgba(168,85,247,0.12); color: var(--purple); }
-.lt-logo { background: rgba(245,200,66,0.1); color: var(--gold); }
-.lt-special { background: var(--red-dim); color: var(--red); }
-.list-row.filtered-out { display: none; }
-
-/* SHOWCASE */
-.showcase-section {
-  max-width: 1280px;
-  margin: 1.2rem auto 0;
-  padding: 0 2rem;
-}
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 10px;
-}
-.showcase-item {
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--border2);
-  background: var(--surface2);
-  transition: transform 0.2s, border-color 0.2s;
-  cursor: pointer;
-}
-.showcase-item:hover { transform: translateY(-4px); border-color: rgba(245,200,66,0.35); }
-.showcase-item img {
-  width: 100%;
-  aspect-ratio: 3/2;
-  object-fit: cover;
-  display: block;
-}
-.showcase-label {
-  padding: 0.4rem 0.6rem;
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
 }
 
-/* TOOLTIP */
-#ctip {
-  position: fixed;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 12px;
-  padding: 0;
-  font-size: 0.72rem;
-  pointer-events: none;
-  z-index: 9999;
-  display: none;
-  white-space: nowrap;
-  box-shadow: 0 12px 48px rgba(0,0,0,0.7);
-  overflow: hidden;
-  width: 180px;
-}
-#ctip-img {
-  width: 100%;
-  aspect-ratio: 2/3;
-  object-fit: cover;
-  display: block;
-  background: var(--surface3);
-}
-#ctip-img.loading { opacity: 0.3; }
-#ctip-img.loaded { opacity: 1; transition: opacity 0.2s; }
-#ctip-img.error { display: none; }
-#ctip-body {
-  padding: 8px 11px 10px;
-}
-#ctip-num {
+.hub-badge::before { content: '⚽'; font-size: 0.9rem; }
+
+.hub-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
-  line-height: 1;
-  margin-bottom: 2px;
-}
-#ctip-name {
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
   color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-#ctip-meta {
-  font-size: 0.62rem;
-  color: var(--muted);
-  margin-top: 2px;
-  font-family: 'DM Mono', monospace;
-}
-#ctip-status {
-  font-size: 0.62rem;
-  margin-top: 5px;
-  padding: 2px 7px;
-  border-radius: 99px;
-  display: inline-block;
-  font-weight: 600;
-}
-#ctip-status.have { background: var(--green-dim); color: var(--green); }
-#ctip-status.miss { background: var(--red-dim); color: var(--red); }
-#ctip-hint {
-  font-size: 0.58rem;
-  color: var(--muted);
-  margin-top: 4px;
-  font-family: 'DM Mono', monospace;
+  margin-bottom: 1rem;
 }
 
-/* MISSING */
-.missing-section {
-  max-width: 1280px;
-  margin: 1.2rem auto 0;
-  padding: 0 2rem 3rem;
-}
-.missing-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-}
-.missing-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 1.25rem;
-  background: var(--surface2);
-  border-bottom: 1px solid var(--border);
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.missing-title {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.missing-title::before {
-  content: '';
-  display: block;
-  width: 7px; height: 7px;
-  background: var(--red);
-  border-radius: 50%;
-  box-shadow: 0 0 6px var(--red);
-}
-.missing-text {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.71rem;
-  color: rgba(255,100,130,0.85);
-  line-height: 2;
-  word-break: break-all;
-  padding: 1.2rem 1.4rem;
-  user-select: all;
-  cursor: text;
+.hub-title .line2 {
+  color: var(--gold);
+  text-shadow: 0 0 60px rgba(245,200,66,0.3);
 }
 
-/* TOAST */
-#toast {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 12px;
-  padding: 0.8rem 1.2rem;
-  font-size: 0.78rem;
-  color: var(--text);
-  transform: translateY(80px);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  z-index: 10000;
-  max-width: 340px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-.toast-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
-#toast.show { transform: translateY(0); opacity: 1; }
-#toast.t-success .toast-icon { background: var(--green-dim); color: var(--green); }
-#toast.t-success { border-color: rgba(34,211,160,0.3); }
-#toast.t-error .toast-icon { background: var(--red-dim); color: var(--red); }
-#toast.t-error { border-color: rgba(255,77,109,0.3); }
-
-/* DUBLURI SECTION */
-.dub-section {
-  max-width: 1280px;
-  margin: 1.2rem auto 0;
-  padding: 0 2rem;
-}
-.dub-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-}
-.dub-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 1.25rem;
-  background: var(--surface2);
-  border-bottom: 1px solid var(--border);
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.dub-title {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.dub-title::before {
-  content: '';
-  display: block;
-  width: 7px; height: 7px;
-  background: var(--gold);
-  border-radius: 50%;
-  box-shadow: 0 0 6px var(--gold);
-}
-.dub-stats {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-.dub-stat-pill {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--muted);
-  background: var(--surface3);
-  border: 1px solid var(--border2);
-  border-radius: 99px;
-  padding: 0.22rem 0.75rem;
-}
-.dub-stat-pill span { color: var(--gold); font-weight: 500; }
-
-.dub-add-row {
-  display: flex;
-  gap: 0.65rem;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border);
-  flex-wrap: wrap;
-  align-items: center;
-  background: var(--bg);
-}
-.dub-input {
-  font-family: 'DM Mono', monospace;
+.hub-sub {
   font-size: 0.85rem;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 9px;
-  color: var(--text);
-  padding: 0.6rem 0.9rem;
-  outline: none;
-  width: 160px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto;
 }
-.dub-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-dim); }
-.dub-input::placeholder { color: var(--muted); }
-.dub-qty-wrap {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  border: 1px solid var(--border2);
-  border-radius: 9px;
+
+/* COLLECTION GRID */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 3rem;
+}
+
+.collection-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  display: block;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.collection-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+}
+
+.collection-card.adrenalyn:hover { border-color: rgba(245,200,66,0.4); box-shadow: 0 16px 48px rgba(245,200,66,0.08); }
+.collection-card.stickers:hover { border-color: rgba(0,201,177,0.4); box-shadow: 0 16px 48px rgba(0,201,177,0.08); }
+.collection-card.coming-soon { cursor: default; opacity: 0.5; }
+.collection-card.coming-soon:hover { transform: none; box-shadow: none; border-color: var(--border); }
+
+/* Card top accent bar */
+.card-accent {
+  height: 4px;
+  width: 100%;
+}
+.adrenalyn .card-accent { background: linear-gradient(90deg, var(--gold), #ff9f43, var(--gold)); }
+.stickers .card-accent  { background: linear-gradient(90deg, var(--teal), var(--green), var(--teal)); }
+.coming-soon .card-accent { background: var(--surface3); }
+
+/* Card cover image area */
+.card-cover {
+  position: relative;
+  height: 160px;
   overflow: hidden;
   background: var(--surface2);
-}
-.dub-qty-btn {
-  width: 32px; height: 36px;
-  background: transparent;
-  border: none;
-  color: var(--muted);
-  font-size: 18px;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  display: flex; align-items: center; justify-content: center;
-  line-height: 1;
-}
-.dub-qty-btn:hover { background: var(--surface3); color: var(--gold); }
-.dub-qty-val {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  color: var(--gold);
-  width: 32px;
-  text-align: center;
-  letter-spacing: 0.05em;
-  user-select: none;
-}
-.dub-hint { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); flex: 1; min-width: 100px; }
-
-/* Duplicates list */
-.dub-list {
-  padding: 0.6rem 1.25rem 1.25rem;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  max-height: 480px;
-  overflow-y: auto;
-}
-.dub-list::-webkit-scrollbar { width: 5px; }
-.dub-list::-webkit-scrollbar-track { background: transparent; }
-.dub-list::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
-
-.dub-empty {
-  text-align: center;
-  padding: 2.5rem 1rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-.dub-empty-icon { font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.4; }
-
-.dub-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.6rem 0.75rem;
-  border-radius: 9px;
-  border: 1px solid var(--border);
-  background: var(--surface2);
-  transition: border-color 0.15s;
-}
-.dub-row:hover { border-color: var(--border2); }
-.dub-row-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.3rem;
-  color: var(--gold);
-  letter-spacing: 0.05em;
-  width: 48px;
-  flex-shrink: 0;
-}
-.dub-row-info { flex: 1; min-width: 0; }
-.dub-row-name { font-size: 0.78rem; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.dub-row-type { font-size: 0.62rem; color: var(--muted); margin-top: 1px; font-family: 'DM Mono', monospace; }
-.dub-counter {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
-}
-.dub-cnt-btn {
-  width: 26px; height: 26px;
-  border-radius: 6px;
-  border: 1px solid var(--border2);
-  background: var(--surface3);
-  color: var(--text);
-  font-size: 15px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.15s;
-  line-height: 1;
-}
-.dub-cnt-btn:hover { border-color: rgba(255,255,255,0.25); background: var(--surface2); }
-.dub-cnt-btn.minus:hover { border-color: rgba(255,77,109,0.4); color: var(--red); }
-.dub-cnt-btn.plus:hover { border-color: rgba(34,211,160,0.4); color: var(--green); }
-.dub-cnt-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  color: var(--text);
-  min-width: 28px;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
-.dub-cnt-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--muted);
-  margin-left: 2px;
-}
-.dub-delete-btn {
-  width: 28px; height: 28px;
-  border-radius: 7px;
-  border: 1px solid rgba(255,77,109,0.2);
-  background: var(--red-dim);
-  color: var(--red);
-  font-size: 14px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.15s;
-  flex-shrink: 0;
-  margin-left: 4px;
-}
-.dub-delete-btn:hover { background: rgba(255,77,109,0.2); border-color: rgba(255,77,109,0.4); }
-
-/* Compact dub list */
-.dub-compact-wrap {
-  border-top: 1px solid var(--border);
-  display: none;
-}
-.dub-compact-wrap.visible { display: block; }
-.dub-compact-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1.25rem;
-  background: var(--surface2);
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.dub-compact-title {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.dub-compact-dot {
-  display: block;
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 6px var(--gold);
-  flex-shrink: 0;
-}
-.dub-compact-text {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.71rem;
-  color: rgba(245, 200, 66, 0.8);
-  line-height: 2;
-  word-break: break-all;
-  padding: 1rem 1.4rem;
-  user-select: all;
-  cursor: text;
-}
-
-.lt-nordic { background: rgba(100,200,255,0.12); color: #64c8ff; }
-.lt-giant  { background: rgba(255,159,67,0.15);  color: #ff9f43; }
-
-/* Duplicate badge on grid */
-.cbox.dup { position: relative; }
-.cbox.dup::after {
-  content: attr(data-dups);
-  position: absolute;
-  top: -5px; right: -5px;
-  background: var(--gold);
-  color: #0a0d14;
-  font-size: 7px;
-  font-weight: 700;
-  width: 13px; height: 13px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  line-height: 1;
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* SYNC STATUS BAR */
-#sync-bar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  z-index: 9999;
-  pointer-events: none;
-  background: transparent;
-  transition: background 0.3s;
-}
-#sync-bar.syncing {
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  background-size: 200% 100%;
-  animation: syncSlide 1.2s linear infinite;
-}
-#sync-bar.error { background: var(--red); }
-@keyframes syncSlide {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-#sync-status {
-  position: fixed;
-  bottom: 5.5rem;
-  right: 2rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  z-index: 9998;
-  opacity: 0;
-  transition: opacity 0.4s;
-  pointer-events: none;
-}
-#sync-status.visible { opacity: 1; }
-#sync-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--muted);
-  flex-shrink: 0;
-}
-#sync-status.syncing #sync-dot { background: var(--gold); animation: pulse 1s infinite; }
-#sync-status.saved #sync-dot { background: var(--green); }
-#sync-status.error #sync-dot { background: var(--red); }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-/* LOADING OVERLAY */
-#loading-overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  z-index: 99999;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.2rem;
-  transition: opacity 0.5s;
-}
-#loading-overlay.hidden { opacity: 0; pointer-events: none; }
-.loading-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
-  color: var(--gold);
-  letter-spacing: 0.05em;
-  text-shadow: 0 0 40px rgba(245,200,66,0.4);
-}
-.loading-spinner {
-  width: 32px; height: 32px;
-  border: 2px solid var(--border2);
-  border-top-color: var(--gold);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-.loading-text {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.68rem;
-  color: var(--muted);
-  letter-spacing: 0.1em;
 }
 
-/* LE SECTION */
-.le-section {
-  max-width: 1280px;
-  margin: 1.2rem auto 0;
-  padding: 0 2rem;
+.card-cover-bg {
+  position: absolute; inset: 0;
 }
-.le-card {
-  background: var(--surface);
-  border: 1px solid rgba(168,85,247,0.25);
-  border-radius: 14px;
-  overflow: hidden;
+.adrenalyn .card-cover-bg {
+  background: linear-gradient(135deg, #0a1020, #111830);
 }
-.le-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-  background: linear-gradient(90deg, rgba(168,85,247,0.12) 0%, rgba(79,143,255,0.06) 100%);
-  border-bottom: 1px solid rgba(168,85,247,0.2);
-  flex-wrap: wrap;
-  gap: 0.75rem;
+.stickers .card-cover-bg {
+  background: linear-gradient(135deg, #081214, #0c1e1a);
 }
-.le-header-left { display: flex; align-items: center; gap: 0.75rem; }
-.le-icon {
-  width: 36px; height: 36px;
-  border-radius: 10px;
-  background: rgba(168,85,247,0.15);
-  border: 1px solid rgba(168,85,247,0.3);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
+.coming-soon .card-cover-bg {
+  background: var(--surface2);
 }
-.le-header-text {}
-.le-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.3rem;
-  letter-spacing: 0.04em;
-  color: var(--purple);
-  line-height: 1;
-}
-.le-sub {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  color: var(--muted);
-  margin-top: 2px;
-}
-.le-stats-row {
-  display: flex;
-  gap: 0.6rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.le-stat-pill {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--muted);
-  background: var(--surface3);
-  border: 1px solid var(--border2);
-  border-radius: 99px;
-  padding: 0.22rem 0.75rem;
-}
-.le-stat-pill span { color: var(--purple); font-weight: 600; }
 
-/* LE Stats grid */
-.le-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border-bottom: 1px solid var(--border);
+.card-cover-glow {
+  position: absolute; inset: 0;
+  pointer-events: none;
 }
-.le-stat-card {
-  background: var(--surface2);
-  padding: 0.9rem 1.2rem;
-  text-align: center;
+.adrenalyn .card-cover-glow {
+  background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(245,200,66,0.12) 0%, transparent 60%);
 }
-.le-stat-card-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
-.le-stat-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.03em; line-height: 1; }
-.le-sc-total .le-stat-card-num { color: var(--text); }
-.le-sc-have .le-stat-card-num { color: var(--green); }
-.le-sc-miss .le-stat-card-num { color: var(--red); }
-.le-sc-pct .le-stat-card-num { color: var(--purple); }
+.stickers .card-cover-glow {
+  background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(0,201,177,0.1) 0%, transparent 60%);
+}
 
-/* LE Add row */
-.le-add-row {
-  display: flex;
-  gap: 0.65rem;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border);
-  flex-wrap: wrap;
-  align-items: center;
-  background: var(--bg);
-}
-.le-name-input {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 9px;
-  color: var(--text);
-  padding: 0.6rem 0.9rem;
-  outline: none;
-  flex: 1;
-  min-width: 180px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.le-name-input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(168,85,247,0.15); }
-.le-name-input::placeholder { color: var(--muted); }
-.le-type-select {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 9px;
-  color: var(--text);
-  padding: 0.6rem 0.75rem;
-  outline: none;
-  cursor: pointer;
-  transition: border-color 0.2s;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b7494'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.6rem center;
-  padding-right: 1.8rem;
-}
-.le-type-select:focus { border-color: var(--purple); }
-.le-type-select option { background: #141826; }
-.btn-purple {
-  background: rgba(168,85,247,0.15);
-  color: var(--purple);
-  border: 1px solid rgba(168,85,247,0.3);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-.btn-purple:hover { background: rgba(168,85,247,0.25); border-color: rgba(168,85,247,0.5); }
-.le-hint { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); flex: 1; min-width: 120px; }
-
-/* LE Toolbar */
-.le-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.7rem 1.25rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface2);
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.le-filter-btn {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 0.28rem 0.8rem;
-  border-radius: 99px;
-  border: 1px solid var(--border2);
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.le-filter-btn:hover { color: var(--text); }
-.le-filter-btn.lf-all { background: rgba(168,85,247,0.1); color: var(--purple); border-color: rgba(168,85,247,0.3); }
-.le-filter-btn.lf-have { background: var(--green-dim); color: var(--green); border-color: rgba(34,211,160,0.3); }
-.le-filter-btn.lf-miss { background: var(--red-dim); color: var(--red); border-color: rgba(255,77,109,0.3); }
-
-/* LE Card grid */
-.le-grid-inner { padding: 1.2rem; }
-.le-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 8px;
-}
-.le-card-item {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 0.75rem 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  cursor: pointer;
-  transition: border-color 0.15s, background 0.15s, transform 0.12s;
-  user-select: none;
+.card-cover-imgs {
   position: relative;
-  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: -8px;
+  height: 130px;
 }
-.le-card-item::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-}
-.le-card-item.have { border-color: rgba(34,211,160,0.3); }
-.le-card-item.have::before { background: var(--green); }
-.le-card-item.miss { border-color: rgba(255,77,109,0.2); opacity: 0.7; }
-.le-card-item.miss::before { background: var(--red); }
-.le-card-item:hover { transform: translateY(-2px); border-color: rgba(168,85,247,0.4); }
-.le-card-item.have:hover { border-color: rgba(34,211,160,0.5); }
-.le-card-item.miss:hover { border-color: rgba(255,77,109,0.4); opacity: 1; }
 
-.le-item-img {
-  width: 36px; height: 50px;
-  border-radius: 4px;
+.cover-img {
+  height: 120px;
+  width: auto;
+  border-radius: 7px;
   object-fit: cover;
-  background: var(--surface3);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+  transition: transform 0.3s;
   flex-shrink: 0;
-  border: 1px solid var(--border2);
+  background: var(--surface3);
 }
-.le-item-info { flex: 1; min-width: 0; }
-.le-item-name { font-size: 0.75rem; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.le-item-type {
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-top: 2px;
-  padding: 1px 6px;
-  border-radius: 99px;
-  display: inline-block;
-}
-.le-type-std { background: rgba(79,143,255,0.12); color: var(--blue); }
-.le-type-holo { background: rgba(168,85,247,0.12); color: var(--purple); }
-.le-type-prem { background: rgba(245,200,66,0.1); color: var(--gold); }
-.le-type-premgold { background: rgba(245,200,66,0.18); color: #ffd700; }
-.le-type-xxl { background: rgba(255,107,91,0.1); color: #ff7b6b; }
-.le-type-xxlholo { background: rgba(255,107,91,0.15); color: var(--red); }
-.le-type-dream { background: rgba(34,211,160,0.1); color: var(--green); }
-.le-type-upgrade { background: rgba(245,200,66,0.08); color: var(--amber); }
-.le-type-momentum { background: rgba(255,159,67,0.15); color: #ff9f43; }
 
-/* LE fixed card grid - card-based layout */
-.le-group { margin-bottom: 1.5rem; }
-.le-group:last-child { margin-bottom: 0; }
-.le-group-title {
+.cover-img:nth-child(1) { transform: rotate(-6deg) translateY(6px); z-index: 1; }
+.cover-img:nth-child(2) { transform: rotate(0deg) translateY(-4px); z-index: 2; margin-left: -16px; }
+.cover-img:nth-child(3) { transform: rotate(6deg) translateY(6px); z-index: 1; margin-left: -16px; }
+.collection-card:not(.coming-soon):hover .cover-img:nth-child(1) { transform: rotate(-10deg) translateY(10px) translateX(-6px); }
+.collection-card:not(.coming-soon):hover .cover-img:nth-child(2) { transform: rotate(0deg) translateY(-10px); }
+.collection-card:not(.coming-soon):hover .cover-img:nth-child(3) { transform: rotate(10deg) translateY(10px) translateX(6px); }
+
+.cover-icon {
+  font-size: 3.5rem;
+  opacity: 0.3;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card body */
+.card-body { padding: 1.25rem 1.4rem 1.4rem; }
+
+.card-tag {
   font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  font-weight: 600;
+  font-size: 0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.6rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.le-group-count { font-size: 0.6rem; color: var(--muted); }
-
-.le-fixed-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 6px;
-}
-
-.le-tile {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
-  position: relative;
-  user-select: none;
-}
-.le-tile:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.4); }
-.le-tile.have { border-color: rgba(34,211,160,0.4); }
-.le-tile.have:hover { border-color: rgba(34,211,160,0.7); box-shadow: 0 6px 20px rgba(34,211,160,0.15); }
-.le-tile.miss { border-color: rgba(255,77,109,0.2); opacity: 0.55; }
-.le-tile.miss:hover { border-color: rgba(255,77,109,0.45); opacity: 1; }
-
-.le-tile-img-wrap {
-  width: 100%;
-  aspect-ratio: 3/4;
-  background: var(--surface3);
-  position: relative;
-  overflow: hidden;
-}
-.le-tile-img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: opacity 0.2s;
-}
-.le-tile-img.loading { opacity: 0.2; }
-.le-tile-img.loaded { opacity: 1; }
-
-.le-tile-status {
-  position: absolute;
-  top: 5px; right: 5px;
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px;
-  backdrop-filter: blur(4px);
-}
-.le-tile.have .le-tile-status { background: rgba(34,211,160,0.85); }
-.le-tile.miss .le-tile-status { background: rgba(30,35,55,0.75); color: var(--muted); }
-
-.le-tile-code {
-  position: absolute;
-  top: 5px; left: 5px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  color: white;
-  background: rgba(0,0,0,0.55);
-  border-radius: 4px;
-  padding: 1px 5px;
-  backdrop-filter: blur(4px);
-  line-height: 1.4;
-}
-
-.le-tile-body {
-  padding: 0.5rem 0.6rem 0.55rem;
-}
-.le-tile-name {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2;
-}
-.le-tile-sub {
-  font-size: 0.58rem;
-  color: var(--muted);
-  margin-top: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.le-tile.hidden { display: none; }
-
-/* LE Progress bar */
-.le-progress-wrap {
-  padding: 0.75rem 1.25rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-}
-.le-progress-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 0.4rem;
 }
-.le-progress-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
-.le-progress-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: var(--purple); letter-spacing: 0.04em; }
-.le-progress-track { height: 5px; background: var(--surface3); border-radius: 99px; overflow: hidden; }
-.le-progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--blue)); border-radius: 99px; transition: width 0.5s ease; }
+.adrenalyn .card-tag { color: var(--gold); }
+.stickers .card-tag  { color: var(--teal); }
+.coming-soon .card-tag { color: var(--muted); }
 
-.le-empty {
-  text-align: center;
-  padding: 2rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
+.card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.card-desc {
+  font-size: 0.75rem;
   color: var(--muted);
-  grid-column: 1/-1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
-.le-empty-icon { font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.35; }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-cards { display: none; }
-  .stats-section { grid-template-columns: repeat(2, 1fr); }
+.card-stats {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.1rem;
 }
+
+.card-stat {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 99px;
+  padding: 0.2rem 0.7rem;
+  white-space: nowrap;
+}
+
+.card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.55rem 1.1rem;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.adrenalyn .card-btn { background: var(--gold); color: #080a0e; }
+.adrenalyn .card-btn:hover { background: #ffd700; }
+.stickers .card-btn  { background: var(--teal); color: #050e0d; }
+.stickers .card-btn:hover  { background: #00e0c6; }
+.coming-soon .card-btn { background: var(--surface3); color: var(--muted); cursor: not-allowed; }
+
+.card-arrow { font-size: 1rem; opacity: 0.5; }
+
+/* STATS BAR */
+.hub-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+
+.hub-stat {
+  background: var(--surface);
+  padding: 1.1rem 1.3rem;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.hub-stat:hover { background: var(--surface2); }
+
+.hub-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.hub-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* FOOTER */
+.hub-footer {
+  text-align: center;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.hub-footer p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+}
+
 @media (max-width: 600px) {
-  .hero-inner, .stats-section, .progress-section, .add-section,
-  .types-section, .grid-section, .showcase-section, .dub-section, .le-section, .missing-section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .stats-section { grid-template-columns: 1fr 1fr; }
-  .cbox { width: 24px; height: 24px; font-size: 5.5px; }
-  .le-fixed-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+  .page { padding: 2.5rem 1rem 4rem; }
+  .hub-title { font-size: 3.5rem; }
+  .collections-grid { grid-template-columns: 1fr; }
+  .hub-stats { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
+<div class="page">
 
-<div id="sync-bar"></div>
-<div id="sync-status"><div id="sync-dot"></div><span id="sync-text">Sincronizat</span></div>
+  <div class="hub-header">
+    <div class="hub-badge">Manager Colecții Panini</div>
+    <h1 class="hub-title">
+      PANINI<br>
+      <span class="line2">HUB</span>
+    </h1>
+    <p class="hub-sub">
+      Toate colecțiile tale Panini într-un singur loc.<br>
+      Urmărește stickere, cartonașe și ediții speciale.
+    </p>
+  </div>
 
-<div id="loading-overlay">
-  <div class="loading-logo">⚽ PANINI 2026</div>
-  <div class="loading-spinner"></div>
-  <div class="loading-text" id="loading-text">Se încarcă colecția…</div>
-</div>
+  <div class="collections-grid">
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-eyebrow">Panini · Adrenalyn XL™ · FIFA World Cup 2026™</div>
-      <h1 class="hero-title">COLECȚIA<br><span class="hl">MEA</span></h1>
-      <p class="hero-sub">Manager personal · 648 cartonașe oficiale<br>USA · México · Canada · 11 iunie – 19 iulie 2026 · Nordic Edition</p>
-    </div>
-    <div class="hero-cards">
-      <img class="hero-card-img"
-        src="https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-golden-baller-messi.avif"
-        alt="Golden Baller Messi" onerror="this.style.display='none'">
-      <img class="hero-card-img"
-        src="https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-momentum-bellingham.avif"
-        alt="Momentum Bellingham" onerror="this.style.display='none'">
-      <img class="hero-card-img"
-        src="https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-premium-gold-limited-edition-yamal.avif"
-        alt="Premium Gold Yamal" onerror="this.style.display='none'">
-    </div>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats-section">
-  <div class="stat-card sc-gold">
-    <div class="stat-emoji">📦</div>
-    <div class="stat-label">Total Colecție</div>
-    <div class="stat-num">648</div>
-    <div class="stat-sub">648 cartonașe oficiale</div>
-  </div>
-  <div class="stat-card sc-green">
-    <div class="stat-emoji">✅</div>
-    <div class="stat-label">Dețin</div>
-    <div class="stat-num" id="s-have">0</div>
-    <div class="stat-sub" id="s-have-sub">—</div>
-  </div>
-  <div class="stat-card sc-red">
-    <div class="stat-emoji">❌</div>
-    <div class="stat-label">Lipsesc</div>
-    <div class="stat-num" id="s-miss">0</div>
-    <div class="stat-sub" id="s-miss-sub">—</div>
-  </div>
-  <div class="stat-card sc-blue">
-    <div class="stat-emoji">🎯</div>
-    <div class="stat-label">Completare</div>
-    <div class="stat-num" id="s-pct">0%</div>
-    <div class="stat-sub" id="s-pct-sub">—</div>
-  </div>
-</div>
-
-<!-- PROGRESS -->
-<div class="progress-section">
-  <div class="progress-card">
-    <div class="progress-header">
-      <span class="progress-label">Progres colecție</span>
-      <span class="progress-val" id="prog-val">0 / 630</span>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
-    </div>
-    <div class="milestones">
-      <span class="milestone">0</span>
-      <span class="milestone">25%</span>
-      <span class="milestone">50%</span>
-      <span class="milestone">75%</span>
-      <span class="milestone">648</span>
-    </div>
-  </div>
-</div>
-
-<!-- ADD -->
-<div class="add-section">
-  <div class="add-card">
-    <div class="add-header">
-      <div class="add-header-icon">+</div>
-      <div>
-        <div class="add-header-text">Adaugă cartonașe noi în colecție</div>
-        <div class="add-header-sub">introdu numere sau intervale · Enter pentru confirmare</div>
-      </div>
-    </div>
-    <div class="add-row">
-      <input type="text" class="add-input" id="add-input"
-        placeholder="ex: 5   sau   12-20   sau   3,7,15-18,42">
-      <button class="btn btn-gold" onclick="addCards()">＋ Adaugă</button>
-      <button class="btn btn-outline" onclick="document.getElementById('add-input').value=''">✕ Șterge</button>
-    </div>
-    <div class="add-hint">💡 Un număr (5) · Interval (12-20) · Combinații (3,7,15-18,42) · Click pe orice cartonaș pentru toggle rapid</div>
-  </div>
-</div>
-
-<!-- CARD TYPES -->
-<div class="types-section">
-  <div class="section-label">Tipuri de cartonașe în colecție</div>
-  <div class="types-grid">
-    <div class="type-pill"><div class="type-name">Heroes</div><div class="type-count" style="color:var(--blue)">378</div></div>
-    <div class="type-pill"><div class="type-name">Fan Fav.</div><div class="type-count" style="color:var(--green)">42</div></div>
-    <div class="type-pill"><div class="type-name">Icons</div><div class="type-count" style="color:var(--purple)">42</div></div>
-    <div class="type-pill"><div class="type-name">Team Logo</div><div class="type-count" style="color:var(--gold)">42</div></div>
-    <div class="type-pill"><div class="type-name">Power Up</div><div class="type-count" style="color:#ff9f43">58</div></div>
-    <div class="type-pill"><div class="type-name">Master Rookie</div><div class="type-count" style="color:#ea5cff">16</div></div>
-    <div class="type-pill"><div class="type-name">Golden Baller</div><div class="type-count" style="color:var(--gold)">9</div></div>
-    <div class="type-pill"><div class="type-name">Special/Rare</div><div class="type-count" style="color:var(--red)">43</div></div>
-    <div class="type-pill"><div class="type-name">Scandinavian Stars</div><div class="type-count" style="color:#64c8ff">8</div></div>
-    <div class="type-pill"><div class="type-name">Nordic Rookies</div><div class="type-count" style="color:#64c8ff">7</div></div>
-    <div class="type-pill"><div class="type-name">Giant Cards</div><div class="type-count" style="color:#ff9f43">3</div></div>
-  </div>
-</div>
-<div class="showcase-section">
-  <div class="section-label">Preview cartonașe din colecție</div>
-  <div class="showcase-grid" id="showcase-grid"></div>
-</div>
-
-<!-- GRID -->
-<div class="grid-section">
-  <div class="grid-card">
-    <div class="grid-toolbar">
-      <div class="toolbar-left">
-        <button class="filter-btn f-all" id="f-all" onclick="setFilter('all')">Toate</button>
-        <button class="filter-btn" id="f-have" onclick="setFilter('have')">✓ Dețin</button>
-        <button class="filter-btn" id="f-miss" onclick="setFilter('miss')">✗ Lipsesc</button>
-        <div class="search-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="text" class="search-input" id="search-input" placeholder="Caută #..." oninput="applyFilter()">
+    <!-- ADRENALYN XL -->
+    <a href="/adrenalyn.html" class="collection-card adrenalyn">
+      <div class="card-accent"></div>
+      <div class="card-cover">
+        <div class="card-cover-bg"></div>
+        <div class="card-cover-glow"></div>
+        <div class="card-cover-imgs">
+          <img class="cover-img" style="height:115px;width:78px;"
+            src="https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-golden-baller-messi.avif"
+            alt="Messi" onerror="this.style.display='none'">
+          <img class="cover-img" style="height:118px;width:78px;"
+            src="https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-premium-gold-limited-edition-yamal.avif"
+            alt="Yamal" onerror="this.style.display='none'">
+          <img class="cover-img" style="height:115px;width:78px;"
+            src="https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-momentum-bellingham.avif"
+            alt="Bellingham" onerror="this.style.display='none'">
         </div>
       </div>
-      <div class="toolbar-right">
-        <div class="legend">
-          <span class="leg-item"><span class="leg-dot leg-have"></span>Dețin</span>
-          <span class="leg-item"><span class="leg-dot leg-miss"></span>Lipsește</span>
+      <div class="card-body">
+        <div class="card-tag">Cartonașe · Trading Cards</div>
+        <div class="card-title">Adrenalyn XL™</div>
+        <div class="card-desc">Colecția oficială de cartonașe Panini pentru FIFA World Cup 2026. Include cartonașe numerotate, Limited Editions, dubluri și Nordic Edition.</div>
+        <div class="card-stats">
+          <div class="card-stat">648 cartonașe</div>
+          <div class="card-stat">Limited Editions</div>
+          <div class="card-stat">Nordic Edition</div>
         </div>
-        <div class="view-toggle">
-          <button class="view-btn active" id="vb-grid" onclick="setView('grid')" title="Grilă">⊞</button>
-          <button class="view-btn" id="vb-list" onclick="setView('list')" title="Listă">☰</button>
+        <div class="card-cta">
+          <span class="card-btn">Deschide colecția →</span>
+          <span class="card-arrow">⚡</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- STICKERS -->
+    <a href="/stickers.html" class="collection-card stickers">
+      <div class="card-accent"></div>
+      <div class="card-cover">
+        <div class="card-cover-bg"></div>
+        <div class="card-cover-glow"></div>
+        <div class="cover-icon">🏆</div>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Album · Stickere</div>
+        <div class="card-title">Sticker Album</div>
+        <div class="card-desc">Albumul oficial de stickere Panini FIFA World Cup 2026. 980 de stickere, 48 de echipe, inclusiv stickere FOIL speciale și secțiunea World Cup History.</div>
+        <div class="card-stats">
+          <div class="card-stat">980 stickere</div>
+          <div class="card-stat">48 echipe</div>
+          <div class="card-stat">Stickere FOIL ⭐</div>
+        </div>
+        <div class="card-cta">
+          <span class="card-btn">Deschide albumul →</span>
+          <span class="card-arrow">📚</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- COMING SOON PLACEHOLDER -->
+    <div class="collection-card coming-soon">
+      <div class="card-accent"></div>
+      <div class="card-cover">
+        <div class="card-cover-bg"></div>
+        <div class="cover-icon">➕</div>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">În curând</div>
+        <div class="card-title">Altă colecție</div>
+        <div class="card-desc">Urmează mai multe colecții Panini. Revino mai târziu pentru noi adăugiri.</div>
+        <div class="card-stats">
+          <div class="card-stat">—</div>
+        </div>
+        <div class="card-cta">
+          <span class="card-btn">În curând…</span>
         </div>
       </div>
     </div>
-    <div class="grid-inner">
-      <div class="card-grid" id="card-grid"></div>
-      <div class="list-view" id="list-view"></div>
-    </div>
-  </div>
-</div>
-
-<!-- DUBLURI -->
-<div class="dub-section">
-  <div class="dub-card">
-    <div class="dub-header">
-      <div class="dub-title">Dubluri</div>
-      <div class="dub-stats">
-        <div class="dub-stat-pill">Tipuri unice: <span id="dub-unique">0</span></div>
-        <div class="dub-stat-pill">Total exemplare: <span id="dub-total">0</span></div>
-      </div>
-    </div>
-
-    <!-- Tabs: Numbered / LE -->
-    <div style="display:flex;gap:2px;padding:0.75rem 1.25rem 0;border-bottom:1px solid var(--border);background:var(--surface2);">
-      <button class="view-btn active" id="dub-tab-num" onclick="setDubTab('num')" style="font-size:0.72rem;padding:4px 14px;border-radius:7px 7px 0 0;">Numerotate</button>
-      <button class="view-btn" id="dub-tab-le" onclick="setDubTab('le')" style="font-size:0.72rem;padding:4px 14px;border-radius:7px 7px 0 0;">Limited Edition</button>
-    </div>
-
-    <!-- Numbered dubs panel -->
-    <div id="dub-panel-num">
-      <div class="dub-add-row">
-        <input type="text" class="dub-input" id="dub-input" placeholder="Nr. cartonaș…">
-        <div class="dub-qty-wrap">
-          <button class="dub-qty-btn" onclick="dubQtyChange(-1)">−</button>
-          <div class="dub-qty-val" id="dub-qty">1</div>
-          <button class="dub-qty-btn" onclick="dubQtyChange(1)">+</button>
-        </div>
-        <button class="btn btn-gold" onclick="addDuplicate()" style="padding:0.6rem 1.1rem;font-size:0.78rem;">＋ Adaugă dublură</button>
-        <span class="dub-hint">Selectează cartonașul și cantitatea</span>
-      </div>
-      <div class="dub-list" id="dub-list">
-        <div class="dub-empty"><div class="dub-empty-icon">🃏</div><div>Nicio dublură înregistrată încă</div></div>
-      </div>
-      <div class="dub-compact-wrap" id="dub-compact-wrap">
-        <div class="dub-compact-header">
-          <div class="dub-compact-title"><span class="dub-compact-dot"></span>Listă compactă dubluri numerotate</div>
-          <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyDubs()">📋 Copiază</button>
-        </div>
-        <div class="dub-compact-text" id="dub-compact-text">(nicio dublură)</div>
-      </div>
-    </div>
-
-    <!-- LE dubs panel -->
-    <div id="dub-panel-le" style="display:none;">
-      <div class="dub-add-row">
-        <select class="le-type-select" id="le-dub-select" style="flex:1;min-width:200px;max-width:400px;">
-          <option value="">— Selectează cartonașul LE —</option>
-        </select>
-        <div class="dub-qty-wrap">
-          <button class="dub-qty-btn" onclick="leDubQtyChange(-1)">−</button>
-          <div class="dub-qty-val" id="le-dub-qty">1</div>
-          <button class="dub-qty-btn" onclick="leDubQtyChange(1)">+</button>
-        </div>
-        <button class="btn btn-purple" onclick="addLEDuplicate()" style="padding:0.6rem 1.1rem;font-size:0.78rem;">⭐ Adaugă dublură LE</button>
-      </div>
-      <div class="dub-list" id="le-dub-list">
-        <div class="dub-empty"><div class="dub-empty-icon">⭐</div><div>Nicio dublură LE înregistrată</div></div>
-      </div>
-      <div class="dub-compact-wrap" id="le-dub-compact-wrap">
-        <div class="dub-compact-header">
-          <div class="dub-compact-title"><span class="dub-compact-dot" style="background:var(--purple);box-shadow:0 0 6px var(--purple);"></span>Listă compactă dubluri LE</div>
-          <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyLEDubs()">📋 Copiază</button>
-        </div>
-        <div class="dub-compact-text" id="le-dub-compact-text" style="color:rgba(168,85,247,0.85);">(nicio dublură)</div>
-      </div>
-    </div>
 
   </div>
-</div>
 
-<!-- LIMITED EDITIONS -->
-<div class="le-section">
-  <div class="le-card">
-    <div class="le-header">
-      <div class="le-header-left">
-        <div class="le-icon">⭐</div>
-        <div class="le-header-text">
-          <div class="le-title">Limited Editions</div>
-          <div class="le-sub">cartonașe speciale · în afara numerotării principale</div>
-        </div>
-      </div>
-      <div class="le-stats-row">
-        <div class="le-stat-pill">Total: <span id="le-total">0</span></div>
-        <div class="le-stat-pill">Dețin: <span id="le-have-count">0</span></div>
-        <div class="le-stat-pill">Lipsesc: <span id="le-miss-count">0</span></div>
-      </div>
+  <div class="hub-stats">
+    <div class="hub-stat">
+      <div class="hub-stat-num">2</div>
+      <div class="hub-stat-label">Colecții active</div>
     </div>
-
-    <!-- LE Stats grid -->
-    <div class="le-stats-grid">
-      <div class="le-stat-card le-sc-total"><div class="le-stat-card-label">Total LE</div><div class="le-stat-card-num" id="le-s-total">0</div></div>
-      <div class="le-stat-card le-sc-have"><div class="le-stat-card-label">Dețin</div><div class="le-stat-card-num" id="le-s-have">0</div></div>
-      <div class="le-stat-card le-sc-miss"><div class="le-stat-card-label">Lipsesc</div><div class="le-stat-card-num" id="le-s-miss">0</div></div>
-      <div class="le-stat-card le-sc-pct"><div class="le-stat-card-label">Completare</div><div class="le-stat-card-num" id="le-s-pct">—</div></div>
+    <div class="hub-stat">
+      <div class="hub-stat-num">1628</div>
+      <div class="hub-stat-label">Articole de colectat</div>
     </div>
-
-    <!-- LE Progress -->
-    <div class="le-progress-wrap">
-      <div class="le-progress-row">
-        <span class="le-progress-label">Progres colecție LE</span>
-        <span class="le-progress-val" id="le-prog-val">0 / 0</span>
-      </div>
-      <div class="le-progress-track"><div class="le-progress-fill" id="le-prog-fill" style="width:0%"></div></div>
-    </div>
-
-    <!-- LE Toolbar -->
-    <div class="le-toolbar">
-      <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
-        <button class="le-filter-btn lf-all" id="lf-all" onclick="setLEFilter('all')">Toate</button>
-        <button class="le-filter-btn" id="lf-have" onclick="setLEFilter('have')">✓ Dețin</button>
-        <button class="le-filter-btn" id="lf-miss" onclick="setLEFilter('miss')">✗ Lipsesc</button>
-        <button class="le-filter-btn" id="lf-std" onclick="setLEFilter('std')">Standard LE</button>
-        <button class="le-filter-btn" id="lf-holo" onclick="setLEFilter('holo')">Holo</button>
-        <button class="le-filter-btn" id="lf-prem" onclick="setLEFilter('prem')">Premium</button>
-        <button class="le-filter-btn" id="lf-xxl" onclick="setLEFilter('xxl')">XXL</button>
-        <button class="le-filter-btn" id="lf-dream" onclick="setLEFilter('dream')">Dream Box</button>
-        <button class="le-filter-btn" id="lf-momentum" onclick="setLEFilter('momentum')">Momentum</button>
-        <button class="le-filter-btn" id="lf-upgrade" onclick="setLEFilter('upgrade')">Hero Update</button>
-      </div>
-      <span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted)">Click pe card = toggle dețin/lipsă</span>
-    </div>
-
-    <!-- LE Fixed Grid -->
-    <div class="le-grid-inner">
-      <div id="le-grid-root"></div>
+    <div class="hub-stat">
+      <div class="hub-stat-num">2026</div>
+      <div class="hub-stat-label">FIFA World Cup</div>
     </div>
   </div>
-</div>
 
-<!-- MISSING -->
-<div class="missing-section">
-  <div class="missing-card">
-    <div class="missing-header">
-      <div class="missing-title">Lista lipsuri · format compact</div>
-      <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
-        <div style="display:flex;gap:2px;background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:2px;">
-          <button class="view-btn active" id="miss-tab-num" onclick="setMissTab('num')" style="font-size:0.7rem;padding:3px 10px;">Numerotate</button>
-          <button class="view-btn" id="miss-tab-le" onclick="setMissTab('le')" style="font-size:0.7rem;padding:3px 10px;">Limited Edition</button>
-        </div>
-        <button class="btn btn-outline" style="font-size:0.7rem;padding:0.38rem 0.9rem;" onclick="copyMissing()">📋 Copiază</button>
-      </div>
-    </div>
-    <div class="missing-text" id="missing-text"></div>
+  <div class="hub-footer">
+    <p>
+      Panini · FIFA World Cup 2026™ · USA · México · Canada<br>
+      Manager personal de colecție · Date sincronizate via Vercel Blob
+    </p>
   </div>
+
 </div>
-
-<div id="ctip">
-  <img id="ctip-img" src="" alt="">
-  <div id="ctip-body">
-    <div id="ctip-num"></div>
-    <div id="ctip-name"></div>
-    <div id="ctip-meta"></div>
-    <div id="ctip-status"></div>
-    <div id="ctip-hint">Click pentru a schimba statusul</div>
-  </div>
-</div>
-<div id="toast"><span class="toast-icon" id="toast-icon"></span><span id="toast-msg"></span></div>
-
-<script>
-const TOTAL = 648;
-const API_URL = '/api/state';
-
-const INITIAL_MISSING = "2,4-11,13,15-17,21-23,25,27,29-35,38,45,48,49,51,53,54,58,60-65,68,70-73,76-78,82,89,91,93,95,96,99,101,104,107,109-112,115,117,118,120,122,123,127,128,132,134-136,138,140,142-143,148,150,153,155-160,166,170,172,175,177-181,183-185,190,193,194,196,197,201,205,213,215,216,218-220,222,223,225,231,232,234,236,238,241-243,248,250,251,253-255,260,263-268,270,274,276,277,282,283,286,287,290,292,296,297,300,304-306,308,310,311,315,318,319,322,325,327,329-333,339-342,345-351,353,355,357-363,367-370,372,377,382,383,387,389,393,395,396,398,400,406,408,410,417,419,420,425,430-432,434,435,439,442,445,449,452-454,456-458,461-463,467,468,470,471,473,474,477,483,485-487,489,491,492,494,496-498,502,505,507,509,513,515-519,522,524-529,532,536,537,540-549,552,553,555-557,559-562,564,566,569,571-573,577,579-584,586,588,593,595-600,602,604,606-608,615,617,619-622,624,628-648";
-
-// Known card data
-const CARD_DATA = {
-  1:{name:'Lionel Messi',team:'Argentina',type:'Golden Baller'},
-  2:{name:'Vinícius Jr.',team:'Brazil',type:'Golden Baller'},
-  3:{name:'Mohamed Salah',team:'Egypt',type:'Golden Baller'},
-  4:{name:'Harry Kane',team:'England',type:'Golden Baller'},
-  5:{name:'Kylian Mbappé',team:'France',type:'Golden Baller'},
-  6:{name:'Son Heung-Min',team:'Korea Rep.',type:'Golden Baller'},
-  7:{name:'Erling Haaland',team:'Norway',type:'Golden Baller'},
-  8:{name:'Cristiano Ronaldo',team:'Portugal',type:'Golden Baller'},
-  9:{name:'Lamine Yamal',team:'Spain',type:'Golden Baller'},
-  // Nordic Edition 631-648
-  631:{name:'Sander Berge',        team:'Norway',  type:'Scandinavian Star'},
-  632:{name:'Thelo Aasgaard',      team:'Norway',  type:'Nordic Master Rookie'},
-  633:{name:'Erling Haaland',      team:'Norway',  type:'Giant'},
-  634:{name:'Martin Ødegaard',     team:'Norway',  type:'Scandinavian Star'},
-  635:{name:'Antonio Nusa',        team:'Norway',  type:'Nordic Master Rookie'},
-  636:{name:'Erling Haaland',      team:'Norway',  type:'Giant'},
-  637:{name:'Alexander Sørloth',   team:'Norway',  type:'Scandinavian Star'},
-  638:{name:'Oscar Bobb',          team:'Norway',  type:'Nordic Master Rookie'},
-  639:{name:'Erling Haaland',      team:'Norway',  type:'Giant'},
-  640:{name:'Kasper Schmeichel',   team:'Denmark', type:'Scandinavian Star'},
-  641:{name:'Andreas Christensen', team:'Denmark', type:'Scandinavian Star'},
-  642:{name:'Rasmus Højlund',      team:'Denmark', type:'Scandinavian Star'},
-  643:{name:'Patrick Dorgu',       team:'Denmark', type:'Nordic Master Rookie'},
-  644:{name:'Victor Froholdt',     team:'Denmark', type:'Nordic Master Rookie'},
-  645:{name:'Viktor Gyökeres',     team:'Sweden',  type:'Scandinavian Star'},
-  646:{name:'Alexander Isak',      team:'Sweden',  type:'Scandinavian Star'},
-  647:{name:'Lucas Bergvall',      team:'Sweden',  type:'Nordic Master Rookie'},
-  648:{name:'Roony Bardghji',      team:'Sweden',  type:'Nordic Master Rookie'},
-};
-
-// Showcase card images from collectosk
-const SHOWCASE_CARDS = [
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-golden-baller-messi.avif', label:'Golden Baller · Messi'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-momentum-bellingham.avif', label:'Momentum · Bellingham'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-premium-gold-limited-edition-yamal.avif', label:'Prem. Gold LE · Yamal'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-base-hero-sabitzer.avif', label:'Hero · Sabitzer'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-fan-favourite-diaz.avif', label:'Fan Fav. · Díaz'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-icon-kimmich.avif', label:'Icon · Kimmich'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-master-rookie-mastantuono.avif', label:'Master Rookie'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-midfield-maestro-pedri.avif', label:'Midfield Maestro · Pedri'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-goal-machine-kolo-muani.avif', label:'Goal Machine'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-defensive-rock-kim.avif', label:'Defensive Rock · Kim'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-top-keeper-bounou.avif', label:'Top Keeper · Bounou'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-eternos-22-martinez-messi-alvarez.avif', label:'Eternos 22'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-logo-argentina.avif', label:'Team Logo · Argentina'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-logo-ecuador.avif', label:'Team Logo · Ecuador'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-official-emblem.avif', label:'Official Emblem'},
-  {src:'panini-fifa-world-cup-2026-adrenalyn-xl-trading-card-game-base-contender-isak.avif', label:'Contender · Isak'},
-];
-
-const BASE_URL = 'https://www.collectosk.com/wp-content/uploads/soccer/2026/panini-fifa-world-cup-2026-adrenalyn-xl/';
-
-// Build showcase
-function buildShowcase() {
-  const grid = document.getElementById('showcase-grid');
-  SHOWCASE_CARDS.forEach(c => {
-    const item = document.createElement('div');
-    item.className = 'showcase-item';
-    item.innerHTML = `<img src="${BASE_URL}${c.src}" alt="${c.label}" loading="lazy" onerror="this.closest('.showcase-item').style.display='none'"><div class="showcase-label">${c.label}</div>`;
-    grid.appendChild(item);
-  });
-}
-
-function parseList(str) {
-  const set = new Set();
-  str.split(',').forEach(p => {
-    p = p.trim();
-    if (!p) return;
-    if (p.includes('-')) {
-      const [a, b] = p.split('-').map(Number);
-      if (!isNaN(a) && !isNaN(b)) for (let i = a; i <= b; i++) if (i >= 1 && i <= TOTAL) set.add(i);
-    } else {
-      const n = parseInt(p);
-      if (!isNaN(n) && n >= 1 && n <= TOTAL) set.add(n);
-    }
-  });
-  return set;
-}
-
-function toCompact(set) {
-  if (set.size === 0) return '(colecție completă! 🏆)';
-  return [...set].sort((a,b) => a-b).join(',');
-}
-
-let missing = new Set();
-let currentFilter = 'all';
-let currentView = 'grid';
-
-// ── SYNC ENGINE ──────────────────────────────────────────────────────────────
-let saveTimer = null;
-let isSaving = false;
-
-function setSyncStatus(state, text) {
-  const bar = document.getElementById('sync-bar');
-  const status = document.getElementById('sync-status');
-  const txt = document.getElementById('sync-text');
-  bar.className = state === 'syncing' ? 'syncing' : (state === 'error' ? 'error' : '');
-  status.className = 'visible ' + state;
-  txt.textContent = text;
-  if (state === 'saved') {
-    clearTimeout(status._hideTimer);
-    status._hideTimer = setTimeout(() => { status.className = ''; }, 3000);
-  }
-}
-
-async function loadFromAPI() {
-  try {
-    const res = await fetch(API_URL);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    if (data.missing !== null && data.missing !== undefined) {
-      missing = new Set(data.missing);
-    } else {
-      missing = parseList(INITIAL_MISSING);
-    }
-    dubs = data.dubs || {};
-    leDubs = data.leDubs || {};
-    leOwned = new Set(data.leOwned || []);
-    return true;
-  } catch (err) {
-    console.error('Load failed, using localStorage fallback:', err);
-    try {
-      const ls = localStorage.getItem('panini-wc2026-v3');
-      missing = ls ? new Set(JSON.parse(ls)) : parseList(INITIAL_MISSING);
-      const lsDubs = localStorage.getItem('panini-wc2026-dubs-v1');
-      dubs = lsDubs ? JSON.parse(lsDubs) : {};
-      const lsLeDubs = localStorage.getItem('panini-wc2026-ledubs-v1');
-      leDubs = lsLeDubs ? JSON.parse(lsLeDubs) : {};
-      const lsLE = localStorage.getItem('panini-wc2026-le-v1');
-      leOwned = lsLE ? new Set(JSON.parse(lsLE)) : new Set();
-    } catch(e) {
-      missing = parseList(INITIAL_MISSING);
-      dubs = {};
-    }
-    return false;
-  }
-}
-
-function scheduleSync() {
-  clearTimeout(saveTimer);
-  setSyncStatus('syncing', 'Se salvează…');
-  saveTimer = setTimeout(syncToAPI, 800);
-}
-
-async function syncToAPI() {
-  if (isSaving) { scheduleSync(); return; }
-  isSaving = true;
-  try {
-    const payload = { missing: [...missing], dubs, leDubs, leOwned: [...leOwned] };
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    localStorage.setItem('panini-wc2026-v3', JSON.stringify([...missing]));
-    localStorage.setItem('panini-wc2026-dubs-v1', JSON.stringify(dubs));
-    localStorage.setItem('panini-wc2026-ledubs-v1', JSON.stringify(leDubs));
-    localStorage.setItem('panini-wc2026-le-v1', JSON.stringify([...leOwned]));
-    setSyncStatus('saved', 'Salvat ✓');
-  } catch(err) {
-    console.error('Sync failed:', err);
-    setSyncStatus('error', 'Eroare sincronizare — se reîncearcă');
-    showToast('!', 'Salvarea a eșuat — se reîncearcă…', 'error');
-    setTimeout(syncToAPI, 5000);
-  } finally {
-    isSaving = false;
-  }
-}
-
-function getCardType(n) {
-  if (n <= 9) return 'gb';
-  if (n <= 420) return 'hero';
-  if (n <= 462) return 'fan';
-  if (n <= 504) return 'icon';
-  if (n <= 546) return 'logo';
-  if (n <= 604) return 'special';
-  if (n <= 630) return 'special';
-  // Nordic Edition
-  const cd = CARD_DATA[n];
-  if (!cd) return 'nordic';
-  if (cd.type === 'Giant') return 'giant';
-  if (cd.type === 'Nordic Master Rookie') return 'nordic-rookie';
-  return 'nordic-star';
-}
-
-const TYPE_LABELS = { gb:'Golden Baller', hero:'Hero', fan:'Fan Fav.', icon:'Icon', logo:'Team Logo', special:'Special', 'nordic-star':'Scandinavian Star', 'nordic-rookie':'Nordic Master Rookie', giant:'Giant' };
-const TYPE_CSS = { gb:'lt-gb', hero:'lt-hero', fan:'lt-fan', icon:'lt-icon', logo:'lt-logo', special:'lt-special', 'nordic-star':'lt-nordic', 'nordic-rookie':'lt-nordic', giant:'lt-giant' };
-
-function buildGrid() {
-  const grid = document.getElementById('card-grid');
-  const list = document.getElementById('list-view');
-  grid.innerHTML = '';
-  list.innerHTML = '';
-
-  for (let i = 1; i <= TOTAL; i++) {
-    // Insert Nordic Edition divider
-    if (i === 631) {
-      const divider = document.createElement('div');
-      divider.style.cssText = 'width:100%;display:flex;align-items:center;gap:0.75rem;margin:0.75rem 0 0.4rem;';
-      divider.innerHTML = `
-        <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(100,200,255,0.4),transparent)"></div>
-        <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#64c8ff;white-space:nowrap;">Nordic Edition 631–648</span>
-        <div style="height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(100,200,255,0.4))"></div>
-      `;
-      grid.appendChild(divider);
-      // Also add to list view
-      const lDivider = document.createElement('div');
-      lDivider.style.cssText = 'padding:0.5rem 0.7rem;font-family:\'DM Mono\',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:#64c8ff;border-bottom:1px solid rgba(100,200,255,0.2);';
-      lDivider.textContent = '⬇ Nordic Edition 631–648';
-      lDivider.dataset.divider = '1';
-      list.appendChild(lDivider);
-    }
-
-    const isMiss = missing.has(i);
-    const cd = CARD_DATA[i];
-    const type = getCardType(i);
-
-    // Box
-    const box = document.createElement('div');
-    box.className = 'cbox ' + (isMiss ? 'miss' : 'have');
-    box.dataset.n = i;
-    box.textContent = i;
-    box.addEventListener('click', () => toggleCard(i));
-    box.addEventListener('mouseenter', e => showTip(e, i));
-    box.addEventListener('mousemove', moveTip);
-    box.addEventListener('mouseleave', hideTip);
-    grid.appendChild(box);
-
-    // Row
-    const row = document.createElement('div');
-    row.className = 'list-row';
-    row.dataset.n = i;
-    row.innerHTML = `
-      <span class="list-num">#${String(i).padStart(3,'0')}</span>
-      <span class="list-dot ${isMiss?'miss':'have'}"></span>
-      <span class="list-player">${cd ? cd.name : '—'}</span>
-      <span class="list-team">${cd ? cd.team : ''}</span>
-      <span class="list-type ${TYPE_CSS[type]}">${TYPE_LABELS[type]}</span>
-    `;
-    row.addEventListener('click', () => toggleCard(i));
-    list.appendChild(row);
-  }
-  applyFilter();
-}
-
-function updateCardEl(n) {
-  const isMiss = missing.has(n);
-  const box = document.querySelector(`.cbox[data-n="${n}"]`);
-  if (box) box.className = 'cbox ' + (isMiss ? 'miss' : 'have');
-  const row = document.querySelector(`.list-row[data-n="${n}"]`);
-  if (row) { const dot = row.querySelector('.list-dot'); if (dot) dot.className = 'list-dot ' + (isMiss ? 'miss' : 'have'); }
-  applyFilter();
-}
-
-function toggleCard(n) {
-  if (missing.has(n)) {
-    missing.delete(n);
-    showToast('✓', 'Cartonașul #' + n + ' adăugat în colecție', 'success');
-  } else {
-    missing.add(n);
-    if (dubs[n]) {
-      delete dubs[n];
-      renderDubs();
-      updateDubStats();
-    }
-    showToast('✗', 'Cartonașul #' + n + ' marcat ca lipsă', 'error');
-  }
-  scheduleSync();
-  updateCardEl(n);
-  updateStats();
-  updateMissingText();
-}
-
-function addCards() {
-  const val = document.getElementById('add-input').value.trim();
-  if (!val) { showToast('!', 'Introdu numere sau intervale', 'error'); return; }
-  const toAdd = parseList(val);
-  if (toAdd.size === 0) { showToast('!', 'Format invalid — ex: 5,12-20,42', 'error'); return; }
-  let added = 0;
-  toAdd.forEach(n => { if (missing.has(n)) { missing.delete(n); added++; } });
-  scheduleSync();
-  buildGrid();
-  applyDubBadgesToGrid();
-  updateStats();
-  updateMissingText();
-  document.getElementById('add-input').value = '';
-  if (added > 0) showToast('✓', added + ' cartonaș' + (added === 1 ? '' : 'e') + ' adăugate!', 'success');
-  else showToast('ℹ', 'Cartonașele sunt deja în colecție', 'error');
-}
-
-function updateStats() {
-  const have = TOTAL - missing.size;
-  const pct = Math.round((have / TOTAL) * 100);
-  document.getElementById('s-have').textContent = have;
-  document.getElementById('s-miss').textContent = missing.size;
-  document.getElementById('s-pct').textContent = pct + '%';
-  document.getElementById('s-have-sub').textContent = pct + '% din colecție';
-  document.getElementById('s-miss-sub').textContent = (100 - pct) + '% rămase';
-  document.getElementById('s-pct-sub').textContent = have + ' din 630';
-  document.getElementById('prog-fill').style.width = pct + '%';
-  document.getElementById('prog-val').textContent = have + ' / 648';
-}
-
-let missTab = 'num';
-
-function setMissTab(tab) {
-  missTab = tab;
-  document.getElementById('miss-tab-num').classList.toggle('active', tab === 'num');
-  document.getElementById('miss-tab-le').classList.toggle('active', tab === 'le');
-  updateMissingText();
-}
-
-function updateMissingText() {
-  let text;
-  if (missTab === 'num') {
-    text = toCompact(missing);
-  } else {
-    // LE missing = cards in catalog not in leOwned
-    const leMissing = LE_CATALOG.filter(c => !leOwned.has(c.code));
-    text = leMissing.length === 0
-      ? '(toate LE sunt în colecție! 🏆)'
-      : leMissing.map(c => c.code).join(', ');
-  }
-  document.getElementById('missing-text').textContent = text;
-}
-
-function copyMissing() {
-  navigator.clipboard.writeText(document.getElementById('missing-text').textContent)
-    .then(() => showToast('📋', 'Lista copiată în clipboard!', 'success'))
-    .catch(() => showToast('ℹ', 'Selectează manual textul', 'error'));
-}
-
-function setFilter(f) {
-  currentFilter = f;
-  document.getElementById('f-all').className = 'filter-btn' + (f==='all' ? ' f-all' : '');
-  document.getElementById('f-have').className = 'filter-btn' + (f==='have' ? ' f-active' : '');
-  document.getElementById('f-miss').className = 'filter-btn' + (f==='miss' ? ' f-miss' : '');
-  applyFilter();
-}
-
-function applyFilter() {
-  const search = document.getElementById('search-input').value.trim();
-  document.querySelectorAll('.cbox').forEach(el => {
-    const n = parseInt(el.dataset.n);
-    const isMiss = missing.has(n);
-    let vis = true;
-    if (currentFilter === 'have' && isMiss) vis = false;
-    if (currentFilter === 'miss' && !isMiss) vis = false;
-    if (search && !String(n).startsWith(search)) vis = false;
-    el.classList.toggle('filtered-out', !vis);
-  });
-  document.querySelectorAll('.list-row').forEach(el => {
-    const n = parseInt(el.dataset.n);
-    const isMiss = missing.has(n);
-    let vis = true;
-    if (currentFilter === 'have' && isMiss) vis = false;
-    if (currentFilter === 'miss' && !isMiss) vis = false;
-    if (search && !String(n).startsWith(search)) vis = false;
-    el.classList.toggle('filtered-out', !vis);
-  });
-  // Hide list dividers if no cards visible after them
-  document.querySelectorAll('[data-divider]').forEach(d => { d.style.display = ''; });
-}
-
-function setView(v) {
-  currentView = v;
-  document.getElementById('card-grid').style.display = v === 'grid' ? 'flex' : 'none';
-  document.getElementById('list-view').style.display = v === 'list' ? 'flex' : 'none';
-  document.getElementById('vb-grid').classList.toggle('active', v === 'grid');
-  document.getElementById('vb-list').classList.toggle('active', v === 'list');
-}
-
-const tip = document.getElementById('ctip');
-const tipImg = document.getElementById('ctip-img');
-let tipImgCache = {};
-
-function showTip(e, n) {
-  const cd = CARD_DATA[n];
-  const isMiss = missing.has(n);
-  const type = getCardType(n);
-  const dubCount = dubs[n] || 0;
-
-  // Populate text fields
-  document.getElementById('ctip-num').innerHTML =
-    `<span style="color:${isMiss ? 'var(--red)' : 'var(--green)'}">#${n}</span>`;
-  document.getElementById('ctip-name').textContent = cd ? cd.name : 'Cartonaș #' + n;
-  document.getElementById('ctip-meta').textContent =
-    (cd ? cd.team + ' · ' : '') + TYPE_LABELS[type] + (dubCount > 0 ? ' · ' + dubCount + ' dubluri' : '');
-  const statusEl = document.getElementById('ctip-status');
-  statusEl.textContent = isMiss ? '✗ Lipsește' : '✓ Dețin';
-  statusEl.className = isMiss ? 'miss' : 'have';
-
-  // Card image
-  const imgUrl = `https://www.laststicker.com/i/cards/12029/${n}.jpg`;
-  tipImg.className = 'loading';
-  tipImg.style.display = 'block';
-  if (tipImgCache[n] === 'error') {
-    tipImg.style.display = 'none';
-  } else {
-    tipImg.src = imgUrl;
-    tipImg.onload = () => { tipImg.className = 'loaded'; tipImgCache[n] = 'ok'; };
-    tipImg.onerror = () => { tipImg.style.display = 'none'; tipImgCache[n] = 'error'; };
-  }
-
-  tip.style.display = 'block';
-  moveTip(e);
-}
-
-function moveTip(e) {
-  const tw = 180, th = 320;
-  const margin = 12;
-  let x = e.clientX + margin;
-  let y = e.clientY - th / 2;
-  if (x + tw > window.innerWidth - margin) x = e.clientX - tw - margin;
-  if (y < margin) y = margin;
-  if (y + th > window.innerHeight - margin) y = window.innerHeight - th - margin;
-  tip.style.left = x + 'px';
-  tip.style.top = y + 'px';
-}
-function hideTip() { tip.style.display = 'none'; }
-
-let toastTimeout;
-function showToast(icon, msg, type) {
-  const t = document.getElementById('toast');
-  document.getElementById('toast-icon').textContent = icon;
-  document.getElementById('toast-msg').textContent = msg;
-  t.className = 'show t-' + type;
-  clearTimeout(toastTimeout);
-  toastTimeout = setTimeout(() => { t.className = ''; }, 3000);
-}
-
-// ===== DUB TAB =====
-let dubTabActive = 'num';
-
-function setDubTab(tab) {
-  dubTabActive = tab;
-  document.getElementById('dub-tab-num').classList.toggle('active', tab === 'num');
-  document.getElementById('dub-tab-le').classList.toggle('active', tab === 'le');
-  document.getElementById('dub-panel-num').style.display = tab === 'num' ? '' : 'none';
-  document.getElementById('dub-panel-le').style.display = tab === 'le' ? '' : 'none';
-}
-
-// ===== LE DUBS =====
-let leDubs = {}; // { code: count }
-let leDubQty = 1;
-
-function leDubQtyChange(delta) {
-  leDubQty = Math.max(1, Math.min(99, leDubQty + delta));
-  document.getElementById('le-dub-qty').textContent = leDubQty;
-}
-
-function populateLEDubSelect() {
-  const sel = document.getElementById('le-dub-select');
-  sel.innerHTML = '<option value="">— Selectează cartonașul LE —</option>';
-  // Only show cards that are owned (leOwned)
-  LE_CATALOG.forEach(c => {
-    if (!leOwned.has(c.code)) return;
-    const opt = document.createElement('option');
-    opt.value = c.code;
-    opt.textContent = c.code + ' · ' + c.name + ' (' + LE_TYPE_LABELS[c.type] + ')';
-    sel.appendChild(opt);
-  });
-}
-
-function addLEDuplicate() {
-  const code = document.getElementById('le-dub-select').value;
-  if (!code) { showToast('!', 'Selectează un cartonaș LE', 'error'); return; }
-  leDubs[code] = (leDubs[code] || 0) + leDubQty;
-  scheduleSync();
-  renderLEDubs();
-  updateDubStats();
-  showToast('⭐', leDubQty + 'x dublură ' + code + ' adăugată', 'success');
-  document.getElementById('le-dub-select').value = '';
-  leDubQty = 1;
-  document.getElementById('le-dub-qty').textContent = '1';
-}
-
-function changeLEDubCount(code, delta) {
-  const next = (leDubs[code] || 0) + delta;
-  if (next <= 0) { removeLEDuplicate(code); return; }
-  leDubs[code] = next;
-  scheduleSync();
-  renderLEDubs();
-  updateDubStats();
-}
-
-function removeLEDuplicate(code) {
-  delete leDubs[code];
-  scheduleSync();
-  renderLEDubs();
-  updateDubStats();
-  showToast('✓', 'Dublurile pentru ' + code + ' șterse', 'success');
-}
-
-function renderLEDubs() {
-  const list = document.getElementById('le-dub-list');
-  const keys = Object.keys(leDubs).filter(c => leDubs[c] > 0).sort();
-  if (keys.length === 0) {
-    list.innerHTML = '<div class="dub-empty"><div class="dub-empty-icon">⭐</div><div>Nicio dublură LE înregistrată</div></div>';
-    updateLEDubCompact();
-    return;
-  }
-  list.innerHTML = '';
-  keys.forEach(code => {
-    const count = leDubs[code];
-    const card = LE_CATALOG.find(c => c.code === code);
-    const row = document.createElement('div');
-    row.className = 'dub-row';
-    row.innerHTML = `
-      <div class="dub-row-num" style="font-size:1rem;width:auto;min-width:60px;">${code}</div>
-      <div class="dub-row-info">
-        <div class="dub-row-name">${card ? card.name : code}</div>
-        <div class="dub-row-type">${card ? card.nation + ' · ' + LE_TYPE_LABELS[card.type] : ''}</div>
-      </div>
-      <div class="dub-counter">
-        <button class="dub-cnt-btn minus" onclick="changeLEDubCount('${code}', -1)">−</button>
-        <div class="dub-cnt-num">${count}</div>
-        <div class="dub-cnt-label">buc.</div>
-        <button class="dub-cnt-btn plus" onclick="changeLEDubCount('${code}', 1)">+</button>
-      </div>
-      <button class="dub-delete-btn" onclick="removeLEDuplicate('${code}')" title="Șterge">✕</button>
-    `;
-    list.appendChild(row);
-  });
-  updateLEDubCompact();
-}
-
-function updateLEDubCompact() {
-  const keys = Object.keys(leDubs).filter(c => leDubs[c] > 0).sort();
-  const text = keys.length === 0 ? '(nicio dublură)' : keys.map(c => leDubs[c] > 1 ? c + '(' + leDubs[c] + ')' : c).join(',');
-  document.getElementById('le-dub-compact-text').textContent = text;
-  document.getElementById('le-dub-compact-wrap').classList.toggle('visible', keys.length > 0);
-}
-
-function copyLEDubs() {
-  navigator.clipboard.writeText(document.getElementById('le-dub-compact-text').textContent)
-    .then(() => showToast('📋', 'Lista dublurilor LE copiată!', 'success'))
-    .catch(() => showToast('ℹ', 'Selectează manual textul', 'error'));
-}
-
-// ===== DUBLURI =====
-let dubs = {};
-let dubQty = 1;
-
-function dubQtyChange(delta) {
-  dubQty = Math.max(1, Math.min(99, dubQty + delta));
-  document.getElementById('dub-qty').textContent = dubQty;
-}
-
-function addDuplicate() {
-  const val = document.getElementById('dub-input').value.trim();
-  const n = parseInt(val);
-  if (!val || isNaN(n) || n < 1 || n > TOTAL) {
-    showToast('!', 'Introdu un număr valid între 1 și 630', 'error'); return;
-  }
-  if (missing.has(n)) {
-    showToast('!', 'Cartonașul #' + n + ' nu este în colecție', 'error'); return;
-  }
-  dubs[n] = (dubs[n] || 0) + dubQty;
-  scheduleSync();
-  renderDubs();
-  updateDubStats();
-  updateCardDubBadge(n);
-  showToast('✓', dubQty + 'x dublură #' + n + ' adăugată', 'success');
-  document.getElementById('dub-input').value = '';
-  dubQty = 1;
-  document.getElementById('dub-qty').textContent = '1';
-}
-
-function changeDubCount(n, delta) {
-  const cur = dubs[n] || 0;
-  const next = cur + delta;
-  if (next <= 0) { removeDuplicate(n); return; }
-  dubs[n] = next;
-  scheduleSync();
-  renderDubs();
-  updateDubStats();
-  updateCardDubBadge(n);
-}
-
-function removeDuplicate(n) {
-  delete dubs[n];
-  scheduleSync();
-  renderDubs();
-  updateDubStats();
-  updateCardDubBadge(n);
-  showToast('✓', 'Dublurile pentru #' + n + ' șterse', 'success');
-}
-
-function renderDubs() {
-  const list = document.getElementById('dub-list');
-  const keys = Object.keys(dubs).map(Number).filter(n => dubs[n] > 0).sort((a,b) => a-b);
-  if (keys.length === 0) {
-    list.innerHTML = '<div class="dub-empty"><div class="dub-empty-icon">🃏</div><div>Nicio dublură înregistrată încă</div></div>';
-    return;
-  }
-  list.innerHTML = '';
-  keys.forEach(n => {
-    const count = dubs[n];
-    const cd = CARD_DATA[n];
-    const type = getCardType(n);
-    const row = document.createElement('div');
-    row.className = 'dub-row';
-    row.dataset.n = n;
-    row.innerHTML = `
-      <div class="dub-row-num">#${n}</div>
-      <div class="dub-row-info">
-        <div class="dub-row-name">${cd ? cd.name : 'Cartonaș #' + n}</div>
-        <div class="dub-row-type">${cd ? cd.team + ' · ' : ''}${TYPE_LABELS[type]}</div>
-      </div>
-      <div class="dub-counter">
-        <button class="dub-cnt-btn minus" onclick="changeDubCount(${n}, -1)" title="Scade">−</button>
-        <div class="dub-cnt-num">${count}</div>
-        <div class="dub-cnt-label">buc.</div>
-        <button class="dub-cnt-btn plus" onclick="changeDubCount(${n}, 1)" title="Adaugă">+</button>
-      </div>
-      <button class="dub-delete-btn" onclick="removeDuplicate(${n})" title="Șterge toate dublurile">✕</button>
-    `;
-    list.appendChild(row);
-  });
-}
-
-function toCompactDubs() {
-  const keys = Object.keys(dubs).map(Number).filter(n => dubs[n] > 0).sort((a, b) => a - b);
-  if (keys.length === 0) return '(nicio dublura)';
-  return keys.map(n => dubs[n] > 1 ? n + '(' + dubs[n] + ')' : String(n)).join(',');
-}
-
-function updateDubCompact() {
-  const text = toCompactDubs();
-  const el = document.getElementById('dub-compact-text');
-  const wrap = document.getElementById('dub-compact-wrap');
-  el.textContent = text;
-  const hasDubs = Object.keys(dubs).some(n => dubs[n] > 0);
-  wrap.classList.toggle('visible', hasDubs);
-}
-
-function copyDubs() {
-  const text = document.getElementById('dub-compact-text').textContent;
-  navigator.clipboard.writeText(text)
-    .then(() => showToast('📋', 'Lista dublurilor copiată!', 'success'))
-    .catch(() => showToast('ℹ', 'Selectează manual textul galben', 'error'));
-}
-
-function updateDubStats() {
-  const numKeys = Object.keys(dubs).filter(n => dubs[n] > 0);
-  const leKeys = Object.keys(leDubs).filter(c => leDubs[c] > 0);
-  const totalUnique = numKeys.length + leKeys.length;
-  const totalEx = numKeys.reduce((s, n) => s + dubs[n], 0) + leKeys.reduce((s, c) => s + leDubs[c], 0);
-  document.getElementById('dub-unique').textContent = totalUnique;
-  document.getElementById('dub-total').textContent = totalEx;
-  updateDubCompact();
-  updateLEDubCompact();
-}
-
-function updateCardDubBadge(n) {
-  const box = document.querySelector(`.cbox[data-n="${n}"]`);
-  if (!box) return;
-  const count = dubs[n] || 0;
-  if (count > 0) {
-    box.classList.add('dup');
-    box.dataset.dups = count > 9 ? '9+' : count;
-  } else {
-    box.classList.remove('dup');
-    delete box.dataset.dups;
-  }
-}
-
-function applyDubBadgesToGrid() {
-  Object.keys(dubs).forEach(n => updateCardDubBadge(parseInt(n)));
-}
-
-document.getElementById('dub-input').addEventListener('keydown', e => {
-  if (e.key === 'Enter') addDuplicate();
-});
-document.getElementById('add-input').addEventListener('keydown', e => { if (e.key === 'Enter') addCards(); });
-
-// ── LIMITED EDITIONS ─────────────────────────────────────────────────────────
-// Fixed catalog — leOwned: Set of card codes the user has
-let leOwned = new Set();
-let leFilter = 'all';
-
-// laststicker image base (same pattern as numbered cards but with code)
-const LE_IMG_BASE = 'https://www.laststicker.com/i/cards/12029/';
-
-// Full LE catalog — codes and slugs exactly as on laststicker.com
-const LE_CATALOG = [
-  // === LIMITED EDITION (Standard) ===
-  {code:'LE-350', name:'350 Coins',              nation:'—',           type:'std', slug:'le-350'},
-  {code:'LE-AD',  name:'Alphonso Davies',         nation:'Canada',      type:'std', slug:'le-ad'},
-  {code:'LE-ADI', name:'Amad Diallo',             nation:'Ivory Coast', type:'std', slug:'le-adi'},
-  {code:'LE-AH',  name:'Achraf Hakimi',           nation:'Morocco',     type:'std', slug:'le-ah'},
-  {code:'LE-AK',  name:'Abdukodir Khusanov',      nation:'Uzbekistan',  type:'std', slug:'le-ak'},
-  {code:'LE-AN',  name:'Antonio Nusa',            nation:'Norway',      type:'std', slug:'le-an'},
-  {code:'LE-AR',  name:'Antonio Rüdiger',         nation:'Germany',     type:'std', slug:'le-ar'},
-  {code:'LE-AT',  name:'Aurélien Tchouaméni',     nation:'France',      type:'std', slug:'le-at'},
-  {code:'LE-BD',  name:'Brahim Díaz',             nation:'Morocco',     type:'std', slug:'le-bd'},
-  {code:'LE-BS',  name:'Bukayo Saka',             nation:'England',     type:'std', slug:'le-bs'},
-  {code:'LE-CP',  name:'Cole Palmer',             nation:'England',     type:'std', slug:'le-cp'},
-  {code:'LE-CPU', name:'Christian Pulisic',       nation:'USA',         type:'std', slug:'le-cpu'},
-  {code:'LE-CR',  name:'Cristiano Ronaldo',       nation:'Portugal',    type:'std', slug:'le-cr'},
-  {code:'LE-CW',  name:'Chris Wood',              nation:'New Zealand', type:'std', slug:'le-cw'},
-  {code:'LE-DA',  name:'David Alaba',             nation:'Austria',     type:'std', slug:'le-da'},
-  {code:'LE-DD',  name:'Désiré Doué',             nation:'France',      type:'std', slug:'le-dd'},
-  {code:'LE-DDU', name:'Denzel Dumfries',         nation:'Netherlands', type:'std', slug:'le-ddu'},
-  {code:'LE-DH',  name:'Dean Huijsen',            nation:'Spain',       type:'std', slug:'le-dh'},
-  {code:'LE-DN',  name:'Darwin Núñez',            nation:'Uruguay',     type:'std', slug:'le-dn'},
-  {code:'LE-DR',  name:'Declan Rice',             nation:'England',     type:'std', slug:'le-dr'},
-  {code:'LE-E',   name:'Estêvão',                 nation:'Brazil',      type:'std', slug:'le-e'},
-  {code:'LE-EE',  name:'Eberechi Eze',            nation:'England',     type:'std', slug:'le-ee'},
-  {code:'LE-EH',  name:'Erling Haaland',          nation:'Norway',      type:'std', slug:'le-eh'},
-  {code:'LE-FV',  name:'Federico Valverde',       nation:'Uruguay',     type:'std', slug:'le-fv'},
-  {code:'LE-FW',  name:'Florian Wirtz',           nation:'Germany',     type:'std', slug:'le-fw'},
-  {code:'LE-GM',  name:'Gilberto Mora',           nation:'Mexico',      type:'std', slug:'le-gm'},
-  {code:'LE-GX',  name:'Granit Xhaka',            nation:'Switzerland', type:'std', slug:'le-gx'},
-  {code:'LE-HK',  name:'Harry Kane',              nation:'England',     type:'std', slug:'le-hk'},
-  {code:'LE-HMS', name:'Heung-Min Son',           nation:'Korea Rep.',  type:'std', slug:'le-hms'},
-  {code:'LE-JA',  name:'Julián Álvarez',          nation:'Argentina',   type:'std', slug:'le-ja'},
-  {code:'LE-JB',  name:'Jude Bellingham',         nation:'England',     type:'std', slug:'le-jb'},
-  {code:'LE-JD',  name:'Jérémy Doku',             nation:'Belgium',     type:'std', slug:'le-jd'},
-  {code:'LE-JDA', name:'Jonathan David',          nation:'Canada',      type:'std', slug:'le-jda'},
-  {code:'LE-JG',  name:'Joško Gvardiol',          nation:'Croatia',     type:'std', slug:'le-jg'},
-  {code:'LE-JK',  name:'Jules Koundé',            nation:'France',      type:'std', slug:'le-jk'},
-  {code:'LE-JKI', name:'Joshua Kimmich',          nation:'Germany',     type:'std', slug:'le-jki'},
-  {code:'LE-JM',  name:'Jamal Musiala',           nation:'Germany',     type:'std', slug:'le-jm'},
-  {code:'LE-JN',  name:'João Neves',              nation:'Portugal',    type:'std', slug:'le-jn'},
-  {code:'LE-JT',  name:'Jonathan Tah',            nation:'Germany',     type:'std', slug:'le-jt'},
-  {code:'LE-KDB', name:'Kevin De Bruyne',         nation:'Belgium',     type:'std', slug:'le-kdb'},
-  {code:'LE-KH',  name:'Kai Havertz',             nation:'Germany',     type:'std', slug:'le-kh'},
-  {code:'LE-KM',  name:'Kylian Mbappé',           nation:'France',      type:'std', slug:'le-km'},
-  {code:'LE-LD',  name:'Luis Díaz',               nation:'Colombia',    type:'std', slug:'le-ld'},
-  {code:'LE-LG',  name:'Leon Goretzka',           nation:'Germany',     type:'std', slug:'le-lg'},
-  {code:'LE-LM',  name:'Lionel Messi',            nation:'Argentina',   type:'std', slug:'le-lm'},
-  {code:'LE-LMA', name:'Lautaro Martínez',        nation:'Argentina',   type:'std', slug:'le-lma'},
-  {code:'LE-LMO', name:'Luka Modrić',             nation:'Croatia',     type:'std', slug:'le-lmo'},
-  {code:'LE-LS',  name:'Leroy Sané',              nation:'Germany',     type:'std', slug:'le-ls'},
-  {code:'LE-LY',  name:'Lamine Yamal',            nation:'Spain',       type:'std', slug:'le-ly'},
-  {code:'LE-M',   name:'Marquinhos',              nation:'Brazil',      type:'std', slug:'le-m'},
-  {code:'LE-MATS',name:'Marc-André ter Stegen',   nation:'Germany',     type:'std', slug:'le-mats'},
-  {code:'LE-MC',  name:'Moisés Caicedo',          nation:'Ecuador',     type:'std', slug:'le-mc'},
-  {code:'LE-MJK', name:'Min-jae Kim',             nation:'Korea Rep.',  type:'std', slug:'le-mjk'},
-  {code:'LE-MO',  name:'Martin Ødegaard',         nation:'Norway',      type:'std', slug:'le-mo'},
-  {code:'LE-MOL', name:'Michael Olise',           nation:'France',      type:'std', slug:'le-mol'},
-  {code:'LE-MR',  name:'Mathew Ryan',             nation:'Australia',   type:'std', slug:'le-mr'},
-  {code:'LE-MS',  name:'Mohamed Salah',           nation:'Egypt',       type:'std', slug:'le-ms'},
-  {code:'LE-MT',  name:'Marcus Thuram',           nation:'France',      type:'std', slug:'le-mt'},
-  {code:'LE-NM',  name:'Nuno Mendes',             nation:'Portugal',    type:'std', slug:'le-nm'},
-  {code:'LE-NP',  name:'Nico Paz',                nation:'Argentina',   type:'std', slug:'le-np'},
-  {code:'LE-NW',  name:'Nico Williams',           nation:'Spain',       type:'std', slug:'le-nw'},
-  {code:'LE-NWO', name:'Nick Woltemade',          nation:'Germany',     type:'std', slug:'le-nwo'},
-  {code:'LE-OB',  name:'Oscar Bobb',              nation:'Norway',      type:'std', slug:'le-ob'},
-  {code:'LE-OD',  name:'Ousmane Dembélé',         nation:'France',      type:'std', slug:'le-od'},
-  {code:'LE-OM',  name:'Omar Marmoush',           nation:'Egypt',       type:'std', slug:'le-om'},
-  {code:'LE-P',   name:'Pedri',                   nation:'Spain',       type:'std', slug:'le-p'},
-  {code:'LE-PC',  name:'Pau Cubarsí',             nation:'Spain',       type:'std', slug:'le-pc'},
-  {code:'LE-R',   name:'Rodri',                   nation:'Spain',       type:'std', slug:'le-r'},
-  {code:'LE-RA',  name:'Raphinha',                nation:'Brazil',      type:'std', slug:'le-ra'},
-  {code:'LE-RG',  name:'Ryan Gravenberch',        nation:'Netherlands', type:'std', slug:'le-rg'},
-  {code:'LE-RL',  name:'Rafael Leão',             nation:'Portugal',    type:'std', slug:'le-rl'},
-  {code:'LE-RLU', name:'Romelu Lukaku',           nation:'Belgium',     type:'std', slug:'le-rlu'},
-  {code:'LE-RO',  name:'Rodrygo',                 nation:'Brazil',      type:'std', slug:'le-ro'},
-  {code:'LE-SG',  name:'Santiago Giménez',        nation:'Mexico',      type:'std', slug:'le-sg'},
-  {code:'LE-SM',  name:'Sadio Mané',              nation:'Senegal',     type:'std', slug:'le-sm'},
-  {code:'LE-SMT', name:'Scott McTominay',         nation:'Scotland',    type:'std', slug:'le-smt'},
-  {code:'LE-TC',  name:'Thibaut Courtois',        nation:'Belgium',     type:'std', slug:'le-tc'},
-  {code:'LE-TK',  name:'Takefusa Kubo',           nation:'Japan',       type:'std', slug:'le-tk'},
-  {code:'LE-TR',  name:'Tijjani Reijnders',       nation:'Netherlands', type:'std', slug:'le-tr'},
-  {code:'LE-V',   name:'Vitinha',                 nation:'Portugal',    type:'std', slug:'le-v'},
-  {code:'LE-VJ',  name:'Vinícius Júnior',         nation:'Brazil',      type:'std', slug:'le-vj'},
-  {code:'LE-VVD', name:'Virgil van Dijk',         nation:'Netherlands', type:'std', slug:'le-vvd'},
-  {code:'LE-WMK', name:'Weston McKennie',         nation:'USA',         type:'std', slug:'le-wmk'},
-  {code:'LE-WP',  name:'Willian Pacho',           nation:'Ecuador',     type:'std', slug:'le-wp'},
-  {code:'LE-XS',  name:'Xavi Simons',             nation:'Netherlands', type:'std', slug:'le-xs'},
-  // === LIMITED EDITION UPDATE ===
-  {code:'LEU-GS', name:'Giuliano Simeone',        nation:'Argentina',   type:'upgrade', slug:'leu-gs'},
-  {code:'LEU-MC', name:'Marc Cucurella',          nation:'Spain',       type:'upgrade', slug:'leu-mc'},
-  // === LIMITED EDITION PANINI HOLOGRAM ===
-  {code:'LEH-AH',  name:'Achraf Hakimi',          nation:'Morocco',     type:'holo', slug:'leh-ah'},
-  {code:'LEH-CP',  name:'Cole Palmer',            nation:'England',     type:'holo', slug:'leh-cp'},
-  {code:'LEH-CR',  name:'Cristiano Ronaldo',      nation:'Portugal',    type:'holo', slug:'leh-cr'},
-  {code:'LEH-HK',  name:'Harry Kane',             nation:'England',     type:'holo', slug:'leh-hk'},
-  {code:'LEH-HMS', name:'Heung-Min Son',          nation:'Korea Rep.',  type:'holo', slug:'leh-hms'},
-  {code:'LEH-JB',  name:'Jude Bellingham',        nation:'England',     type:'holo', slug:'leh-jb'},
-  {code:'LEH-KM',  name:'Kylian Mbappé',          nation:'France',      type:'holo', slug:'leh-km'},
-  {code:'LEH-LM',  name:'Lionel Messi',           nation:'Argentina',   type:'holo', slug:'leh-lm'},
-  {code:'LEH-LY',  name:'Lamine Yamal',           nation:'Spain',       type:'holo', slug:'leh-ly'},
-  {code:'LEH-MS',  name:'Mohamed Salah',          nation:'Egypt',       type:'holo', slug:'leh-ms'},
-  {code:'LEH-OD',  name:'Ousmane Dembélé',        nation:'France',      type:'holo', slug:'leh-od'},
-  {code:'LEH-P',   name:'Pedri',                  nation:'Spain',       type:'holo', slug:'leh-p'},
-  {code:'LEH-V',   name:'Vitinha',                nation:'Portugal',    type:'holo', slug:'leh-v'},
-  {code:'LEH-VJ',  name:'Vinícius Júnior',        nation:'Brazil',      type:'holo', slug:'leh-vj'},
-  {code:'LEH-VVD', name:'Virgil van Dijk',        nation:'Netherlands', type:'holo', slug:'leh-vvd'},
-  // === LIMITED EDITION PREMIUM ===
-  {code:'LEP-EC',  name:'Eduardo Camavinga',      nation:'France',      type:'prem', slug:'lep-ec'},
-  {code:'LEP-EH',  name:'Erling Haaland',         nation:'Norway',      type:'prem', slug:'lep-eh'},
-  {code:'LEP-FB',  name:'Folarin Balogun',        nation:'USA',         type:'prem', slug:'lep-fb'},
-  {code:'LEP-KK',  name:'Kalidou Koulibaly',      nation:'Senegal',     type:'prem', slug:'lep-kk'},
-  {code:'LEP-LS',  name:'Leroy Sané',             nation:'Germany',     type:'prem', slug:'lep-ls'},
-  {code:'LEP-MA',  name:'Manuel Akanji',          nation:'Switzerland', type:'prem', slug:'lep-ma'},
-  {code:'LEP-PF',  name:'Phil Foden',             nation:'England',     type:'prem', slug:'lep-pf'},
-  {code:'LEP-RJ',  name:'Raúl Jiménez',           nation:'Mexico',      type:'prem', slug:'lep-rj'},
-  {code:'LEP-SA',  name:'Sofyan Amrabat',         nation:'Morocco',     type:'prem', slug:'lep-sa'},
-  {code:'LEP-TM',  name:'Takumi Minamino',        nation:'Japan',       type:'prem', slug:'lep-tm'},
-  {code:'LEP-VJ',  name:'Vinícius Júnior',        nation:'Brazil',      type:'prem', slug:'lep-vj'},
-  {code:'LEP-YT',  name:'Youri Tielemans',        nation:'Belgium',     type:'prem', slug:'lep-yt'},
-  // === LIMITED EDITION PREMIUM GOLD ===
-  {code:'LEPG-JR', name:'James Rodríguez',        nation:'Colombia',    type:'premgold', slug:'lepg-jr'},
-  {code:'LEPG-LM', name:'Lionel Messi',           nation:'Argentina',   type:'premgold', slug:'lepg-lm'},
-  {code:'LEPG-LY', name:'Lamine Yamal',           nation:'Spain',       type:'premgold', slug:'lepg-ly'},
-  {code:'LEPG-MD', name:'Memphis Depay',          nation:'Netherlands', type:'premgold', slug:'lepg-md'},
-  {code:'LEPG-MM', name:'Mike Maignan',           nation:'France',      type:'premgold', slug:'lepg-mm'},
-  {code:'LEPG-MR', name:'Marcus Rashford',        nation:'England',     type:'premgold', slug:'lepg-mr'},
-  // === XXL LIMITED EDITION ===
-  {code:'XXL-AH',  name:'Achraf Hakimi',          nation:'Morocco',     type:'xxl', slug:'xxl-ah'},
-  {code:'XXL-AN',  name:'Antonio Nusa',           nation:'Norway',      type:'xxl', slug:'xxl-an'},
-  {code:'XXL-CP',  name:'Cole Palmer',            nation:'England',     type:'xxl', slug:'xxl-cp'},
-  {code:'XXL-CPU', name:'Christian Pulisic',      nation:'USA',         type:'xxl', slug:'xxl-cpu'},
-  {code:'XXL-CR',  name:'Cristiano Ronaldo',      nation:'Portugal',    type:'xxl', slug:'xxl-cr'},
-  {code:'XXL-DD',  name:'Désiré Doué',            nation:'France',      type:'xxl', slug:'xxl-dd'},
-  {code:'XXL-E',   name:'Estêvão',                nation:'Brazil',      type:'xxl', slug:'xxl-e'},
-  {code:'XXL-EH',  name:'Erling Haaland',         nation:'Norway',      type:'xxl', slug:'xxl-eh'},
-  {code:'XXL-FW',  name:'Florian Wirtz',          nation:'Germany',     type:'xxl', slug:'xxl-fw'},
-  {code:'XXL-GM',  name:'Gilberto Mora',          nation:'Mexico',      type:'xxl', slug:'xxl-gm'},
-  {code:'XXL-HK',  name:'Harry Kane',             nation:'England',     type:'xxl', slug:'xxl-hk'},
-  {code:'XXL-HMS', name:'Heung-Min Son',          nation:'Korea Rep.',  type:'xxl', slug:'xxl-hms'},
-  {code:'XXL-JA',  name:'Julián Álvarez',         nation:'Argentina',   type:'xxl', slug:'xxl-ja'},
-  {code:'XXL-JB',  name:'Jude Bellingham',        nation:'England',     type:'xxl', slug:'xxl-jb'},
-  {code:'XXL-JD',  name:'Jérémy Doku',            nation:'Belgium',     type:'xxl', slug:'xxl-jd'},
-  {code:'XXL-JDA', name:'Jonathan David',         nation:'Canada',      type:'xxl', slug:'xxl-jda'},
-  {code:'XXL-JG',  name:'Joško Gvardiol',         nation:'Croatia',     type:'xxl', slug:'xxl-jg'},
-  {code:'XXL-JM',  name:'Jamal Musiala',          nation:'Germany',     type:'xxl', slug:'xxl-jm'},
-  {code:'XXL-JN',  name:'João Neves',             nation:'Portugal',    type:'xxl', slug:'xxl-jn'},
-  {code:'XXL-KDB', name:'Kevin De Bruyne',        nation:'Belgium',     type:'xxl', slug:'xxl-kdb'},
-  {code:'XXL-KM',  name:'Kylian Mbappé',          nation:'France',      type:'xxl', slug:'xxl-km'},
-  {code:'XXL-LD',  name:'Luis Díaz',              nation:'Colombia',    type:'xxl', slug:'xxl-ld'},
-  {code:'XXL-LM',  name:'Lionel Messi',           nation:'Argentina',   type:'xxl', slug:'xxl-lm'},
-  {code:'XXL-LMO', name:'Luka Modrić',            nation:'Croatia',     type:'xxl', slug:'xxl-lmo'},
-  {code:'XXL-LY',  name:'Lamine Yamal',           nation:'Spain',       type:'xxl', slug:'xxl-ly'},
-  {code:'XXL-M',   name:'Marquinhos',             nation:'Brazil',      type:'xxl', slug:'xxl-m'},
-  {code:'XXL-MS',  name:'Mohamed Salah',          nation:'Egypt',       type:'xxl', slug:'xxl-ms'},
-  {code:'XXL-NP',  name:'Nico Paz',               nation:'Argentina',   type:'xxl', slug:'xxl-np'},
-  {code:'XXL-OD',  name:'Ousmane Dembélé',        nation:'France',      type:'xxl', slug:'xxl-od'},
-  {code:'XXL-P',   name:'Pedri',                  nation:'Spain',       type:'xxl', slug:'xxl-p'},
-  {code:'XXL-PC',  name:'Pau Cubarsí',            nation:'Spain',       type:'xxl', slug:'xxl-pc'},
-  {code:'XXL-RL',  name:'Rafael Leão',            nation:'Portugal',    type:'xxl', slug:'xxl-rl'},
-  {code:'XXL-TK',  name:'Takefusa Kubo',          nation:'Japan',       type:'xxl', slug:'xxl-tk'},
-  {code:'XXL-VJ',  name:'Vinícius Júnior',        nation:'Brazil',      type:'xxl', slug:'xxl-vj'},
-  {code:'XXL-VVD', name:'Virgil van Dijk',        nation:'Netherlands', type:'xxl', slug:'xxl-vvd'},
-  {code:'XXL-XS',  name:'Xavi Simons',            nation:'Netherlands', type:'xxl', slug:'xxl-xs'},
-  // === XXL LIMITED EDITION PANINI HOLOGRAM ===
-  {code:'XXLH-EH',  name:'Erling Haaland',        nation:'Norway',      type:'xxlholo', slug:'xxlh-eh'},
-  {code:'XXLH-JM',  name:'Jamal Musiala',         nation:'Germany',     type:'xxlholo', slug:'xxlh-jm'},
-  {code:'XXLH-KM',  name:'Kylian Mbappé',         nation:'France',      type:'xxlholo', slug:'xxlh-km'},
-  {code:'XXLH-LY',  name:'Lamine Yamal',          nation:'Spain',       type:'xxlholo', slug:'xxlh-ly'},
-  {code:'XXLH-VVD', name:'Virgil van Dijk',       nation:'Netherlands', type:'xxlholo', slug:'xxlh-vvd'},
-  // === MOMENTUM ===
-  {code:'M1', name:'Jude Bellingham',             nation:'England',     type:'momentum', slug:'m1'},
-  {code:'M2', name:'Ousmane Dembélé',             nation:'France',      type:'momentum', slug:'m2'},
-  {code:'M3', name:'Christian Pulisic',           nation:'USA',         type:'momentum', slug:'m3'},
-  {code:'M4', name:'Pelé / Zidane / Beckenbauer', nation:'BRA/FRA/GER', type:'momentum', slug:'m4'},
-  // === DREAM BOX (FIFA World Cup Master) ===
-  {code:'DB1',  name:'Ángel Di María',            nation:'Argentina',   type:'dream', slug:'db1'},
-  {code:'DB1a', name:'Ángel Di María (Auto)',      nation:'Argentina',   type:'dream', slug:'db1a'},
-  {code:'DB2',  name:'Javier Mascherano',         nation:'Argentina',   type:'dream', slug:'db2'},
-  {code:'DB2a', name:'Javier Mascherano (Auto)',   nation:'Argentina',   type:'dream', slug:'db2a'},
-  {code:'DB3',  name:'Lionel Messi',              nation:'Argentina',   type:'dream', slug:'db3'},
-  {code:'DB3a', name:'Lionel Messi (Auto)',        nation:'Argentina',   type:'dream', slug:'db3a'},
-  {code:'DB4',  name:'Gabriel Batistuta',         nation:'Argentina',   type:'dream', slug:'db4'},
-  {code:'DB4a', name:'Gabriel Batistuta (Auto)',   nation:'Argentina',   type:'dream', slug:'db4a'},
-  {code:'DB5',  name:'Pelé',                      nation:'Brazil',      type:'dream', slug:'db5'},
-  {code:'DB5a', name:'Pelé (Auto)',                nation:'Brazil',      type:'dream', slug:'db5a'},
-  {code:'DB6',  name:'Ronaldo',                   nation:'Brazil',      type:'dream', slug:'db6'},
-  {code:'DB6a', name:'Ronaldo (Auto)',             nation:'Brazil',      type:'dream', slug:'db6a'},
-  {code:'DB7',  name:'Rivaldo',                   nation:'Brazil',      type:'dream', slug:'db7'},
-  {code:'DB7a', name:'Rivaldo (Auto)',             nation:'Brazil',      type:'dream', slug:'db7a'},
-  {code:'DB8',  name:'Kaká',                      nation:'Brazil',      type:'dream', slug:'db8'},
-  {code:'DB8a', name:'Kaká (Auto)',                nation:'Brazil',      type:'dream', slug:'db8a'},
-  {code:'DB9',  name:'Luka Modrić',               nation:'Croatia',     type:'dream', slug:'db9'},
-  {code:'DB9a', name:'Luka Modrić (Auto)',         nation:'Croatia',     type:'dream', slug:'db9a'},
-  {code:'DB10', name:'Michel Platini',            nation:'France',      type:'dream', slug:'db10'},
-  {code:'DB10a',name:'Michel Platini (Auto)',      nation:'France',      type:'dream', slug:'db10a'},
-  {code:'DB11', name:'Zinédine Zidane',           nation:'France',      type:'dream', slug:'db11'},
-  {code:'DB11a',name:'Zinédine Zidane (Auto)',     nation:'France',      type:'dream', slug:'db11a'},
-  {code:'DB12', name:'Thierry Henry',             nation:'France',      type:'dream', slug:'db12'},
-  {code:'DB12a',name:'Thierry Henry (Auto)',       nation:'France',      type:'dream', slug:'db12a'},
-  {code:'DB13', name:'Manuel Neuer',              nation:'Germany',     type:'dream', slug:'db13'},
-  {code:'DB13a',name:'Manuel Neuer (Auto)',        nation:'Germany',     type:'dream', slug:'db13a'},
-  {code:'DB14', name:'Franz Beckenbauer',         nation:'Germany',     type:'dream', slug:'db14'},
-  {code:'DB14a',name:'Franz Beckenbauer (Auto)',   nation:'Germany',     type:'dream', slug:'db14a'},
-  {code:'DB15', name:'Lothar Matthäus',           nation:'Germany',     type:'dream', slug:'db15'},
-  {code:'DB15a',name:'Lothar Matthäus (Auto)',     nation:'Germany',     type:'dream', slug:'db15a'},
-  {code:'DB16', name:'Miroslav Klose',            nation:'Germany',     type:'dream', slug:'db16'},
-  {code:'DB16a',name:'Miroslav Klose (Auto)',      nation:'Germany',     type:'dream', slug:'db16a'},
-  {code:'DB17', name:'Paolo Maldini',             nation:'Italy',       type:'dream', slug:'db17'},
-  {code:'DB17a',name:'Paolo Maldini (Auto)',       nation:'Italy',       type:'dream', slug:'db17a'},
-  {code:'DB18', name:'Fabio Cannavaro',           nation:'Italy',       type:'dream', slug:'db18'},
-  {code:'DB18a',name:'Fabio Cannavaro (Auto)',     nation:'Italy',       type:'dream', slug:'db18a'},
-  {code:'DB19', name:'Francesco Totti',           nation:'Italy',       type:'dream', slug:'db19'},
-  {code:'DB19a',name:'Francesco Totti (Auto)',     nation:'Italy',       type:'dream', slug:'db19a'},
-  {code:'DB20', name:'Robin van Persie',          nation:'Netherlands', type:'dream', slug:'db20'},
-  {code:'DB20a',name:'Robin van Persie (Auto)',    nation:'Netherlands', type:'dream', slug:'db20a'},
-  {code:'DB21', name:'Andrés Iniesta',            nation:'Spain',       type:'dream', slug:'db21'},
-  {code:'DB21a',name:'Andrés Iniesta (Auto)',      nation:'Spain',       type:'dream', slug:'db21a'},
-  {code:'DB22', name:'Sergio Busquets',           nation:'Spain',       type:'dream', slug:'db22'},
-  {code:'DB22a',name:'Sergio Busquets (Auto)',     nation:'Spain',       type:'dream', slug:'db22a'},
-  {code:'DB23', name:'David Villa',               nation:'Spain',       type:'dream', slug:'db23'},
-  {code:'DB23a',name:'David Villa (Auto)',         nation:'Spain',       type:'dream', slug:'db23a'},
-  {code:'DB24', name:'Luis Suárez',               nation:'Uruguay',     type:'dream', slug:'db24'},
-  {code:'DB24a',name:'Luis Suárez (Auto)',         nation:'Uruguay',     type:'dream', slug:'db24a'},
-  // === HERO UPDATE (Core) ===
-  {code:'U1',  name:'Nicolás Tagliafico',         nation:'Argentina',   type:'upgrade', slug:'u1'},
-  {code:'U2',  name:'Nico González',              nation:'Argentina',   type:'upgrade', slug:'u2'},
-  {code:'U3',  name:'Thomas Meunier',             nation:'Belgium',     type:'upgrade', slug:'u3'},
-  {code:'U4',  name:'Alexis Saelemaekers',        nation:'Belgium',     type:'upgrade', slug:'u4'},
-  {code:'U5',  name:'Lucas Paquetá',              nation:'Brazil',      type:'upgrade', slug:'u5'},
-  {code:'U6',  name:'João Pedro',                 nation:'Brazil',      type:'upgrade', slug:'u6'},
-  {code:'U7',  name:'Gabriel Martinelli',         nation:'Brazil',      type:'upgrade', slug:'u7'},
-  {code:'U8',  name:'Jhon Lucumí',                nation:'Colombia',    type:'upgrade', slug:'u8'},
-  {code:'U9',  name:'Franjo Ivanović',            nation:'Croatia',     type:'upgrade', slug:'u9'},
-  {code:'U10', name:'Pedro Vite',                 nation:'Ecuador',     type:'upgrade', slug:'u10'},
-  {code:'U11', name:'John Yeboah',                nation:'Ecuador',     type:'upgrade', slug:'u11'},
-  {code:'U12', name:'Marc Guéhi',                 nation:'England',     type:'upgrade', slug:'u12'},
-  {code:'U13', name:'Trent Alexander-Arnold',     nation:'England',     type:'upgrade', slug:'u13'},
-  {code:'U14', name:'Anthony Gordon',             nation:'England',     type:'upgrade', slug:'u14'},
-  {code:'U15', name:'Eberechi Eze',               nation:'England',     type:'upgrade', slug:'u15'},
-  {code:'U16', name:'Ollie Watkins',              nation:'England',     type:'upgrade', slug:'u16'},
-  {code:'U17', name:'Michael Olise',              nation:'France',      type:'upgrade', slug:'u17'},
-  {code:'U18', name:'Nico Schlotterbeck',         nation:'Germany',     type:'upgrade', slug:'u18'},
-  {code:'U19', name:'David Raum',                 nation:'Germany',     type:'upgrade', slug:'u19'},
-  {code:'U20', name:'Aleksandar Pavlović',        nation:'Germany',     type:'upgrade', slug:'u20'},
-  {code:'U21', name:'Mohammed Salisu',            nation:'Ghana',       type:'upgrade', slug:'u21'},
-  {code:'U22', name:'Iñaki Williams',             nation:'Ghana',       type:'upgrade', slug:'u22'},
-  {code:'U23', name:'Jens Castrop',               nation:'Korea Rep.',  type:'upgrade', slug:'u23'},
-  {code:'U24', name:'Alexis Vega',                nation:'Mexico',      type:'upgrade', slug:'u24'},
-  {code:'U25', name:'Romain Saïss',               nation:'Morocco',     type:'upgrade', slug:'u25'},
-  {code:'U26', name:'Bilal El Khannouss',         nation:'Morocco',     type:'upgrade', slug:'u26'},
-  {code:'U27', name:'Micky van de Ven',           nation:'Netherlands', type:'upgrade', slug:'u27'},
-  {code:'U28', name:'Jurrien Timber',             nation:'Netherlands', type:'upgrade', slug:'u28'},
-  {code:'U29', name:'Frenkie de Jong',            nation:'Netherlands', type:'upgrade', slug:'u29'},
-  {code:'U30', name:'Justin Kluivert',            nation:'Netherlands', type:'upgrade', slug:'u30'},
-  {code:'U31', name:'Jørgen Strand Larsen',       nation:'Norway',      type:'upgrade', slug:'u31'},
-  {code:'U32', name:'António Silva',              nation:'Portugal',    type:'upgrade', slug:'u32'},
-  {code:'U33', name:'Gonçalo Ramos',              nation:'Portugal',    type:'upgrade', slug:'u33'},
-  {code:'U34', name:'João Félix',                 nation:'Portugal',    type:'upgrade', slug:'u34'},
-  {code:'U35', name:'Lamine Camara',              nation:'Senegal',     type:'upgrade', slug:'u35'},
-  {code:'U36', name:'Dani Carvajal',              nation:'Spain',       type:'upgrade', slug:'u36'},
-  {code:'U37', name:'Mikel Merino',               nation:'Spain',       type:'upgrade', slug:'u37'},
-  {code:'U38', name:'Dani Olmo',                  nation:'Spain',       type:'upgrade', slug:'u38'},
-  {code:'U39', name:'Ferran Torres',              nation:'Spain',       type:'upgrade', slug:'u39'},
-  {code:'U40', name:'Álvaro Morata',              nation:'Spain',       type:'upgrade', slug:'u40'},
-  {code:'U41', name:'Fabian Rieder',              nation:'Switzerland', type:'upgrade', slug:'u41'},
-  {code:'U42', name:'Ardon Jashari',              nation:'Switzerland', type:'upgrade', slug:'u42'},
-  {code:'U43', name:'Zeki Amdouni',               nation:'Switzerland', type:'upgrade', slug:'u43'},
-  {code:'U44', name:'Mohamed Ali Ben Romdhane',   nation:'Tunisia',     type:'upgrade', slug:'u44'},
-  {code:'U45', name:'Brenden Aaronson',           nation:'USA',         type:'upgrade', slug:'u45'},
-  {code:'U46', name:'Ricardo Pepi',               nation:'USA',         type:'upgrade', slug:'u46'},
-  {code:'U47', name:'Giorgian De Arrascaeta',     nation:'Uruguay',     type:'upgrade', slug:'u47'},
-  {code:'U48', name:'Nicolás De La Cruz',         nation:'Uruguay',     type:'upgrade', slug:'u48'},
-];
-
-const LE_TYPE_LABELS = {
-  std:'Standard LE', holo:'Holo LE', prem:'Premium LE', premgold:'Premium Gold LE',
-  xxl:'XXL LE', xxlholo:'XXL Holo LE', momentum:'Momentum', dream:'Dream Box', upgrade:'Upgrade LE'
-};
-const LE_TYPE_CSS = {
-  std:'le-type-std', holo:'le-type-holo', prem:'le-type-prem', premgold:'le-type-premgold',
-  xxl:'le-type-xxl', xxlholo:'le-type-xxlholo', momentum:'le-type-momentum', dream:'le-type-dream', upgrade:'le-type-upgrade'
-};
-const LE_GROUPS = [
-  { key:'std',      label:'Limited Edition · Standard',             types:['std'] },
-  { key:'holo',     label:'Limited Edition · Panini Hologram',      types:['holo'] },
-  { key:'prem',     label:'Limited Edition · Premium',              types:['prem'] },
-  { key:'premgold', label:'Limited Edition · Premium Gold',         types:['premgold'] },
-  { key:'xxl',      label:'XXL Limited Edition',                    types:['xxl'] },
-  { key:'xxlholo',  label:'XXL Limited Edition · Panini Hologram',  types:['xxlholo'] },
-  { key:'momentum', label:'Momentum',                               types:['momentum'] },
-  { key:'dream',    label:'Dream Box · FIFA World Cup Master',       types:['dream'] },
-  { key:'upgrade',  label:'Hero Update · Core / Limited Update',    types:['upgrade'] },
-];
-
-function toggleLE(code) {
-  if (leOwned.has(code)) {
-    leOwned.delete(code);
-    showToast('✗', code + ' — marcat ca lipsă', 'error');
-  } else {
-    leOwned.add(code);
-    showToast('✓', code + ' — adăugat în colecție', 'success');
-  }
-  scheduleSync();
-  updateLETile(code);
-  updateLEStats();
-  updateMissingText();
-  populateLEDubSelect();
-}
-
-function updateLETile(code) {
-  const tile = document.querySelector(`.le-tile[data-code="${code}"]`);
-  if (!tile) return;
-  const have = leOwned.has(code);
-  tile.className = `le-tile ${have ? 'have' : 'miss'}`;
-  const statusEl = tile.querySelector('.le-tile-status');
-  if (statusEl) statusEl.textContent = have ? '✓' : '○';
-  // Reapply filter visibility
-  applyLEFilter();
-}
-
-function applyLEFilter() {
-  document.querySelectorAll('.le-tile').forEach(tile => {
-    const type = tile.dataset.type;
-    const code = tile.dataset.code;
-    const have = leOwned.has(code);
-    let vis = true;
-    if (leFilter === 'have' && !have) vis = false;
-    if (leFilter === 'miss' && have) vis = false;
-    if (leFilter === 'std' && !['std'].includes(type)) vis = false;
-    if (leFilter === 'prem' && !['prem','premgold'].includes(type)) vis = false;
-    if (leFilter === 'xxl' && !['xxl','xxlholo'].includes(type)) vis = false;
-    if (leFilter === 'dream' && type !== 'dream') vis = false;
-    if (leFilter === 'momentum' && type !== 'momentum') vis = false;
-    if (leFilter === 'upgrade' && type !== 'upgrade') vis = false;
-    tile.classList.toggle('hidden', !vis);
-  });
-  // Show/hide groups based on whether any tiles are visible
-  document.querySelectorAll('.le-group').forEach(grp => {
-    const anyVis = [...grp.querySelectorAll('.le-tile')].some(t => !t.classList.contains('hidden'));
-    grp.style.display = anyVis ? '' : 'none';
-  });
-}
-
-function setLEFilter(f) {
-  leFilter = f;
-  document.querySelectorAll('.le-filter-btn').forEach(b => b.className = 'le-filter-btn');
-  const el = document.getElementById('lf-' + f);
-  if (el) el.classList.add(f === 'all' ? 'lf-all' : f === 'have' ? 'lf-have' : f === 'miss' ? 'lf-miss' : 'lf-all');
-  applyLEFilter();
-}
-
-let leTileImgCache = {};
-
-function buildLEGrid() {
-  const root = document.getElementById('le-grid-root');
-  root.innerHTML = '';
-  LE_GROUPS.forEach(group => {
-    const cards = LE_CATALOG.filter(c => group.types.includes(c.type));
-    if (cards.length === 0) return;
-    const grpDiv = document.createElement('div');
-    grpDiv.className = 'le-group';
-    grpDiv.dataset.group = group.key;
-    const haveInGroup = cards.filter(c => leOwned.has(c.code)).length;
-    grpDiv.innerHTML = `<div class="le-group-title">${group.label}<span class="le-group-count">${haveInGroup}/${cards.length}</span></div><div class="le-fixed-grid" id="le-fg-${group.key}"></div>`;
-    root.appendChild(grpDiv);
-    const grid = grpDiv.querySelector('.le-fixed-grid');
-    cards.forEach(card => {
-      const have = leOwned.has(card.code);
-      const tile = document.createElement('div');
-      tile.className = `le-tile ${have ? 'have' : 'miss'}`;
-      tile.dataset.code = card.code;
-      tile.dataset.type = card.type;
-      const imgUrl = `${LE_IMG_BASE}${card.slug}.jpg`;
-      tile.innerHTML = `
-        <div class="le-tile-img-wrap">
-          <img class="le-tile-img loading" src="${imgUrl}" alt="${card.name}"
-            onload="this.classList.remove('loading');this.classList.add('loaded')"
-            onerror="this.onerror=null;this.style.display='none';this.closest('.le-tile-img-wrap').style.background='var(--surface3)'">
-          <div class="le-tile-code">${card.code}</div>
-          <div class="le-tile-status">${have ? '✓' : '○'}</div>
-        </div>
-        <div class="le-tile-body">
-          <div class="le-tile-name">${card.name}</div>
-          <div class="le-tile-sub">${card.nation} · <span class="${LE_TYPE_CSS[card.type]}" style="font-size:0.57rem;padding:1px 5px;border-radius:99px;font-weight:600;">${LE_TYPE_LABELS[card.type]}</span></div>
-        </div>`;
-      tile.addEventListener('click', () => toggleLE(card.code));
-      grid.appendChild(tile);
-    });
-  });
-}
-
-function updateLEGroupCounts() {
-  LE_GROUPS.forEach(group => {
-    const cards = LE_CATALOG.filter(c => group.types.includes(c.type));
-    const have = cards.filter(c => leOwned.has(c.code)).length;
-    const grp = document.querySelector(`.le-group[data-group="${group.key}"]`);
-    if (grp) {
-      const cnt = grp.querySelector('.le-group-count');
-      if (cnt) cnt.textContent = `${have}/${cards.length}`;
-    }
-  });
-}
-
-function updateLEStats() {
-  const total = LE_CATALOG.length;
-  const have = LE_CATALOG.filter(c => leOwned.has(c.code)).length;
-  const miss = total - have;
-  const pct = total > 0 ? Math.round((have / total) * 100) : 0;
-  const pctStr = pct + '%';
-  document.getElementById('le-total').textContent = total;
-  document.getElementById('le-have-count').textContent = have;
-  document.getElementById('le-miss-count').textContent = miss;
-  document.getElementById('le-s-total').textContent = total;
-  document.getElementById('le-s-have').textContent = have;
-  document.getElementById('le-s-miss').textContent = miss;
-  document.getElementById('le-s-pct').textContent = pctStr;
-  document.getElementById('le-prog-val').textContent = have + ' / ' + total;
-  document.getElementById('le-prog-fill').style.width = pctStr;
-  updateLEGroupCounts();
-}
-
-// ── ASYNC INIT ───────────────────────────────────────────────────────────────
-async function init() {
-  const overlay = document.getElementById('loading-overlay');
-  const loadingText = document.getElementById('loading-text');
-
-  buildShowcase();
-
-  loadingText.textContent = 'Se conectează la Vercel Blob…';
-  const apiOk = await loadFromAPI();
-
-  if (!apiOk) {
-    loadingText.textContent = 'Offline — date din cache local';
-    await new Promise(r => setTimeout(r, 800));
-  }
-
-  buildGrid();
-  applyDubBadgesToGrid();
-  updateStats();
-  updateMissingText();
-  updateDubStats();
-  renderDubs();
-  renderLEDubs();
-  buildLEGrid();
-  updateLEStats();
-  updateMissingText(); // re-call after LE_CATALOG is fully available
-  populateLEDubSelect();
-  setFilter('all');
-
-  // Hide overlay
-  overlay.classList.add('hidden');
-  setTimeout(() => { overlay.style.display = 'none'; }, 500);
-
-  if (apiOk) {
-    setSyncStatus('saved', 'Date încărcate ✓');
-  } else {
-    setSyncStatus('error', 'Offline — salvare locală');
-  }
-}
-
-init();
-</script>
 </body>
 </html>
